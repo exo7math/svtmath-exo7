@@ -13,14 +13,14 @@ Vous pouvez télécharger toutes les fiches de cours : [Fiches de cours](cours-s
 Exercices
 =========
 
-Vous pouvez télécharger tous les énoncés : [Énoncés](Fiches2020/SVT-2020-u.pdf).
+Vous pouvez télécharger tous les énoncés : [Énoncés](Fiches2020/SVTE-2020-u.pdf).
 
 Vous pouvez télécharger la corrections de certains exercices : [Exercices corrigés](exo-svt.pdf).
 
 Vidéos
 ======
 
-Tous les cours et les exercices sont aussi corrigés en vidéos ! [Chaîne Youtube "svtmath"](https://www.youtube.com/channel/UCTeAx64qLOxULLcjUl9qfZg/)
+Tous les cours et les exercices sont aussi corrigés en vidéos ! [Chaîne Youtube "Mathématiques pour la SVT"](https://www.youtube.com/channel/UCTeAx64qLOxULLcjUl9qfZg/)
 
 
 Documents
@@ -36,7 +36,7 @@ Exercices corrigés
 2. Problèmes d’optimisation  [Exercices](exo-part2.pdf)
 3. Équations différentielles  [Exercices](exo-part3.pdf)
 4. Calcul d’intégrales  [Exercices](exo-part4.pdf)
-5. Calcul de débit  [Exercices](exo-part8.pdf)
+5. Calcul de débit  [Exercices](exo-part5.pdf)
 6. Longueur, aire, volume  [Exercices](exo-part6.pdf)
 7. Résolution d’équations différentielles au moyen des primitives  [Exercices](exo-part7.pdf)
 
