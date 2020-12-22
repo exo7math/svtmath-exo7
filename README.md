@@ -71,7 +71,7 @@ Merci de nous signaler toutes les éventuelles fautes.
 Auteurs
 =======
 
-* Les exercices sont ceux des enseignants de SVT de  l'université de Lille sous la houlette de Jean-Paul Doereane.
+* Les exercices sont ceux des enseignants de SVT de  l'université de Lille sous la houlette de Jean-Paul Doeraene.
 
 * Les corrections des exercices ont été rédigées par Arnaud Bodin, Jean-Paul Doeraene, Julien Hauseux, Nicole Raulf.
 
