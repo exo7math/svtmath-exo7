@@ -1,0 +1,373 @@
+Mathématiques pour la SVT
+=========================
+
+
+
+[Math-SVT] Ex 1. Domaine de définition
+
+Trouver le domaine de définition de fonctions.
+
+Exo7. Mathématiques pour la SVT
+
+Mathématiques, SVT
+
+https://youtu.be/UaWs77Zaam4
+
+===========================
+
+
+[Math-SVT] Ex 2. Étude d'un polynôme du second degré
+
+Étude d'une fonction définie par un polynôme du second degré.
+
+Exo7. Mathématiques pour la SVT
+
+Mathématiques, SVT
+
+https://youtu.be/fJMT53DUGBE
+===========================
+
+
+[Math-SVT] Ex 4. Résolution d'équations
+
+Résoudre des équations avec exponentiel et logarithme.
+
+Exo7. Mathématiques pour la SVT
+
+Mathématiques, SVT
+
+https://youtu.be/VK-pJKmxKBs 
+
+
+===========================
+
+
+[Math-SVT] Ex 5. Calcul de limites
+
+Calculs de limites avec plusieurs techniques (croissance comparée, dérivée, expression conjuguée).
+
+Exo7. Mathématiques pour la SVT
+
+Mathématiques, SVT
+
+https://youtu.be/74pEWPSSSQ0 
+
+
+===========================
+
+
+[Math-SVT] Ex 6.a Étude d'une fonction
+
+Étude complète de fonctions : domaine de définition, limites, dérivée, tableau de variation, graphe, asymptote.
+
+Exo7. Mathématiques pour la SVT
+
+Mathématiques, SVT
+
+https://youtu.be/YAOOPnAFcyg 
+
+
+===========================
+
+[Math-SVT] Ex 6.b Étude d'une fonction
+
+Étude complète de fonctions : domaine de définition, limites, dérivée, tableau de variation, graphe, asymptote.
+
+Exo7. Mathématiques pour la SVT
+
+Mathématiques, SVT
+
+https://youtu.be/iL4j52FINR0
+
+
+===========================
+
+[Math-SVT] Ex 6.c Étude d'une fonction
+
+Étude complète de fonctions : domaine de définition, limites, dérivée, tableau de variation, graphe, asymptote.
+
+Exo7. Mathématiques pour la SVT
+
+Mathématiques, SVT
+
+https://youtu.be/78UwZ4I1CRQ
+
+
+===========================
+
+[Math-SVT] Ex 7. Optimisation d'énergie
+
+Étude d'une fonction pour optimiser la vitesse d'un poisson remontant une rivière.
+
+Exo7. Mathématiques pour la SVT
+
+Mathématiques, SVT
+
+https://youtu.be/RcW-KcNJfJ0 
+
+
+===========================
+
+[Math-SVT] Ex 10. Alvéoles d'une ruche
+
+Étude d'une fonction pour optimiser la forme de l'alvéole d'une ruche.
+
+Exo7. Mathématiques pour la SVT
+
+Mathématiques, SVT
+
+https://youtu.be/UoLysyBdT7k 
+
+
+===========================
+
+[Math-SVT] Ex 12. Équation différentielle et microbes
+
+Étude d'une équation différentielle qui modélise l'évolution d'une population de microbe (modèle de Malthus).
+
+Exo7. Mathématiques pour la SVT
+
+Mathématiques, SVT
+
+https://youtu.be/pMhAf48IjW8 
+
+
+===========================
+
+[Math-SVT] Ex 15. Étude d'une équation différentielle
+
+Étude d'une équation différentielle : solution constante, les graphes solutions ne s'interectent pas, calcul de limites.
+
+Exo7. Mathématiques pour la SVT
+
+Mathématiques, SVT
+
+https://youtu.be/RXIw8BenXV4
+
+
+===========================
+
+
+[Math-SVT] Ex 18. Étude qualitative d'une équation différentielle
+
+Comment trouver les propriétés des solutions d'une équation différentielle sans les calculer ?
+
+Exo7. Mathématiques pour la SVT
+
+Mathématiques, SVT
+
+https://youtu.be/QWLnhrKataE
+
+
+===========================
+
+[Math-SVT] Ex 20. Changement de variable
+
+Calculs d'intégrales par changement de variable.
+
+Exo7. Mathématiques pour la SVT
+
+Mathématiques, SVT
+https://youtu.be/07JZKypzCrU
+
+===========================
+
+[Math-SVT] Ex 21. Calculs d'intégrales par substitution
+
+Calculs d'intégrales par substitution
+
+Exo7. Mathématiques pour la SVT
+
+Mathématiques, SVT
+https://youtu.be/RUej6jMp39g
+
+===========================
+
+[Math-SVT] Ex 22. Intégration par parties
+
+Calculs d'intégrales par intégration par parties
+
+Exo7. Mathématiques pour la SVT
+
+Mathématiques, SVT
+https://youtu.be/C-D8-NNmh8g
+
+===========================
+
+[Math-SVT] Ex 23. Intégrales de fractions
+
+Calculs d'intégrales pour des fractions rationnelles.
+
+Exo7. Mathématiques pour la SVT
+
+Mathématiques, SVT
+https://youtu.be/5ORyDi2LXnw
+
+===========================
+
+[Math-SVT] Ex 25. Intégrale et débit sanguin
+
+Calcul d'une intégrale pour le volume sanguin.
+
+Exo7. Mathématiques pour la SVT
+
+Mathématiques, SVT
+https://youtu.be/FoKo7DOH4j8
+
+===========================
+
+[Math-SVT] Ex 26. Intégrale et pression artérielle
+
+Calcul d'intégrales pour la pression artérielle. Loi de Poiseuille. Hypertension.
+
+Exo7. Mathématiques pour la SVT
+
+Mathématiques, SVT
+https://youtu.be/oieMpRS-PYg
+
+===========================
+
+[Math-SVT] Ex 29. Volume et débit
+
+Calcul de volume et de débit.
+
+Exo7. Mathématiques pour la SVT
+
+Mathématiques, SVT
+https://youtu.be/5qY8nVnGe8k
+
+===========================
+
+[Math-SVT] Ex 30. Longueur et surface
+
+Calculs d'intégrales appliqués à la longueur d'une courbe et à la surface d'un objet obtenu par la rotation d'une courbe.
+
+Exo7. Mathématiques pour la SVT
+
+Mathématiques, SVT
+https://youtu.be/OiQPXwFQ_0g
+
+===========================
+
+[Math-SVT] Ex 33. Équation différentielle et primitive
+
+Résolution d'une équation différentielle.
+
+Exo7. Mathématiques pour la SVT
+
+Mathématiques, SVT
+https://youtu.be/eB8qY29jzA0
+
+===========================
+
+[Math-SVT] Ex 34. Équation différentielle et primitive (bis)
+
+Résolution d'une équation différentielle.
+
+Exo7. Mathématiques pour la SVT
+
+Mathématiques, SVT
+https://youtu.be/U7Im6uAOT7w
+
+===========================
+===========================
+===========================
+
+
+===========================
+Cours - Fiche 5a
+https://youtu.be/JKw-rPCOWWg
+
+[Math-SVT] Fic 5.a Équations différentielles
+
+Introduction aux équations différentielles.
+
+Exo7. Mathématiques pour la SVT
+
+Mathématiques, SVT
+
+===========================
+Cours - Fiche 5b
+https://youtu.be/xCs0COxZxII
+
+[Math-SVT] Fic 5.b Équations différentielles (suite)
+
+Vérifier qu'une fonction est solution.
+
+Trouver les solutions constantes.
+
+Exo7. Mathématiques pour la SVT
+
+Mathématiques, SVT
+
+===========================
+Cours - Fiche 6
+https://youtu.be/bOMW8PyixyE
+
+[Math-SVT] Fic 6. Équations différentielles (fin)
+
+Condition initiales. Unicité de la solution. Courbes intégrales.
+
+Exo7. Mathématiques pour la SVT
+
+Mathématiques, SVT
+
+===========================
+Cours - Fiche 7
+https://youtu.be/epVYN8Py2zs 
+
+[Math-SVT] Fic 7. Intégrales
+
+Notions d'intégrale. Aire. Propriétés.
+
+Exo7. Mathématiques pour la SVT
+
+Mathématiques, SVT
+
+===========================
+Cours - Fiche 8
+https://youtu.be/QACseEPX0Ds
+
+[Math-SVT] Fic 8. Primitives
+
+Définition. Calculs d'intégrales. Primitives usuelles.
+
+Exo7. Mathématiques pour la SVT
+
+Mathématiques, SVT
+
+===========================
+Cours - Fiche 9
+https://youtu.be/n09CCoqDyFU
+
+[Math-SVT] Fic 9. Changement de variables
+
+Formule. Exemples.
+
+Exo7. Mathématiques pour la SVT
+
+Mathématiques, SVT
+
+===========================
+Cours - Fiche 10
+https://youtu.be/_elrfFqpqYs
+
+[Math-SVT] Fic 10. Intégration par parties
+
+Formule. Exemples.
+
+Exo7. Mathématiques pour la SVT
+
+Mathématiques, SVT
+
+===========================
+Cours - Fiche 11
+https://youtu.be/3Oa3Je_5NLg
+
+[Math-SVT] Fic 11. Longueur, aire, volume
+
+Aire sous une courbe. Longueur d'une courbe. Volume d'un objet obtenu par rotation d'une courbe. Surface d'un objet obtenu par rotation d'une courbe. Exemples.
+
+Exo7. Mathématiques pour la SVT
+
+Mathématiques, SVT

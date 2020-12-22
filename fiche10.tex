@@ -1,0 +1,111 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage{exo7sv}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\entete{Université de Lille}{Mathématiques pour la SVT}
+
+
+\titre{Fiche 10. \quad Intégration par parties} 
+
+\encadre{
+	\emph{Savoir.}
+	\begin{itemize}[label=$\square$]
+		\item Connaître la formule d'intégration par parties.
+	\end{itemize}
+	\emph{Savoir-faire.}
+	\begin{itemize}[label=$\square$]
+		\item Savoir calculer un intégrale à l'aide d'une intégration par parties.
+	\end{itemize}
+}
+
+\insertvideo{_elrfFqpqYs}{Fiche 10. Intégration par parties}
+
+\bigskip
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Formule d'intégration par parties}
+
+
+Soient $u$ et $v$ deux fonctions dérivables sur $[a,b]$. On cherche à calculer $\int_{a}^{b}u(x)v'(x)\dd x$ à l'aide d'une méthode donnée par la formule suivante.
+
+\textbf{Formule d'intégration par parties (IPP).}
+\mybox{$\displaystyle \int_a^b u(x) \, v'(x)\;\dd x= \big[u(x)v(x)\big]_a^b - \int_a^b u'(x) \, v(x)\;\dd x$}
+
+\begin{itemize}
+
+  \item On rappelle que $\big[F(x)\big]^b_a = F(b)-F(a)$. Donc
+ $\big[u(x)v(x)\big]_a^b = u(b)v(b) - u(a)v(a)$.
+
+  \item N'oubliez pas le signe \og{}moins\fg{} dans la formule !
+
+  \item Cette méthode ne fonctionne qui si l'intégrale tout à droite $\int_a^b u'(x) \, v(x)\;\dd x$
+est plus facile à calculer que l'intégrale de départ.
+
+  \item La preuve de la formule est basée sur la formule $(uv)'=u'v+uv'$, donc $uv' = (uv)' - u'v$.
+  Ainsi $\int uv' = \int(uv)' - \int u'v$. Mais une primitive de $(uv)'$ est $uv$ donc  $\int uv' = [uv] - \int u'v$.
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Exemples} 
+
+
+\textbf{Exemple 1.}
+On veut calculer \[\int_{0}^{\frac{\pi}{4}}x\sin(x)\dd x.\]
+On pose $u(x)=x$ et $v'(x)=\sin(x)$, alors $u'(x)=1$ et $v(x)=-\cos(x)$ 
+(une primitive de $\sin(x)$ est $-\cos(x)$).
+
+Ainsi,
+\begin{align*}
+\int_{0}^{\frac{\pi}{4}}x\sin(x)\dd x
+&=\big[-x\cos(x)\big]_{0}^{\frac{\pi}{4}}-\int_{0}^{\frac{\pi}{4}}-1 \cdot \cos(x)\dd  x\\
+&=\left(-\tfrac{\pi}{4}\cos\left(\tfrac{\pi}{4}\right) + 0\cos(0)\right) + \int_{0}^{\frac{\pi}{4}}\cos(x)\dd x\\
+&=-\frac{\pi}{4}\frac{\sqrt{2}}{2} + \big[\sin(x)\big]_{0}^{\frac{\pi}{4}}\\
+&=-\frac{\pi}{4}\frac{\sqrt{2}}{2}  + \left( \sin\left(\tfrac{\pi}{4}\right)-\sin(0) \right) \\
+&=-\frac{\pi}{4}\frac{\sqrt{2}}{2}  + \frac{\sqrt{2}}{2}  \\
+&= (1-\frac\pi4)\frac{\sqrt2}{2} \\
+\end{align*}
+
+\bigskip
+
+\textbf{Exemple 2.}
+
+On veut calculer \[I = \int_{1}^{2} xe^x \, \dd x.\]
+On pose $u(x)=x$ et $v'(x)=e^x$. On a alors $u'(x)=x$ et $v(x)=e^x$.
+Ainsi,
+\begin{align*}
+I 
+&= \int_{1}^{2}xe^x\,\dd x 
+= \big[xe^x\big]_{1}^{2}-\int_{1}^{2}e^x\,\dd x \\
+&= (2e^2-e) -\big[e^x\big]_{1}^{2} 
+= (2e^2-e) - (e^2-e) \\
+&= e^2.
+\end{align*}
+
+
+\bigskip
+
+Remarques.
+\begin{itemize}
+   \item On pourrait calculer $J =  \int_{1}^{2}x^2e^x\,\dd x$ par deux intégrations par parties successives : en posant $u(x)=x^2$ et $v'(x)=e^x$, la formule ne donne pas directement le résultat mais conduit à une
+formule avec l'intégrale $I = \int_{1}^{2}xe^x\,\dd x$ que l'on a déjà calculée ci-dessus.
+
+	\item \emph{Astuce.}  Pour calculer $\int_a^b \ln(x)\,\dd t$ par intégration par parties, il suffit d'écrire $\ln(x) = \ln(x) \times 1$ afin de faire apparaître artificiellement une multiplication.
+
+\end{itemize}
+
+%On veut calculer \[\int_{1}^{2}\ln(x)\dd x.\]
+%	Les primitives de la fonction logarithme ne sont pas usuelles mais on peut écrire $\ln(x)$ comme le produit $\ln(x)=1\times \ln(x)$. On pose alors $u'(x)=1$ et $v(x)=\ln(x)$. Il reste à déterminer une primitive de $u'(x)$ et calculer $v'(x)$. Il suffit de prendre $u(x)=x$. Par dérivation usuelle, on sait que $v'(x)=\displaystyle\frac{1}{x}$. 
+%	Ainsi,
+%	\begin{align*}
+%	\int_{1}^{2}\ln(x)\dd x&=\bigg[x\ln(x)\bigg]^2_1-\int_{1}^{2}x\times\frac{1}{x}\dd x=2\ln(2)-\ln(1)-\int_{1}^{2}1\dd x\\
+%	&=2\ln(2)-\bigg[x\bigg]^2_1=2\ln(2)-(2-1)=2\ln(2)-1.
+%	\end{align*}
+
+
+
+\end{document}

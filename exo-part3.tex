@@ -1,0 +1,252 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage{exo7sv}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{\'Equations différentielles}
+
+
+\setcounterexo{11}
+
+\exercice{}
+\enonce
+On observe une population de microbes se développant de manière malthusienne, c'est-à-dire 
+dont le taux de croissance au temps $t$ (en heures) est proportionnel à la taille de la
+population $N(t)$.
+    \begin{enumerate}
+        \item
+        En notant $k$ la constante de proportionnalité, donner une équation différentielle 
+        modélisant cette situation.
+        \item
+        Montrer que les fonctions $N(t) = Ce^{kt}$ (où $C$ est une constante) sont solutions 
+        de cette équation différentielle.
+        \item
+        Que représente $C$ ?
+        \item
+        Si $k= \ln 2$, que peut-on dire de la population au bout d'une heure ?
+        \item
+        Si $k = \ln 2$ et $N(0)=100$, quelle sera, d'après le modèle, la taille de la 
+        population au bout de 4 heures et 20 minutes ?
+        \item
+        Si $k = \ln 2$ et $N(0)=100$, au bout de combien de temps la population 
+        atteindra-t-elle 1000 individus ?
+    \end{enumerate}  
+\finenonce
+
+\indication
+L'équation différentielle est une égalité qui relie le taux de croissance $N'(t)$ à la population $N(t)$.
+\finindication
+
+\correction
+
+\video{pMhAf48IjW8}
+
+\sauteligne 
+\begin{enumerate} 
+\item 
+Si $ N(t) $ d\'enote la taille de la population \`a l'instant $ t $, le taux de 
+croissance au temps $ t $ est donn\'e par $ N'(t) $. Alors on obtient l'\'equation 
+diff\'erentielle 
+\begin{equation} \label{eq:n1} 
+N'(t) = k N(t). 
+\end{equation} 
+\item 
+Soit $ N(t) = C e^{kt} $. Sa d\'eriv\'ee est 
+\begin{equation*} 
+N'(t) = (C e^{kt})' = C(e^{kt})' = Cke^{kt}. 
+\end{equation*} 
+De plus, $ k N(t) = kCe^{kt} = Cke^{kt} $. Comme on obtient $N'(t) = kN(t)$, alors les fonctions de la forme $ N(t) = C e^{kt} $, $ C \in \Rr $, sont 
+solutions de (\ref{eq:n1}). 
+\item 
+Comme $ N(0) = C e^0 = C $, $ C $ est la taille de la population au d\'ebut. 
+Donc $ N(t) = N(0) e^{kt} $. 
+\item 
+On remplace $ k $ par $ \ln(2) $. Alors $ N(1) = N(0) e^{\ln(2)} = 2 N(0) $ car $e^{\ln(2)}=2$. 
+Donc au bout d'une heure la population a doubl\'e. 
+\item 
+Pour $ N(0) = 100 $ et $ k = \ln(2) $ on a $ N(t) = 100\cdot e^{t\ln(2)} = 100 \cdot (e^{\ln (2)})^t = 100 \cdot 2^t $. 
+Donc 
+\begin{equation*} 
+N\left(4+\frac{1}{3}\right) = N\left(\frac{13}{3}\right) = 100 \cdot 
+2^{13/3} \approx 2015. 
+\end{equation*} 
+\item 
+On a $ N(t) = 100 \cdot 2^t $ et on cherche le temps $ T $ tel que 
+$ N(T) = 100 \cdot 2^T = 1000 $. 
+\begin{equation*} 
+100 \cdot 2^T = 1000  \Longleftrightarrow  2^T = 10 
+\Longleftrightarrow \ln(2^T) = \ln(10) 
+ \Longleftrightarrow T \ln(2) = \ln(10)  
+ \Longleftrightarrow T = \frac{\ln(10)}{\ln(2)} \approx 3,32. 
+\end{equation*} 
+Au bout de 3 heures et 20 minutes environ la population atteindra 1000 individus. 
+\end{enumerate} 
+\fincorrection 
+\finexercice
+
+
+\setcounterexo{14}
+\exercice{}
+\enonce
+On considère le problème :
+\begin{align}
+  y'(t) &= -t^2 y(t) \quad \text{pour $t \geq 0$,} \label{eq}\\
+  y(0) &= y_0. \label{ci}
+\end{align}
+\begin{enumerate}
+  \item Montrer que la fonction constante $y(t)=0$ est solution de \eqref{eq}.
+  Y a-t-il d'autres solutions constantes?
+  \item On suppose que $y$ est une solution de \eqref{eq} et \eqref{ci} et on suppose $y_0>0$.
+  \begin{enumerate}
+    \item Montrer que $y(t)>0$ pour tout $t\ge 0$ ({\it on admettra que les graphes de deux solutions distinctes de (\ref{eq}) ne se coupent jamais}).
+    \item Montrer que $y$ est décroissante sur $[0; +\infty[$.
+    En déduire que $y(t)$ admet une limite quand $t \to +\infty$.
+  \end{enumerate}
+  \item On pose $u(t)=at^3+b$ et $Y(t)=e^{u(t)}$ où $a$ et $b$ sont des constantes.
+  \begin{enumerate}
+    \item Calculer $u'(t)$ et $Y'(t)$.
+    \item Déterminer la constante $a$ pour que $Y(t)$ soit solution de (\ref{eq}).
+    \item Calculer $Y(0)$.
+    Comment faut-il choisir $b$ pour avoir $Y(0)=y_0$?
+    \item Calculer $\lim_{t\to +\infty}Y(t)$, en prenant pour $a$ et $b$ les valeurs trouvées dans les questions précédentes.
+  \end{enumerate}
+\end{enumerate}
+\finenonce
+
+\indication
+Pour a), remplacer $y$ dans \eqref{eq} par une fonction constante.
+Pour b) (ii) utiliser l'équation \eqref{eq}.
+\finindication
+
+\correction
+
+\video{RXIw8BenXV4}
+
+\sauteligne
+\begin{enumerate}
+  \item Soit $c \in \mathbb{R}$.
+  Soit $y(t)=c$ la fonction constante égale à $c$ sur $[0; +\infty[$.
+  On a $y'(t)=0$ pour tout $t \in [0; +\infty[$.
+  Donc $y$ est solution constante de \eqref{eq} si et seulement si :
+  \begin{equation*}
+  0 = -t^2 c \quad \text{pour tout $t \in [0; +\infty[$.}
+  \end{equation*}
+  Cela n'est vrai que si $c=0$.
+  Ainsi la fonction constante égale à $0$ est bien solution de \eqref{eq} et aucune autre fonction constante n'est solution de \eqref{eq}.
+  
+  \item Soit $y$ une solution de \eqref{eq} et \eqref{ci} avec $y_0>0$.
+  \begin{enumerate}
+    \item Comme $y_0>0$, $y$ n'est pas la fonction constante égale à $0$.
+    Ainsi le graphe de $y$ ne coupe jamais le graphe de la fonction constante égale à $0$, c'est-à-dire l'axe des abscisse.
+    Comme $y$ est une fonction continue, on en déduit qu'elle est de signe constant.
+    Comme $y_0>0$, on en conclut que $y(t)>0$ pour tout $t \in [0; +\infty[$.
+    \item En utilisant l'équation \eqref{eq}, on déduit de la question précédente que $y'(t)\le0$ pour tout $t \in [0; +\infty[$.
+    Donc $y$ est décroissante sur $[0; +\infty[$.
+    Comme est elle minorée (par $0$), on en déduit qu'elle admet une limite ($l \geq 0$) quand $t \to +\infty$.
+  \end{enumerate}
+  \item
+  \begin{enumerate}
+    \item On calcule pour tout $t \in [0; +\infty[$:
+    \begin{align*}
+      u'(t) &= 3at^2, \\
+      Y'(t) &= u'(t) e^{u(t)} = 3at^2 e^{at^3+b}.
+    \end{align*}
+    \item $Y$ est solution de \eqref{eq} si et seulement si :
+    \begin{equation*}
+    3at^2 e^{at^3+b} = -t^2 e^{at^3+b} \quad \text{pour tout $t \in [0; +\infty[$.}
+    \end{equation*}
+    Cela est vrai si et seulement si $a=-\frac13$.
+    \item On a $Y(0) = e^b$.
+    On en déduit que $Y(0) = y_0$ si et seulement si $b=\ln(y_0)$.
+    \item Avec $a=-\frac13$ et $b=\ln(y_0)$ on a
+    \begin{equation*}
+    Y(t) = y_0e^{-\frac{t^3}3} \quad \text{pour tout $t \in [0; +\infty[$.}
+    \end{equation*}
+    On en déduit que $\lim_{t \to +\infty} Y(t) = 0$.
+  \end{enumerate}
+\end{enumerate}
+\fincorrection
+\finexercice
+
+
+\setcounterexo{17}
+
+\exercice{}
+\enonce
+On considère le problème représenté par les deux équations suivantes:
+            \begin{eqnarray}
+                y'(t) & = & (y(t)-1)^2(y(t)+1)\label{eqpoly}\\
+                y(0) & = & 0 \label{cipoly}
+            \end{eqnarray}
+            et l'on suppose qu'il existe une fonction $ y:\Rr^+\to\Rr$ solution de ce problème.
+            \begin{enumerate}
+                \item Chercher les solutions constantes de l'équation différentielle 
+                      (\ref{eqpoly}).
+                \item Montrer que la solution $y$ du problème est croissante sur $\Rr^+$.
+                \item En déduire que $\displaystyle \lim_{t\to +\infty}y(t)=l$ avec $l \in
+                  \Rr $. Calculer $l$ en admettant que $\displaystyle \lim_{t\to +\infty}y'(t)=0$.
+            \end{enumerate}
+\finenonce
+
+\indication
+Vous devez étudier le signe de $ y'(t) $ en admettant que les graphes 
+de deux solutions distinctes de (\ref{eqpoly}) ne se coupent jamais. 
+\finindication
+
+\correction
+
+\video{QWLnhrKataE}
+
+\sauteligne 
+\begin{enumerate} 
+\item 
+On pose $ y(t) = c $, $ t \geq 0 $. Donc $ y'(t) = 0 $, $ t \geq 0 $. Si on remplace 
+$ y'(t) $ par $ 0 $ et $ y(t) $ par $ c $ dans (\ref{eqpoly}) on obtient 
+\begin{equation*} 
+0 = (c - 1)^2 (c + 1) \quad \Longleftrightarrow \quad c-1 = 0 \ \mbox{ ou }\  c+1 = 0  
+\quad \Longleftrightarrow \quad c = 1 \mbox{ ou } c = -1. 
+\end{equation*} 
+Donc les solutions constants sont $ y_1(t) = -1 $ et $ y_2(t) = 1 $, $ t \geq 0 $. 
+\item 
+\'Etudions le signe de $ y $. On sait que $ y(0) = 0 $ et donc $ y_1(0) < y(0) < 
+y_2(0) $. Comme les graphes graphes de deux solutions distinctes de (\ref{eqpoly}) 
+ne se coupent jamais et $ y_1(0) < y(0) < y_2(0) $, le graphe de $ y $ est toujours 
+en dessous de celui de $ y_2 $ et au-dessus de celui de $ y_1 $. Alors 
+\begin{equation*} 
+-1 = y_1(t) < y(t) < y_2(t) = 1, \ t \geq 0, 
+\end{equation*} 
+et on obtient le tableau de variation suivant~: 
+\begin{equation*} 
+\begin{tabvar}{|C|CCC|} \hline 
+t            & 0 && +\infty \\ \hline 
+(y(t) - 1)^2 && + & \\ \hline 
+y(t) + 1     && + & \\ \hline 
+y'(t)        && + & \\ \hline 
+\niveau{1}{2} y(t) & 0 & \croit & \\ \hline 
+\end{tabvar} 
+\end{equation*} 
+Comme $y'(t)\ge0$, alors la fonction $y$ est croissante.
+\item 
+Comme la fonction $ y(t) $ est croissante et major\'ee par $ 1 $ (car $y(t) \le y_2(t) = 1$), la limite 
+$ \displaystyle l := \lim_{t\to +\infty}y(t) $ existe. De plus, $ 0 \leq l 
+\leq 1 $. En admettant que $ \displaystyle \lim_{t\to +\infty}y'(t) = 0 $ et 
+en utilisant (\ref{eqpoly}), on obtient~: 
+\begin{equation*} 
+0 = \lim_{t \to +\infty} y'(t) = \lim_{t \to +\infty} (y(t)-1)^2(y(t)+1) = 
+(\lim_{t \to +\infty} y(t) - 1)^2 (\lim_{t \to +\infty} y(t) + 1) = (l-1)^2 (l+1). 
+\end{equation*} 
+Comme $ 0 = (l-1)^2 (l+1) \Longleftrightarrow l = -1 $ ou $ l = 1 $, mais $ l 
+\geq 0 $, on d\'eduit donc que $ l = 1 $. 
+\end{enumerate} 
+\fincorrection 
+\finexercice
+
+
+
+
+
+\end{document}

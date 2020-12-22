@@ -1,0 +1,434 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage{exo7sv}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Calcul d'intégrales}
+
+
+\setcounterexo{19}
+
+% exercice 20
+\exercice{}
+\enonce
+Calculer les intégrales suivantes~:
+    \begin{examplescol}{4}
+        \item $\int \limits _{2} ^{4} (x-2)^{5}\,dx$
+        \item $\int \limits _{0} ^{1} \sqrt{3y+1}\, dy$
+        \item $\int \limits _{0} ^{\frac{\pi}{4}} 5\sin(2\theta) \,d\theta$
+        \item $\int \limits _{0} ^{1} \frac{1}{(2t+1)^{3}} dt$
+    \end{examplescol}
+\finenonce
+
+\indication
+Il s'agit de faire des changements de variable simples :
+\begin{enumerate}
+	\item Poser $u= x-2$.
+	\item Poser $u=3y+1$.
+	\item Poser $u = 2\theta$.
+	\item Poser $u = 2t+1$. 
+\end{enumerate}
+\finindication
+
+\correction
+
+\video{07JZKypzCrU}
+
+\sauteligne
+\begin{enumerate}
+  \item $I = \int \limits _{2} ^{4} (x-2)^{5}\,dx$
+  
+  On pose $u= x-2$. On alors $du = dx$.
+  La calcul de l'intégrale va de la borne $x=2$ à $x=4$.
+  Ce qui donne comme bornes en $u$ : de $u=2-2=0$ à $u=4-2$ (car $u=x-2$).
+
+  La formule de changement de variable transforme l'intégrale en $x$ en une intégrales en $u$.
+  On n'oublie pas de changer les bornes (les bornes en $x$ sont remplacées par des bornes en $u$) et aussi l'élément différentiel (la nouvelle intégrale a pour élément différentiel $du$).
+  
+  $$I = \int \limits _{x=2} ^{x=4} (x-2)^{5}\,dx
+  = \int \limits _{u=0} ^{u=2} u^{5}\,du$$
+  
+  Cette nouvelle intégrale est beaucoup plus facile à calculer :
+  $$I = \int \limits _{u=0} ^{u=2} u^{5}\,du = \left[ \frac{u^6}{6} \right]_{u=0} ^{u=2} = \frac{2^6}{6} = \frac{64}{6} = \frac{32}{3}.$$
+  
+
+  \item $\int \limits _{0} ^{1} \sqrt{3y+1}\, dy$
+  
+  On pose $u= 3y+1$. On alors $du = 3\,dy$ et donc $dy = \frac{du}{3}$.
+  Les bornes en $x$ sont de $x=0$ à $x=1$ et deviennent en la variable $u$ : de $u=1$ à $u=4$.
+  
+  \begin{align*}
+  	\int \limits _{y=0} ^{y=1} \sqrt{3y+1}\, dy
+   &= \int \limits _{u=1} ^{u=4} \sqrt{u}\,\frac{du}{3} \\
+   &= \frac13\int \limits _{u=1} ^{u=4} u^{\frac12} \,du \\
+   &= \frac13\left[ \frac23u^{\frac32} \right]_{u=1} ^{u=4} \qquad \text{ car une primitive de $u^\alpha$ est $\frac1{\alpha+1} u^{\alpha +1 }$ avec ici $\alpha=\frac12$} \\
+   &= \frac13 \left(\frac23 \cdot 4^{\frac32}-\frac23 \cdot 1^{\frac32} \right) \\
+   &= \frac13 \left(\frac23 \cdot 8-\frac23 \cdot 1^{\frac32} \right)\qquad \text{ car $4^{\frac32} = (4^3)^\frac12 = \sqrt{64} = 8$} \\
+   &= \frac13 \cdot \frac23 \cdot 7 \\
+   &= \frac{14}9
+   \end{align*}
+
+   \item $\int \limits _{0} ^{\frac{\pi}{4}} 5\sin(2\theta) \,d\theta$ 
+   
+   Posons $u = 2\theta$, alors $du = 2\,d\theta$ et donc $d\theta = \frac{du}{2}$.
+   $\theta$ varie de $\theta=0$ à $\theta=\frac\pi4$ donc $u$ varie de $u=0$ à $u=\frac\pi2$.
+   
+   $$\int \limits _{\theta=0} ^{\theta=\frac{\pi}{4}} 5\sin(2\theta) \,d\theta
+   = \int \limits _{u=0} ^{u=\frac{\pi}{2}} 5\sin(u) \,\frac{du}{2} 
+   = \frac52 \big[-\cos(u) \big]_{u=0} ^{u=\frac{\pi}{2}} 
+   = \frac52 \big( -\cos(\frac{\pi}{2}) - (-\cos(0)) \big)
+   = \frac52 (0+1) = \frac52.$$
+   
+   \item $\int \limits _{0} ^{1} \frac{1}{(2t+1)^{3}} dt$   
+ 
+   Posons $u = 2t+1$. Donc $du= 2 \,dt$ ou encore $dt = \frac{du}{2}$.
+   $t$ varie de $t=0$ à $t=1$ donc $u$ varie de $u=1$ à $u=3$.
+   $$\int \limits _{t=0} ^{t=1} \frac{1}{(2t+1)^{3}} dt
+   = \int \limits _{u=1} ^{u=3} \frac{1}{u^{3}} \frac{du}{2}
+   = \frac12 \int \limits _{u=1} ^{u=3} u^{-3} du
+   = \frac12\left[ -\frac12u^{-2} \right]_{u=1} ^{u=3}
+   = \frac14 \left( - \frac{1}{3^2} + \frac{1}{1^2} \right)
+   = \frac14 \cdot \frac{8}{9}
+   = \frac{2}{9}$$
+   
+   On a utilisé que $\frac{1}{u^2} = u^{-2}$, $\frac{1}{u^3} = u^{-3}$ et qu'une primitive de $u^\alpha$ est $\frac1{\alpha+1} u^{\alpha +1 }$, ce qui donne pour 
+   $\alpha=-3$ : une primitive de  $u^{-3}$ est $-\frac12u^{-2}$.   
+   Si vous préférez vous pouvez dire directement qu'une primitive de $\frac1{u^3}$ est $-\frac12\frac{1}{u^2}$.
+    
+\end{enumerate}
+\fincorrection
+
+
+% exercice 21
+\exercice{}
+\enonce 
+Calculer les intégrales suivantes~: 
+\begin{examplescol}{2}
+	\item $\int \limits _{0} ^{1} xe^{x^{2}}dx$
+	\item $\int \limits _{0} ^{\frac{\pi}{2}} \sqrt{3\cos(y)}\sin{(y)} \,dy $ 
+	\item $\int \limits _{0} ^{\frac{\pi}{4}} \tan(\theta) \,d\theta$
+	\item $\int \limits _{1} ^{5} \frac{e^{\sqrt{x}}}{2\sqrt{x}}dx$
+\end{examplescol}
+\finenonce
+
+\indication
+Vous pouvez soit reconnaître une forme $u'f'(u)$ et utiliser qu'une primitive de la fonction $ u'(x) f'(u(x)) $ est $ f(u(x)) + C $, c'est la méthode de substitution, 
+$ C \in \Rr $ ou bien vous pouvez faire un changement de variable. 
+\finindication
+
+\correction
+
+\video{RUej6jMp39g}
+
+   La méthode de substitution ou le changement de variable sont des méthodes équivalentes. Choisissez celle que vous préférez !
+   
+\begin{enumerate} 
+	\item $\int  _{0} ^{1} xe^{x^{2}}dx$
+	
+   
+	\textbf{Substitution.}
+	On sait que $ (x^2)' = 2x $. Alors $ x e^{x^{2}} $ est de la forme 
+	$ \tfrac{1}{2} u'(x) f'(u(x)) $ avec $ u(x) = x^2 $ et $ f(x) = 
+	e^{x} $ et on obtient 
+	\begin{equation*} 
+		\int  _{0} ^{1} xe^{x^{2}}dx = \left[\frac{1}{2} e^{x^2}\right]_0^1 = 
+		\frac{1}{2}\left(e - 1\right). 
+	\end{equation*} 
+	
+  \textbf{Changement de variable.}
+
+  On pose $u=x^2$, donc $du = 2x \, dx$. Les bornes de $x=0$ à $x=1$ deviennent des bornes de $u=0$ à $u=1$.
+  Ainsi :
+  $$\int  _{x=0} ^{x=1} e^{x^{2}}\, xdx
+  = \int  _{u=0} ^{u=1} e^{u} \frac{du}{2}
+  = \frac12\big[ e^u \big]_{u=0} ^{u=1}
+  = \frac{1}{2}\left(e - 1\right)$$
+	
+	\item $\int  _{0} ^{\frac{\pi}{2}} \sqrt{3\cos(y)}\sin{(y)} \,dy $ 
+	
+	\textbf{Substitution.}
+	On sait que $ \cos'(y) = -\sin (y) $. Alors $ \sqrt{3\cos(y)}\sin{(y)} $ 
+	est de la forme $ -\sqrt{3} u'(y) f'(u(y)) $ avec $ u(y) = \cos(y) $ et 
+	$ f(y) = \tfrac{2}{3} y^{3/2} $ et on obtient 
+	\begin{equation*} 
+		\int  _{0} ^{\frac{\pi}{2}} \sqrt{3\cos(y)}\sin{(y)} \,dy = 
+		\left[-\sqrt{3} \, \frac{2}{3} \, (\cos(y))^{3/2}\right]_0^\frac{\pi}{2} = 
+		-\frac{2}{\sqrt{3}} \left((\cos(\pi/2))^{3/2} - (\cos(0))^{3/2}\right) = 
+		\frac{2}{\sqrt{3}}. 
+	\end{equation*} 
+	
+	 \textbf{Changement de variable.}
+	On pose $u=3\cos(y)$, donc $du = -3\sin(y) \, dy$. Les bornes de $y=0$ à $y=\frac\pi2$ deviennent des bornes de $u=3\cos(0)=3$ à $u=3\cos(\frac\pi2)=0$.
+	$$\int  _{y=0} ^{y=\frac{\pi}{2}} \sqrt{3\cos(y)}\sin{(y)} \,dy
+	= \int  _{u=3} ^{u=0}  \sqrt{u} \frac{-du}{3}
+	= +\frac13 \int  _{u=0} ^{u=3}  \sqrt{u} \, du
+	= \frac13 \left[ \frac23 u^{\frac32} \right]_{u=0} ^{u=3}
+	= \frac13 \cdot \frac23 \cdot (\sqrt3)^3
+	= \frac{2}{\sqrt3}$$
+	
+	\item $\int  _{0} ^{\frac{\pi}{4}} \tan(\theta) \,d\theta$
+	
+    \textbf{Substitution.}
+	Comme $ \tan(\theta) = \frac{\sin(\theta)}{\cos(\theta)} $ et $ \cos'(\theta) 
+	= -\sin(\theta) $, $ \tan(\theta) $ est de la forme $ u'(\theta) f'(u(\theta)) $ 
+	avec $ u(\theta) = \cos(\theta) $ et $ f(\theta) = \ln(\theta) $ et on obtient 
+	\begin{equation*} 
+		\int  _{0} ^{\frac{\pi}{4}} \tan(\theta) \,d\theta = 
+		\left[-\ln(\cos(\theta))\right]_0^\frac{\pi}{4} = 
+		-\ln(\cos(\pi/4)) + \ln(\cos(0)) = 
+		-\ln\left(\frac{1}{2} \sqrt{2}\right) = 
+		\frac{1}{2} \ln(2). 
+	\end{equation*} 
+	
+	\textbf{Changement de variable.} Poser $u=\cos(\theta)$.
+	
+	\item $\int  _{1} ^{5} \frac{e^{\sqrt{x}}}{2\sqrt{x}}dx$
+	
+    \textbf{Substitution.}
+	Comme $ (\sqrt{x})' = \frac{1}{2 \sqrt{x}} $, $ \frac{e^{\sqrt{x}}}{2\sqrt{x}} $ 
+	est de la forme $ u'(x) f'(u(x)) $ avec $ u(x) = \sqrt{x} $ et $ f(x) = e^{x} $ 
+	et on obtient 
+	\begin{equation*} 
+		\int  _{1} ^{5} \frac{e^{\sqrt{x}}}{2\sqrt{x}}dx = 
+		\left[e^{\sqrt{x}}\right]_1^5 = 
+		e^{\sqrt{5}} - e. 
+	\end{equation*} 
+	
+	\textbf{Changement de variable.} Poser $u=\sqrt{x}$.	
+\end{enumerate} 
+\fincorrection
+\finexercice
+
+
+% exercice 22
+\exercice{}
+\enonce
+Calculer les intégrales suivantes~:
+    \begin{examplescol}{4}
+		\item $\int \limits _{0} ^{1} xe^{x}\,dx$ 
+		\item $\int \limits _{0} ^{1} y^{2}e^{2y} \,dy$
+		\item $\int \limits _{1} ^{2} \ln(t) \,dt$  
+		\item $\int \limits _{0} ^{\pi} \theta \cos(\theta) \,d\theta$
+    \end{examplescol}
+\finenonce
+
+\indication
+Il s'agit d'appliquer la formule d'intégration par parties :
+$$\int_a^b u(x) \, v'(x)\;dx= \big[uv\big]_a^b - \int_a^b u'(x) \, v(x)\;dx$$
+
+\finindication
+
+\correction
+
+\video{C-D8-NNmh8g}
+
+Nous allons appliquer la formule d'intégration par parties (IPP) :
+$$\int_a^b u(x) \, v'(x)\;dx= \big[uv\big]_a^b - \int_a^b u'(x) \, v(x)\;dx$$
+Pour cela nous allons dire quelle fonction joue le rôle de $u(x)$ et quelle fonction joue le rôle de $v'(x)$.
+
+
+\begin{enumerate}
+\item $\int  _{0} ^{1} xe^{x}\,dx$ 
+
+On pose $u(x) = x$ et $v'(x) = e^x$.
+Cela donne $u'(x) = 1$ et $v(x) = e^x$.
+La formule d'intégration par parties donne :
+$$I = \int  _{0} ^{1} xe^{x}\,dx = \big[xe^x\big]_0^1 - \int_0^1 1 \cdot e^x \;dx$$
+Nous avons fait un progrès : le crochet est juste une évaluation à calculer et l'intégrale 
+tout à droite est facile à calculer (car on connaît une primitive de $e^x$ qui est $e^x$). 
+$$I = \left( 1\cdot e^1 - 0\cdot e^0\right) - \big[e^x\big]_0^1  = e - (e-1) = 1.$$
+
+\item $\int  _{0} ^{1} y^{2}e^{2y} \,dy$
+
+On pose $u(y) = y^2$ et $v'(y) = e^{2y}$.
+Cela donne $u'(y) = 2y$ et $v(y) = \frac12e^{2y}$.
+La formule d'intégration par parties donne :
+$$
+J = \int  _{0} ^{1} y^{2}e^{2y} \,dy \\
+  = \big[\frac12 y^2 e^{2y}\big]_0^1 - \int  _{0} ^{1} ye^{2y} \,dy \\
+  = \frac12 e^2 - \int  _{0} ^{1} ye^{2y} \,dy \\
+$$
+
+Ce n'est pas encore fini car il reste encore à calculer l'intégrale 
+$J' = \int  _{0} ^{1} ye^{2y} \,dy$.
+Mais on a quand même progresser car $J'$ est plus facile à calculer que $J$.
+
+Pour calculer $J'$ on effectue une seconde intégration par parties, en posant 
+$u(y) = y$ et $v'(y) = e^{2y}$ (et donc $u'(y) = 1$ et $v(y) = \frac12e^{2y}$).
+Donc 
+\begin{align*}
+J' 
+  &= \int  _{0} ^{1} ye^{2y} \,dy \\
+  &= \left[\frac12ye^{2y}\right]_0^1 - \int_0^1 1 \cdot \frac12e^{2y} \;dy \\
+  &= \frac12e^2 - \big[\frac14e^{2y}\big]_0^1 \\
+  &= \frac12e^2 - \frac14(e^2-1) \\
+  &= \frac14(e^2 + 1) \\
+\end{align*}
+
+Il ne reste plus qu'à reporter la valeur de $J'$ obtenue pour obtenir la valeur de $J$ :
+$$J =  \frac12 e^2 - J' =  \frac12 e^2 - \frac14(e^2 + 1) =  \frac14(e^2 - 1)$$
+
+
+
+\item $\int  _{1} ^{2} \ln(t) \,dt$  
+
+Comment peut-on décider qui est $u$ et qui est $v$ alors qu'il n'y a pas de produit ?
+Il suffit d'écrire $\ln(t) = \ln(t) \times 1$ pour faire apparaître artificiellement une multiplication.
+On pose alors $u(t) = \ln(t)$ et $v'(t) = 1$ et donc $u'(t) = \frac1t$ et $v(t) = t$.
+On peut maintenant faire une IPP :
+\begin{align*}
+\int  _{1} ^{2} \ln(t) \,dt
+ &= \big[t\ln(t)\big] _{1} ^{2} - \int _{1} ^{2} \frac1t \cdot t \, dt \\
+ &= (2\ln2-0) - \int _{1} ^{2} 1 \, dt \\
+ &= 2\ln2 - \big[t\big] _{1} ^{2} \qquad \text{car une primitive de la fonction $1$ est $t$} \\ 
+ &= 2\ln(2) - (2-1) \\
+ &= 2\ln(2) - 1 \\
+\end{align*}
+
+\item $\int  _{0} ^{\pi} \theta \cos(\theta) \,d\theta$  
+
+On pose $u(\theta) = \theta$ et $v'(\theta) = \cos(\theta)$.
+Cela donne $u'(\theta) = 1$ et $v(\theta) = \sin(\theta)$.
+La formule d'intégration par parties donne :
+\begin{align*}
+\int  _{0} ^{\pi} \theta \cos(\theta) \,d\theta 
+ &= \big[\theta\sin(\theta) \big]_{0} ^{\pi} - \int_{0} ^{\pi} \sin(\theta) \,d\theta \\
+ &= 0 - \big[ -\cos(\theta) \big]_{0} ^{\pi} \\
+ &= \cos\pi - \cos0 \\
+ &= -1-1 \\
+ &= -2
+\end{align*} 
+
+\end{enumerate}
+\fincorrection
+\finexercice
+
+
+
+
+% exercice 23
+\exercice{}
+\enonce\ 
+\begin{enumerate}
+	\item Déterminer $A$ et $B$ tels que $\frac{1}{x^{2}-1} = \frac{A}{x-1}+\frac{B}{x+1}$, puis calculer $\int \limits _{2} ^{4} \frac{1}{x^{2}-1} dx$.
+	\item Déterminer $A, B, C$ tels que $\frac{x-2}{(x^{2}+1)(2x+1)} = \frac{Ax+B}{x^{2}+1}+\frac{C}{2x+1}$, puis calculer
+	$\int \limits _{0} ^{1} \frac{x-2}{(x^{2}+1)(2x+1)}  dx$.
+\end{enumerate}
+\finenonce
+
+\indication
+Une primitive de $ \frac{u'(x)}{u(x)} $ est $ \ln|u(x)| + C $, $ C \in \Rr $. 
+\finindication
+
+\correction
+
+\video{5ORyDi2LXnw}
+
+\sauteligne
+\begin{enumerate} 
+	\item 
+	On écrit 
+	\begin{equation*} 
+		\frac{A}{x-1}+\frac{B}{x+1} = \frac{A(x+1)+B(x-1)}{(x+1)(x-1)} = 
+		\frac{Ax + A + Bx - B}{x^2 - 1} = \frac{x(A+B) + A - B}{x^2 - 1}. 
+	\end{equation*} 
+	Donc $ \frac{1}{x^{2}-1} = \frac{(A+B)x + A - B}{x^2 - 1} $ d'où 
+	$ 1 = (A+B)x + A - B $ et on obtient le système suivant pour déterminer 
+	les valeurs de $ A $ et $ B $~: 
+	\begin{equation*} 
+		\begin{cases} 
+			A + B &= 0 \\ 
+			A - B &= 1 
+		\end{cases} 
+		\quad \Longleftrightarrow \quad 
+		\begin{cases} 
+			A  &= -B \\ 
+			2A &= 1 
+		\end{cases} 
+		\quad \Longleftrightarrow \quad 
+		\begin{cases} 
+			A &= \frac{1}{2} \\ 
+			B &= -\frac{1}{2}. 
+		\end{cases} 
+	\end{equation*} 
+	Ainsi $ \frac{1}{x^{2}-1} = \frac{1}{2(x-1)}-\frac{1}{2(x+1)} $ et donc : 
+	\begin{equation*} 
+		\begin{split} 
+			\int \limits _{2} ^{4} \frac{1}{x^{2}-1} dx 
+			&= 
+			\int \limits _{2} ^{4} \left(\frac{1}{2(x-1)}-\frac{1}{2(x+1)}\right) dx 
+			= 
+			\int \limits _{2} ^{4} \frac{1}{2(x-1)} dx 
+			- \int \limits _{2} ^{4} \frac{1}{2(x+1)} dx \\ 
+			&= 
+			\frac{1}{2} \int \limits _{2} ^{4} \frac{1}{x-1} dx 
+			- \frac{1}{2} \int \limits _{2} ^{4} \frac{1}{x+1} dx 
+			= 
+			\frac{1}{2} \big[\ln|x-1|\big]_2^4 
+			-\frac{1}{2} \big[\ln|x+1|\big]_2^4 \\ 
+			&= 
+			\frac{1}{2} \left(\ln(3) - \ln(1)\right)  
+			-\frac{1}{2} \left(\ln(5) - \ln(3)\right) 
+			= 
+			\ln(3) - \frac{1}{2} \ln(5). 
+		\end{split} 
+	\end{equation*} 
+	\item 
+	On écrit 
+	\begin{equation*} 
+		\begin{split} 
+			\frac{Ax+B}{x^{2}+1}+\frac{C}{2x+1} 
+			&= \frac{(Ax+B)(2x+1) + C(x^2+1)}{(x^2+1)(2x+1)} 
+			= \frac{2Ax^2 + Ax + 2Bx + B+ Cx^2+C}{(x^2+1)(2x+1)} \\ 
+			&= 
+			\frac{(2A+C) x^2 + (A + 2B)x + B + C}{(x^2+1)(2x+1)}. 
+		\end{split} 
+	\end{equation*} 
+	Donc $ \frac{x-2}{(x^{2}+1)(2x+1)} = \frac{(2A+C) x^2 + (A + 2B)x + B 
+		+ C}{(x^2+1)(2x+1)} $ d'où $ x - 2 = (2A+C) x^2 + (A + 2B)x + B + C $ 
+	et on obtient le système suivant pour déterminer les valeurs de $ A, 
+	B $ et $ C $~: 
+	\begin{equation*} 
+		\begin{cases} 
+			2A + C &= 0 \\ 
+			A + 2B &= 1 \\ 
+			B + C  &= -2 
+		\end{cases} 
+		\quad \Longleftrightarrow \quad 
+		\begin{cases} 
+			2 - 4B - 2 - B &= 0 \\ 
+			A &= 1 - 2B \\ 
+			C &= -2 - B
+		\end{cases} 
+		\quad \Longleftrightarrow \quad 
+		\begin{cases} 
+			B &= 0 \\ 
+			A &= 1 \\ 
+			C &= -2 
+		\end{cases} 
+	\end{equation*} 
+	Ainsi $ \frac{x-2}{(x^{2}+1)(2x+1)} = \frac{x}{x^{2}+1} - \frac{2}{2x+1} $ et donc : 
+	\begin{equation*} 
+		\begin{split} 
+			\int \limits _{0} ^{1} \frac{x-2}{(x^{2}+1)(2x+1)}  dx 
+			&= 
+			\int_0^1 \left(\frac{x}{x^{2}+1} - \frac{2}{2x+1}\right) dx 
+			= 
+			\int_0^1 \frac{x}{x^{2}+1} dx - \int_0^1 \frac{2}{2x+1} dx \\ 
+			&= 
+			\frac{1}{2} \int_0^1 \frac{2x}{x^{2}+1} dx - \int_0^1 \frac{2}{2x+1} dx 
+			= 
+			\frac{1}{2} \big[\ln|x^2+1|\big]_0^1 - \big[\ln|2x+1|\big]_0^1 \\ 
+			&= 
+			\frac{1}{2} \left(\ln(2) - \ln(1)\right) - \left(\ln(3) - \ln(1)\right) 
+			= \frac12\ln(2) - \ln(3). 
+		\end{split} 
+	\end{equation*} 
+\end{enumerate} 
+\fincorrection
+\finexercice
+
+\end{document}

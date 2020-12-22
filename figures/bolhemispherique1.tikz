@@ -1,0 +1,22 @@
+\begin{tikzpicture}
+    \tikzstyle{point} = [circle,inner sep=1pt,fill, draw]
+    \begin{scope}[xmin=-2,xmax=3,ymin=-2.1,ymax=2.1]
+        % les axes
+    \draw[thick, ->] (\xmin,0) -- (\xmax,0);
+    \draw[thick, ->] (0,\ymin) -- (0,\ymax);
+       % \axes
+        \node[right] at (\xmax, 0) {$x$};
+        \node[above] at (0, \ymax) {$f(x)$};
+        % le bol obtenu par révolution
+        \draw[blue, opacity=.5] (2,0) circle [x radius=.5, y radius=2];
+        \draw[thin, opacity=.5] (2,2) -- (2,0);
+        \draw[very thick, blue] (2,2) arc (90:270:2);
+        % l'origine
+        \path (0,0) node[point]{} node[below left] {$0$};
+        % le triangle rectangle
+        \draw[red] (1,0) node[point]{} node[below] {$x$} -- (1,1.732) -- (2,0) node[point]{} node[below] {$r$} -- cycle;
+        % la valeur de f(x)
+        \draw[opacity=0.35] (1,1.732) -- (0,1.732);
+        \draw[decorate,decoration=brace, red] (-0.1,0) -- (-0.1,1.732) node[left=2, pos=0.5, scale=0.7] {$\sqrt{r^{2}-(x-r)^{2}}$};
+    \end{scope}
+\end{tikzpicture}

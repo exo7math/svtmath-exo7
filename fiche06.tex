@@ -1,0 +1,248 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage{exo7sv}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\entete{Université de Lille}{Mathématiques pour la SVT}
+
+\titre{Fiche 6. \quad \'Equations différentielles 2} 
+
+\encadre{
+	\emph{Savoir.}
+	\begin{itemize}[label=$\square$]
+		\item Comprendre ce qu'est une condition initiale d'une équation différentielle.
+		\item Savoir qu'un condition initiale entraîne l'unicité de la solution.
+        \item Savoir interpréter l'unicité en terme des courbes solutions qui ne s'intersectent pas.
+		
+	\end{itemize}
+	\emph{Savoir-faire.}
+	\begin{itemize}[label=$\square$]
+		\item Savoir résoudre une équation différentielle avec condition initiale.
+		\item Savoir obtenir des informations sur une solution sous la condition que les courbes des solutions ne s'intersectent pas.
+	\end{itemize}
+}
+
+\insertvideo{bOMW8PyixyE}{Fiche 6. \'Equations différentielles (fin)}
+
+\setcounter{equation}{0}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Un exemple}
+
+Une équation différentielle a en général une infinité de fonctions solutions.
+
+Considérons par exemple l'équation différentielle :
+\begin{equation}
+y'(x) = y(x)
+\label{eq:eqdiff1}
+\end{equation}
+
+Alors les solutions de (\ref{eq:eqdiff1}) sont les fonctions :
+$$y(x) = ke^x \qquad \text{ où } k \in \Rr.$$ 
+Ainsi, chaque valeur de la constante $k$ fournit une fonction solution :
+par exemple pour $k=1$, $y_1(x) = e^x$ est solution, pour $k=-2$, 
+$y_{-2}(x) = -2e^x$ est solution, pour $k=0$, $y_0(x)=0$ est solution\ldots
+
+
+Pour n'avoir qu'une seule solution, il faut imposer une condition initiale
+\begin{equation}
+\left\{\begin{array}{lr}
+y'(x) = y(x) &\qquad \text{équation différentielle}\\
+y(0) = 3    &\qquad \text{condition initiale}
+\end{array}\right.
+\label{eq:eqdiff2}
+\end{equation}
+
+Les solutions de l'équation différentielle sont de la forme $y(x)=ke^x$,
+mais on veut $y(0)=3$. 
+Comme $y(0)=ke^0=k$, on doit avoir $k=3$. 
+Ainsi l'unique solution du problème (\ref{eq:eqdiff2}) est la fonction 
+$y(x) = 3e^x$.
+
+\emph{Exercice.}
+Considérons l'équation différentielle avec condition initiale :
+\begin{equation}
+\left\{\begin{array}{l}
+y'(x) = y(x)\\
+y(1) = 2    
+\end{array}\right.
+\label{eq:eqdiff3}
+\end{equation}
+Trouver l'unique solution de ce problème. (Attention ce n'est pas $y(x) = 2e^x$ !)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Condition initiale}
+
+\subsubsection*{Définition}
+Pour une équation différentielle dite d'ordre $1$, faisant intervenir $y$ et $y'$, une \textbf{condition initiale} est du type :
+$$y(x_0)=y_0$$
+où $x_0\in\Rr$ et $y_0\in\Rr$ sont des constantes.
+
+\emph{Exemple.}
+$$y'(x)=-y(x)^2+3y(x)-2 \quad\text{ et }\quad y(0)=10$$
+
+
+Le système formé par une équation différentielle $(E)$ et une condition initiale est appelé \textbf{problème de Cauchy}.
+
+Pour une équation différentielle dite d'ordre $2$, faisant intervenir $y$, $y'$ et $y''$, une \textbf{condition initiale} est du type :
+$$
+\left\{\begin{array}{l}
+y(x_0)=y_0\\
+y'(x_0)=y_1
+\end{array}\right.$$
+
+\emph{Exemple.}
+$$y''(x)=-y'(x)+2y(x) \quad\text{ avec }\quad y(0)=0 \ \text{ et }\ y'(0)=1$$
+
+\subsubsection*{Théorème d'unicité}
+Pour les problème que l'on rencontrera on admettra le théorème de Cauchy : 
+\mybox{\og Une équation différentielle avec condition initiale admet une unique solution.\fg}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Courbes solutions}
+
+Une \textbf{courbe solution} d'une équation différentielle $(E)$
+est le graphe d'une solution de $(E)$.
+
+
+Pour l'équation différentielle 
+$$y'(x) = y(x)$$
+on sait que les solution sont les $y(x) = ke^x$, où $k\in \Rr$ est une constante. Ci-dessous sont tracés quelques graphes de ces solutions.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+
+  \draw[->,>=latex,thick,gray] (-6.5,0) -- (2.4,0) node[below left,black] {$x$};
+  \draw[->,>=latex,thick,gray] (0,-5) -- (0,5) node[left,black] {$y$};
+
+\begin{scope}[xscale=1]
+\foreach \k in {-3,-2.5,...,3} {
+  \draw[thick, color=myred,domain=-6:2, smooth,samples=50] plot (\x,{\k*exp(+0.33*\x)});
+}
+\end{scope}
+
+%\node[blue] at (-3,3) {Cas \  $a>0$};
+
+\draw[blue] (2.3,6)--(2.5,6)--(2.5,0.2)--(2.3,0.2);
+\draw[blue] (2.3,-6)--(2.5,-6)--(2.5,-0.2)--(2.3,-0.2);
+\node[blue, right] at (3,3) {$k>0$};
+\node[blue, right] at (3,0) {$k=0$};
+\node[blue, right] at (3,-3) {$k<0$};
+
+\end{tikzpicture}
+\end{center}
+
+
+Le théorème de Cauchy pour les équations
+différentielles linéaires se reformule ainsi :
+\mybox{
+\og Par chaque point $(x_0,y_0) \in \Rr^2$
+passe une et une seule courbe solution. \fg}
+
+En particulier :
+\mybox{
+\og 
+Deux courbes solutions ne s'intersectent pas.
+\fg}
+
+
+\emph{Exemple.}
+Les solutions de l'équation différentielle
+$y'+y=x$ sont les
+$$y(x) = x-1 + ke^{-x} \quad k \in\Rr.$$
+
+Pour chaque point $(x_0,y_0) \in \Rr^2$, il existe une unique solution
+$y$ telle que $y(x_0)=y_0$. Le graphe de cette solution
+est la courbe intégrale passant par $(x_0,y_0)$.
+
+\begin{center}
+\begin{tikzpicture}
+
+  \draw[->,>=latex,thick,gray] (-3.5,0) -- (6.5,0) node[below,black] {$x$};
+  \draw[->,>=latex,thick,gray] (0,-3.5) -- (0,5) node[left,black] {$y$};
+\begin{scope}
+    \clip (-3,-3) rectangle (6,4.5);
+\begin{scope}[xscale=1.5]
+
+\foreach \k in {-1,-.75,...,4} {
+  \draw[thick, color=myred,domain=-2:4, smooth,samples=10] plot (\x,{\x-1+\k*exp(-0.33*\x)});
+}
+\foreach \k in {4,4.25,...,7} {
+  \draw[thick, color=myred,domain=-1.57:4, smooth,samples=10] plot (\x,{\x-1+\k*exp(-0.33*\x)});
+}
+\foreach \k in {-1.25,-1.5,...,-4} {
+  \draw[thick, color=myred,domain=-1:4, smooth,samples=10] plot (\x,{\x-1+\k*exp(-0.33*\x)});
+}
+\foreach \k in {-4.25,-4.5,...,-8} {
+  \draw[thick, color=myred,domain=1:4, smooth,samples=10] plot (\x,{\x-1+\k*exp(-0.33*\x)});
+}
+\foreach \k in {-8.25,-8.5,...,-12} {
+  \draw[thick, color=myred,domain=2:4, smooth,samples=10] plot (\x,{\x-1+\k*exp(-0.33*\x)});
+}
+\foreach \k in {-12.25,-12.5,...,-20} {
+  \draw[thick, color=myred,domain=2.5:4, smooth,samples=8] plot (\x,{\x-1+\k*exp(-0.33*\x)});
+}
+\foreach \k in {-20.25,-20.5,...,-23} {
+  \draw[thick, color=myred,domain=3.7:4, smooth,samples=5] plot (\x,{\x-1+\k*exp(-0.33*\x)});
+}
+
+\def\k{3}
+\draw[ultra thick, color=myred,domain=-2:4, smooth,samples=10] plot (\x,{\x-1+\k*exp(-0.33*\x)});
+\end{scope}
+\end{scope}
+
+\fill[blue] (-1,2.07)  circle (2pt) node [below] {$(x_0,y_0)$}; 
+
+\draw (-3,-3) rectangle (6,4.5);
+\end{tikzpicture}
+\end{center}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Variations des solutions}
+
+L'équation différentielle permet parfois d'avoir des informations sur la fonctions $f$ avant même de connaître exactement la solution.
+
+Par exemple, considérons :
+$$y'(x) = y^2(x) + 1$$
+Alors, sans résoudre cette équation, on sait qu'une solution vérifiera $y'(x)\ge0$, donc une solution $y(x)$ est une fonction croissante.
+
+Autre exemple, avec :
+$$y'(x) = xe^{y(x)}$$
+Si $x\le0$ alors $xe^{y(x)}\le0$ donc une solution vérifiera $y'(x)\le0$, et la solution $y(x)$ est une fonction décroissante sur $]-\infty,0]$. Par contre 
+Si $x\ge0$ alors $xe^{y(x)}\ge0$ donc une solution vérifiera $y'(x)\ge0$, et la fonction $y(x)$ est croissante sur $[0,+\infty[$.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{\'Equation à variables séparées}
+
+
+Une \textbf{équation différentielle à variable séparées} est de la forme :
+$$y'(x) = \frac{a(x)}{b(y)}$$
+Ce nom est justifié car on peut mettre tous les $x$ d'un côté et tous les $y$ de l'autre :
+$$b(y) y' = a(x)$$
+
+Voici la méthode pour résoudre ce type d'équation.
+
+
+\emph{Exemple.}
+$$x^2y'(x) = e^{-y(x)}$$
+\begin{itemize}
+  \item On sépare les variables $x$ des variables $y$ :
+$$y'(x)e^{y(x)} = \frac{1}{x^2}$$
+  \item On intègre chacun des côtés :
+  $$e^{y(x)} = -\frac1x + c$$
+  où $c\in\Rr$ est une constante.
+  \item On exprime la solution :
+  $$y(x) = \ln\left(-\frac1x + c\right)$$
+\end{itemize}
+
+\emph{Autres exemples.} 
+$$y'y^2 = x \qquad y'=y\ln(x) \qquad y'=\frac{1}{y^n}$$
+
+
+\end{document}

@@ -1,0 +1,142 @@
+ %%%%%%%%%%%%%%%%%% PREAMBULE %%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt,a4paper]{article}
+
+%\usepackage[francais]{exo7qcm}
+\usepackage[francais,nosolutions]{exo7qcm}
+
+\begin{document}
+ 
+ 
+%%%%%%%%%%%%%%%%%% ENTETE %%%%%%%%%%%%%%%%%%
+
+\LogoExoSept{2}
+
+%\kern-2em
+\hfill\textbf{Ann\'ee 2020}
+
+\vspace*{0.5ex}
+\hrule\vspace*{1.5ex} 
+\hfil\textsc{\textbf{\Large QCM --- Mathématiques pour la SVT}}
+\vspace*{1ex} \hrule 
+\vspace*{5ex} 
+
+\section{Questions -- Fiche 8 - Primitives}
+
+\begin{question}
+Quelle fonction est une primitive de $f(x) = \frac{6x+2}{3x^2+2x-1}$ ?
+\begin{answers}
+    \bad{$F(x) = \frac{1}{3x^2+2x-1}$}
+
+    \bad{$F(x) = \frac{3x^2+2x-1}{6x+2}$}
+
+    \good{$F(x) = \ln(3x^2+2x-1)$}
+
+    \bad{$F(x) = \ln\left( \frac{6x+2}{3x^2+2x-1}\right)$}
+\end{answers}
+
+\begin{explanations}
+La dérivée de $F(x) = \ln(3x^2+2x-1)$ est $\frac{u'}{u}$ avec $u=3x^2+2x-1$, 
+donc $F'(x) = \frac{6x+2}{3x^2+2x-1} = f(x)$. 
+\end{explanations}
+
+\end{question}
+
+
+\begin{question}
+Combien vaut l'intégrale $\int_1^3 x \, dx$ ?
+\begin{answers}
+    \good{$4$}
+
+    \bad{$5$}
+
+    \bad{$8$}
+
+    \bad{$10$}
+\end{answers}
+
+\begin{explanations}
+Un primitive de $f(x) = x$ est $F(x) = \frac12x^2$.
+Ainsi $\int_1^3 x \, dx 
+= \left[ \frac12x^2 \right]_1^3 
+= \frac12\left( 3^2-1^2 \right) 
+= \frac82 = 4$.
+\end{explanations}
+
+\end{question}
+
+
+\begin{question}
+Combien vaut l'intégrale $\int_1^2 1+\frac1x+\frac1{x^2} \, dx$ ?
+\begin{answers}
+    \bad{$\frac12+\ln(2)$}
+
+    \good{$\frac32+\ln(2)$}
+
+    \bad{$-\frac12+\ln(2)$}
+
+    \bad{$\frac12-\ln(2)$}
+\end{answers}
+
+\begin{explanations}
+Un primitive de $f(x) = 1+\frac1x+\frac1{x^2}$ est $F(x) = x+\ln(x)-\frac1x$.
+Ainsi $\int_1^2 f(x) \, dx 
+= \left[ F(x) \right]_1^2
+= F(2)-F(1) 
+= \left( 2+\ln(2)-\frac12 \right) -  \left( 1+\ln(1)-\frac11 \right)
+= \frac32+\ln(2)
+$.
+\end{explanations}
+
+\end{question}
+
+
+\begin{question}
+On considère $f(x) = \frac{1}{x^2-x}$. On écrit
+$\frac{1}{x^2-x} = \frac{A}{x} + \frac{B}{x-1}$.
+\begin{answers}
+    \good{On a $A=-1$ et $B=1$.}
+
+    \bad{On a $A=1$ et $B=-1$.}
+
+    \bad{Une primitive de $f$ est $F(x) = -\frac{A}{x^2} -\frac{B}{(x-1)^2}$}
+
+    \good{Une primitive de $f$ est $F(x) = A \ln(x) + B\ln(x-1)$}
+\end{answers}
+
+\begin{explanations}
+$f(x) = \frac{1}{x^2-x} = \frac{-1}{x} + \frac{1}{x-1}$ donc $A=-1$ et $B=1$.
+Une primitive de $f$ est $F(x) = A \ln(x) + B\ln(x-1)$.
+\emph{Bonus.} On a donc  $F(x) = - \ln(x) + \ln(x-1) = \ln\left( \frac{x-1}{x} \right)$.
+\end{explanations}
+
+\end{question}
+
+
+\begin{question}
+Combien vaut l'intégrale $\int_0^2 xe^{x^2+1} \, dx$ ?
+\begin{answers}
+    \bad{$e\left( e^4+1 \right)$}
+
+    \bad{$e\left( e^4-1 \right)$}
+
+    \bad{$\frac12e\left( e^4+1 \right)$}
+
+    \good{$\frac12e\left( e^4-1 \right)$}
+\end{answers}
+
+\begin{explanations}
+Une primitive de $f(x) = xe^{x^2+1}$ est $F(x) = \frac12e^{x^2+1}$.
+Ainsi $\int_0^2 f(x) \, dx 
+= \left[ F(x) \right]_0^2
+= F(2)-F(0) 
+= \frac12\left( e^5-e^1 \right)
+= \frac12e\left( e^4-1 \right)
+$.
+\end{explanations}
+
+\end{question}
+
+
+
+\end{document}

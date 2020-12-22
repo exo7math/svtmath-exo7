@@ -1,0 +1,183 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage{exo7sv}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\entete{Université de Lille}{Mathématiques pour la SVT}
+
+
+\titre{Fiche 2. \quad Dérivées} 
+
+\encadre{
+\emph{Savoir.}
+\begin{itemize}[label=$\square$]
+  \item Comprendre la définition de la dérivée en terme de limite.
+  \item Connaître les formules de la dérivées d'une somme, d'un produit, d'un quotient.
+  \item Connaître sur le bout de doigts les formules des dérivées usuelles.
+\end{itemize}
+\emph{Savoir-faire.}
+\begin{itemize}[label=$\square$]
+  \item Savoir calculer l'équation de la tangente au graphe d'une fonction.
+  \item Savoir dériver les fonctions construites à partir de fonctions usuelles.
+  \item En particulier savoir dériver les compositions de fonctions.
+\end{itemize}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Définition}
+
+Le \textbf{nombre dérivé} d'une fonction $f$ en $x_0$ est défini par une limite :
+\mybox{$\displaystyle f'(x_0) = \lim_{x\to x_0} \frac{f(x)-f(x_0)}{x-x_0}$}
+
+Une autre écriture de cette limite est :
+$$f'(x_0) = \lim_{h \to 0} \frac{f(x_0+h)-f(x_0)}{h}.$$
+
+Une autre notation pour $f'(x_0)$ est $\frac{\dd f}{\dd x}(x_0)$.
+
+La \textbf{fonction dérivée} est $x \mapsto f'(x)$. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Tangente}
+
+La dérivée en $x_0$ est le coefficient directeur de la tangente au point $(x_0,f(x_0))$.
+
+L'équation de cette tangente est :
+\mybox{$y = (x-x_0) f'(x_0) + f(x_0)$}
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+
+	\draw[->,>=latex, gray, very thin] (-0.5,0) -- (3.3,0);
+	\draw[->,>=latex, gray, very thin] (0,-0.5) -- (0,2.8);
+
+%	\draw[domain=-0.25:2.5,black,thick,smooth] plot (\x,{0.6+0.4*\x+0.6*cos(4*\x r)});
+
+    \draw[domain=0:2.35, blue,very thick,smooth] plot (\x,{2-(\x-1)^2)});
+
+
+   \def \x{0.7}
+    \coordinate (A) at ({\x},{2-(\x-1)^2)});
+%    \fill (A) circle (1.5pt) node[above] {$M_0$};
+
+    \draw[myred,thick] (A)--+(1.5,{1.5*(2-2*\x)}) node[below]{$T$};
+    \draw[myred,thick] (A)--+(-1.5,{-1.5*(2-2*\x)}) ;
+
+  \draw[dashed] (A -| 0,0) node[left]{$f(x_0)$} -- (A)--({\x},0) node[below]{$x_0$};
+
+%\foreach \i in {4,3,...,1}
+%{
+%  \def\xx{\x + 1.5-0.3*\i};
+%    \coordinate (M) at ({\xx},{2-(\xx-1)^2)});
+%    \fill (M) circle (1.5pt);
+%    \draw (A)--(M)--+($\i*(M)-\i*(A)$)--(A)--+($\i*(A)-\i*(M)$);
+%    \coordinate (P) at ({\xx},0);
+%};
+%  \draw[dashed] (M)--(P) node[below]{$x$};
+%  \node[above right] at (M) {$M$};
+
+\end{tikzpicture}
+\end{center}
+
+Exemple : quelle est l'équation de la tangente au graphe de $f(x)=e^{2x}$ en $x_0=1$ ?
+On a $f'(x) = 2e^{2x}$, $f(x_0)=f(1)=e^2$, $f'(x_0)=f'(1) = 2e^2$.
+L'équation de la tangente est $y = (x-1)2e^2 + e^2$, ce qui s'écrit aussi
+$y = 2e^2x - e^2$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Opérations sur les dérivées}
+
+\begin{itemize}
+  \item \textbf{Somme.} \myboxinline{$(f+g)'=f'+g'$}
+
+  \item \textbf{Produit par un réel.} \myboxinline{$(k f)' = k f' \qquad \text{ où } k\in \Rr$} 
+
+  \item \textbf{Produit.} \myboxinline{$(f \times g)' = f'g+fg'$}
+
+  \item \textbf{Inverse.} \myboxinline{$\displaystyle\left(\frac{1}{f}\right)'=-\frac{f'}{f^2}$}
+
+  \item \textbf{Quotient.} \myboxinline{$\displaystyle \left(\frac{f}{g}\right)'=\frac{f'g-fg'}{g^2}$}
+\end{itemize}
+
+\emph{Exemple.} Calcul de la dérivée de $f(x) = xe^x + \ln(x)$.
+Il y a un produit ($xe^x$) et une somme.
+Ainsi :
+\begin{align*}
+f'(x) &= (xe^x)' + (\ln(x))' \quad \text{(somme)} \\
+      &= (x)'e^x +  x(e^x)' + \frac1x \quad \text{(produit et dérivée de ln)} \\
+      &= e^x +xe^x +\frac1x \quad \text{(dérivée de exp)} \\
+      &= (x+1)e^x + \frac1x \\
+\end{align*}
+
+
+\emph{Exemple.} Calcul de la dérivée de $f(x) = \tan(x)$.
+Par définition $\tan(x) = \frac{\sin(x)}{\cos(x)}$. Il s'agit de dériver un quotient.
+
+\begin{align*}
+\tan'(x) &= \left(\frac{\sin(x)}{\cos(x)}\right)'  \\
+      &= \frac{\cos(x)\cos(x)-\sin(x)(-\sin(x))}{(\cos(x))^2} \\
+      &= \frac{\cos^2(x) + \sin^2(x)}{\cos^2(x)} \\
+      &= \frac{1}{\cos^2(x)} \\
+\end{align*}
+On a utilisé l'égalité $\cos^2(x)+\sin^2(x) = 1$.
+En repartant de l'avant-dernière égalité on a aussi :
+$$ \tan'(x) 
+= \frac{\cos^2(x) + \sin^2(x)}{\cos^2(x)} 
+= \frac{\cos^2(x)}{\cos^2(x)}+\frac{\sin^2(x)}{\cos^2(x)}
+= 1 + \tan^2(x)$$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Formules}
+
+Les dérivées des fonctions classiques (à gauche) et les formules pour la composition (à droite, où $u$ est une fonction qui dépend de $x$).
+
+\begin{center}
+%\noindent
+\setlength{\arrayrulewidth}{0.05mm}
+%\begin{tabular}{|l|l|l|} \hline
+\begin{tabular}[t]{|c|c@{\vrule depth 1.2ex height 3ex width 0mm \ }|}
+\hline
+\textbf{Fonction}         & \textbf{Dérivée} \\ \hline
+   $x^n$         & $nx^{n-1}$  \quad ($n \in \Zz$)   \\ \hline
+   $\frac 1x$    & $-\frac{1}{x^2}$              \\ \hline
+   $\sqrt{x}$    & $\frac12 \frac1{\sqrt{x}}$   \\ \hline
+   $x^\alpha$   & $\alpha x^{\alpha-1}$  \quad ($\alpha\in\Rr$)  \\ \hline
+   $e^x$         & $e^x$                        \\ \hline
+   $\ln x$       & $\frac 1x$                   \\ \hline
+   $\cos x$      & $-\sin x$                    \\ \hline
+   $\sin x$      & $\cos x$                     \\ \hline
+   $\tan x$      & $1+\tan^2 x = \frac{1}{\cos^2 x}$        \\ \hline
+\end{tabular}
+\hspace*{2cm}
+\begin{tabular}[t]{|c|c@{\vrule depth 1.2ex height 3ex width 0mm \ }|}
+\hline
+\textbf{Fonction}         & \textbf{Dérivée} \\ \hline
+   $u^n$         & $nu'u^{n-1}$  \quad  ($n \in \Zz$)   \\ \hline
+   $\frac 1u$    & $-\frac{u'}{u^2}$              \\ \hline
+   $\sqrt{u}$    & $\frac12 \frac{u'}{\sqrt{u}}$   \\ \hline
+   $u^\alpha$   & $\alpha u' u^{\alpha-1}$ \quad ($\alpha\in\Rr$)  \\ \hline
+   $e^u$         & $u'e^u$                        \\ \hline
+   $\ln u$       & $\frac {u'}{u}$                   \\ \hline
+   $\cos u$      & $-u'\sin u$                    \\ \hline
+   $\sin u$      & $u'\cos u$                     \\ \hline
+   $\tan u$      & $u'(1+\tan^2 u) = \frac{u'}{\cos^2 u}$        \\ \hline
+\end{tabular}
+\hfill
+\end{center}
+
+\emph{Exemples.}
+\begin{itemize}
+  \item $F(x) = \ln(x^2)$ alors en posant $u=x^2$ (et donc $u'=2x$), on a 
+$F(x) = \ln(u)$ et donc $F'(x) = \frac{u'}{u} = \frac{2x}{x^2} = \frac2x$.
+
+  \item $F(x) = \exp(\frac1x)$ alors en posant $u=\frac1x$ (et donc $u'=-\frac1{x^2}$), on a $F(x) = \exp(u)$ et donc
+$F'(x) = u' \exp(u) = -\frac1{x^2}\exp(\frac1x)$ .
+
+  \item $F(x) = \sqrt{\ln(x)}$ alors en posant $u=\ln(x)$ (et donc $u'=\frac1x$), on a $F(x) = \sqrt{u}$ et donc
+$F'(x) = \frac12 \frac{u'}{\sqrt{u}} = \frac12\frac1{x}\frac{1}{\sqrt{\ln(x)}}$.
+\end{itemize}
+
+
+\end{document}

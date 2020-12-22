@@ -1,0 +1,282 @@
+\ProvidesPackage{exo7qcm}
+
+% Option de langage
+\newif\if@francais     \@francaisfalse
+\DeclareOption{francais}{\@francaistrue}
+% Options solutions cachées
+\newif\if@nosolutions     \@nosolutionsfalse
+\DeclareOption{nosolutions}{\@nosolutionstrue}
+\DeclareOption*{}%% Ne rien faire quand une option est inconnue
+\ProcessOptions
+
+\usepackage{amsfonts,amsmath,amssymb,amsthm}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{tikz}
+\usepackage{graphicx}
+
+
+% Format de la page
+\usepackage[a4paper,
+  nomarginpar,
+  margin = 2.5cm,
+  %top=0.5in,
+  %right=0.8in, left=0.8in, top=0.5in, bottom=0.7in,
+  bindingoffset=0cm,
+  headsep=21pt, heightrounded,
+%  showframe,
+]{geometry}
+
+
+
+% Police par defaut
+\usepackage[charter]{mathdesign}
+
+
+% Language: by default English
+\def\nameQuestion{Question}
+\def\nameExplanations{Explanations}
+\def\nameGood{Good}
+\def\nameBad{Bad}
+\def\nameIdontknow{I don't know.}
+\def\nameFeedback{Feedback}
+\def\nameScore{Score}
+
+\if@francais
+  \def\nameQuestion{Question}
+  \def\nameExplanations{Explications}
+  \def\nameGood{Vrai}
+  \def\nameBad{Faux}
+  \def\nameIdontknow{Je ne sais pas.}
+  \def\nameFeedback{Réaction}
+  \def\nameScore{Score}
+\fi
+
+
+%----- Ensembles : entiers, reels, complexes -----
+\newcommand{\Nn}{\mathbb{N}}
+\newcommand{\Zz}{\mathbb{Z}}
+\newcommand{\Qq}{\mathbb{Q}}
+\newcommand{\Rr}{\mathbb{R}}
+\newcommand{\Cc}{\mathbb{C}}
+\newcommand{\Kk}{\mathbb{K}}
+
+%----- Modifications de symboles -----
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\Re}{\mathop{\mathrm{Re}}\nolimits}
+\renewcommand{\Im}{\mathop{\mathrm{Im}}\nolimits}
+\renewcommand{\ge}{\geqslant} \renewcommand{\geq}{\geqslant}
+\renewcommand{\le}{\leqslant} \renewcommand{\leq}{\leqslant}
+
+
+
+
+%----- Presentation ------
+\setlength{\parindent}{0cm}
+
+
+% --- Logo Exo7
+\definecolor{myred}{rgb}{0.93,0.26,0}
+\definecolor{myorange}{rgb}{0.97,0.58,0}
+\definecolor{myyellow}{rgb}{1,0.86,0}
+
+\newcommand{\LogoExoSept}[1]{  % input : échelle
+{\usefont{U}{cmss}{bx}{n}
+\begin{tikzpicture}[scale=0.1*#1,transform shape]
+  \fill[color=myorange] (0,0)--(4,0)--(4,-4)--(0,-4)--cycle;
+  \fill[color=myred] (0,0)--(0,3)--(-3,3)--(-3,0)--cycle;
+  \fill[color=myyellow] (4,0)--(7,4)--(3,7)--(0,3)--cycle;
+  \node[scale=5] at (3.5,3.5) {Exo7};
+\end{tikzpicture}}
+}
+
+%----- Commandes supplementaires ------
+\newcommand{\Card}{\mathop{\text{Card}}}
+\newcommand{\ppcm}{\mathop{\text{ppcm}}}
+\newcommand{\val}{\mathop{\text{val}}}
+%\newcommand{\pgcd}{\mathop{\text{pgcd}}}
+
+
+
+% Packages pour qcm
+\usepackage{import}
+\usepackage{ifthen}
+\usepackage[inline]{enumitem}
+\usepackage{comment}
+
+% PPour liens externes
+\usepackage[hypertexnames=false,pdfencoding=auto]{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, urlcolor=blue}
+
+% ----------------------------------------------------------------------
+% Personnalisation pour les théorèmes,...
+
+\newtheoremstyle{qcmexo7}% name
+{5ex}% space above
+{5ex}% space below
+{}% body font
+{}% indent amount
+{\itshape\bfseries}% head font
+{}% punctuation after head
+{\newline}% space after head
+{\thmname{#1}\ \thmnumber{#2}\ \thmnote{(#3)}}% head spec
+
+%\newtheoremstyle{qcmexo7}% name
+%{3pt}% Space above
+%{3pt}% Space below
+%{\upshape}% Body font
+%{}% Indent amount
+%{\bfseries}% Theorem head font
+%{.\newline}% Punctuation after theorem head
+%{0pt}% Space after theorem head
+%{}% Theorem head spec (can be left empty, meaning ‘normal’ )
+
+
+
+
+%----- Structure des qcm ------
+\theoremstyle{qcmexo7}
+\newtheorem{ques}{\nameQuestion}
+
+
+% Fix bug itemize newline if directly after question
+% From http://tex.stackexchange.com/questions/46357
+\makeatletter
+\def\enumfix{%
+\if@inlabel
+ \noindent \par\nobreak\vskip-\parskip\vskip-\baselineskip\hrule\@height\z@
+\fi}
+
+\let\olditemize\itemize
+\def\itemize{\enumfix\olditemize}
+
+\newenvironment{question}{
+\def\myqid{}
+\def\myqnum{}
+\def\myqtype{}
+\def\myqauthor{}
+\def\myqtags{}
+\def\myqclassification{}
+\def\myqkeeporder{0}
+\def\myqoneline{0}
+\def\myqidontknow{0}
+\def\myqtolerance{0}
+\renewcommand{\labelitemi}{\large$\square$}
+\begin{ques}
+}{
+\if@nosolutions
+\ifthenelse{\equal{\myqtype}{numerical}}{
+\medskip\emph{Votre réponse :} 
+\raisebox{-8pt}{\framebox(150,25){}}
+}{}
+\fi
+\par
+\footnotesize\texttt{\hfill%
+\ifthenelse{\equal{\myqnum}{}}{}{[\#\myqnum]\quad}
+%\ifthenelse{\equal{\myqtype}{}}{}{[type: \myqtype]\quad}
+\ifthenelse{\equal{\myqauthor}{}}{}{[author: \myqauthor]\quad}
+\ifthenelse{\equal{\myqtype}{numerical}}{[tolerance: \myqtolerance]\quad}{}
+\ifthenelse{\equal{\myqclassification}{}}{}{[class: \myqclassification]\quad}
+%\ifthenelse{\equal{\myqtags}{}}{}{[tags: \myqtags]\quad}
+}
+\end{ques}
+}
+
+
+
+
+\newenvironment{answers}{
+\if@nosolutions
+\ifthenelse{\equal{\myqtype}{numerical}}{}{\begin{itemize}}
+\else
+%\ifthenelse{\equal{\myqtype}{numerical}}{}{}
+\ifthenelse{\equal{\myqoneline}{0}}{\begin{itemize}}{\begin{center}\begin{itemize*}}
+\fi
+}
+{
+\if@nosolutions
+\ifthenelse{\equal{\myqtype}{numerical}}{}{\end{itemize}}
+\else
+\ifthenelse{\equal{\myqidontknow}{0}}{}{\item \nameIdontknow}
+\ifthenelse{\equal{\myqoneline}{0}}{\end{itemize}}{\end{itemize*}\end{center}}
+\fi
+%\if@nosolutions
+%\ifthenelse{\equal{\myqtype}{numerical}}{Fin coucou}{}
+%\fi
+}   
+ 
+ 
+% Explanations (if \nosolutions not called by user) 
+\newenvironment{explanations}{\vspace*{-2ex}~\\\emph{\nameExplanations :}}{}
+\if@nosolutions
+\excludecomment{explanations}
+\fi
+
+\if@nosolutions
+\newcommand{\good}[1]{\ifthenelse{\equal{\myqtype}{numerical}}{}{\item #1}}
+\newcommand{\bad}[1]{\ifthenelse{\equal{\myqtype}{numerical}}{}{\item #1}}
+\else
+\newcommand{\good}[1]{\item~[\nameGood] #1}
+\newcommand{\bad}[1]{\item~[\nameBad] #1}
+\fi
+
+%\newcommand{\good}[1]{\ifthenelse{@nosolutions}{\item~[\nameGood] #1}{\item #1}}
+%\newcommand{\bad}[1]{\ifthenelse{@nosolutions}{\item~[\nameBad] #1}{\item #1}}
+%\newcommand{\good}[1]{\item~[\nameGood] #1}
+%\newcommand{\bad}[1]{\item~[\nameBad] #1}
+
+\if@nosolutions
+\newcommand{\feedback}[1]{}
+\else
+\newcommand{\feedback}[1]{\newline\emph{\nameFeedback: #1}}
+\fi
+
+\if@nosolutions
+\newcommand{\score}[1]{}
+\else
+\newcommand{\score}[1]{\newline\emph{\nameScore: #1}}
+\fi
+
+\newcommand{\qid}[1]{\def\myqid{#1}}
+\newcommand{\qnum}[1]{\def\myqnum{#1}}
+\newcommand{\qtype}[1]{\def\myqtype{#1}}
+\newcommand{\qauthor}[1]{\def\myqauthor{#1}}
+\newcommand{\qtags}[1]{\def\myqtags{#1}}
+\newcommand{\qclassification}[1]{\def\myqclassification{#1}}
+\newcommand{\qkeeporder}{\def\myqkeeporder{1}}
+\newcommand{\qoneline}{\def\myqoneline{1}}
+\newcommand{\qidontknow}{\def\myqidontknow{1}}
+\newcommand{\qsection}{}    % Will be filled automatically
+\newcommand{\qsubsection}{} % Idem
+\newcommand{\qtolerance}[1]{\def\myqtolerance{#1}}
+%\newcommand{\qtitle}[1]{\def\myqtitle{#1}}
+
+%\newcommand{\qimage}[2][]{\ifthenelse{\equal{#2}{}}{\includegraphics{#2}}{\includegraphics[#1]{#2}}}
+\newcommand{\qimage}[2][]{\includegraphics[#1]{#2}}
+
+% Title and author of a list of questions
+\newcommand{\qcmtitle}[1]{
+\vspace*{0.5ex}
+\hrule\vspace*{1.5ex} 
+\hfil{\textbf{\Large #1}}
+\vspace*{1ex} \hrule 
+\vspace*{5ex}
+}
+\newcommand{\qcmauthor}[1]{
+\vspace*{0ex}
+\hrule\vspace*{1.5ex} 
+\hfil{\textbf{\large #1}}
+\vspace*{1ex} \hrule 
+\vspace*{5ex}
+}
+
+
+% Link to external sources for the whole questions
+\newcommand{\thelink}[1]{\def\mylink{#1}}
+\newcommand{\qcmlink}[3][link]{\thelink{#2}
+\ifthenelse{\equal{#1}{link}}{\small\texttt{\href{\mylink}{#3}}}{}
+\ifthenelse{\equal{#1}{video}}{\small\texttt{\href{\mylink}{Vidéo {\footnotesize$\blacksquare$} #3}}}{}
+\ifthenelse{\equal{#1}{cours}}{\small\texttt{\href{\mylink}{Cours {\Large\raisebox{-0.1ex}{$\bullet$}} #3}}}{}
+\ifthenelse{\equal{#1}{exercices}}{\small\texttt{\href{\mylink}{Fiche d'exercices $\blacklozenge$ #3}}}{}
+}

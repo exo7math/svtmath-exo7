@@ -1,0 +1,17 @@
+\begin{tikzpicture}[xmin=-3.5,xmax=9.5,ymin=-5,ymax=5, scale=0.5]
+    \grille[opacity=.21] \fenetre \axes
+
+    \begin{scope}[domain=-2*pi/3:8*pi/3, line width=0.5mm, blue, line cap=round]
+        \draw plot ({\x},{3+cos(90*\x/pi)}) ;
+    \end{scope}
+    \begin{scope}[domain=-2*pi/3:8*pi/3]
+        \draw[label={[above]{$f(s)$}}] plot ({\x},{-3-cos(90*\x/pi)}) ;
+    \end{scope}
+    \draw (8*pi/3,0) circle[x radius=0.5, y radius=2.5];
+    \draw (-2*pi/3,0) circle[x radius=0.7, y radius=3.5];
+    \draw[fill=black!0.3, opacity=0.5] (2*pi/3,0) circle[x radius=0.7, y radius=3.5];
+    \draw[thick] (2*pi/3,0) -- (3,0);
+    \draw[fill=gray](2*pi/3,0) node[point]{} node[below]{$x$} -- (2*pi/3,3.5) node[point]{} node[above right, scale=0.84]{$f\left( x\right)$};
+    \draw[fill=gray](-2*pi/3,0) node[point]{} node[below]{$a$};
+    \draw[fill=gray](8*pi/3,0) node[point]{} node[below]{$b$};
+\end{tikzpicture}

@@ -1,0 +1,15 @@
+\begin{tikzpicture}
+    \draw[thick, red] (0,0) circle[radius=2];
+    \foreach \r in {0.4,0.8,1.2,1.6}
+    {
+        \draw[very thin, red] (0,0) circle[radius=\r];
+    }
+    \fill[red, opacity=.1, even odd rule] (0,0) circle[radius=1.2] circle[radius=1.6];
+
+    \draw[thick, ->, blue] (0:0) -- (45:1.2) node[black, pos=.7, above=-3, sloped]{$r_{i}$};
+    \draw[thick, ->, blue] (0:0) -- (15:1.6) node[black, pos=.7, below=-3, sloped]{$r_{i+1}$};
+    \draw[thick, blue] (0:0) -- (135:2);
+    \draw[decorate,decoration={brace, raise=1.4}] (0:0) -- (135:2) node[pos=.5, below=1.4, sloped]{$R$};
+\end{tikzpicture}
+
+

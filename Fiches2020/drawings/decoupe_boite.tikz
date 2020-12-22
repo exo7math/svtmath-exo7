@@ -1,0 +1,19 @@
+\begin{tikzpicture}[x=1mm, y=1mm, inner xsep=0pt, inner ysep=0pt, outer xsep=0pt, outer ysep=0pt]
+    \clip (-2,-7) rectangle (47,34);
+    % la feuille
+    \draw (0,0) rectangle +(42,32);
+    % les découpes
+    \begin{scope} [blue!7, draw=black]
+        \filldraw (0,0) rectangle +(10,10);
+        \filldraw (0,32) rectangle +(10,-10);
+        \filldraw (42,0) rectangle +(-10,10);
+        \filldraw (42,32) rectangle +(-10,-10);
+    \end{scope}
+    %les mesures
+    \begin{scope}[red, latex-latex]
+        \draw (0,-1.5) -- (42,-1.5) node[pos=0.5, below=1mm] {$42$ cm};
+        \draw (43.5,0) -- (43.5,32) node[sloped, pos=0.5, below=1mm] {$32$ cm};
+        \draw (0,21) -- (10,21) node[pos=0.5, below=1mm] {$x$};
+        \draw (11,22) -- (11,32) node[sloped, pos=0.5, below=1mm] {$x$};
+    \end{scope}
+\end{tikzpicture}

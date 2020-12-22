@@ -1,0 +1,384 @@
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\section{PRIMITIVES et INTÉGRALES}
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+% =================================================
+\subsection{Échauffement}
+% =================================================
+
+
+% -------------------------------------------------
+%\begin{exo} Calculer les intégrales suivantes~:
+%    \begin{examplescol}{3}
+%        \item $\int \limits _{0} ^{1} xdx$
+%        \item $\int \limits _{-1} ^{2} 2y^{3} dy$
+%        \item $\int \limits _{0} ^{\pi} \sin(\theta) d\theta$
+%        \item $\int \limits _{0} ^{1} e^{x}dx$
+%        \item $\int \limits _{1} ^{2} \frac{1}{t} dt$
+%        \item $\int \limits _{1} ^{2} r^{-3,2} dr$
+%    \end{examplescol}
+%\end{exo}
+
+% -------------------------------------------------
+\begin{exo} Calculer les intégrales suivantes~:
+    \begin{examplescol}{3}
+        \item $\int \limits _{2} ^{4} (x-2)^{5}\,dx$
+        \item $\int \limits _{0} ^{1} \sqrt{3y+1}\, dy$
+        \item $\int \limits _{0} ^{\frac{\pi}{4}} 5\sin(2\theta) \,d\theta$
+        \item $\int \limits _{0} ^{1} e^{3x}dx$
+        \item $\int \limits _{0} ^{1} \frac{1}{(2t+1)^{3}} dt$
+        \item $\int \limits _{0} ^{\frac{\pi}{12}} \tan^{2}(3\theta)\, d\theta$
+    \end{examplescol}
+\end{exo}
+
+% -------------------------------------------------
+\begin{exo} Calculer les intégrales suivantes~:
+    \begin{examplescol}{3}
+        \item $\int \limits _{0} ^{1} xe^{x^{2}}dx$
+        \item $\int \limits _{0} ^{\frac{\pi}{2}} \sqrt{3\cos(y)}\sin{y} \,dy$
+        \item $\int \limits _{0} ^{\frac{\pi}{4}} \tan(\theta) \,d\theta$
+        \item $\int \limits _{1} ^{5} \frac{e^{\sqrt{x}}}{2\sqrt{x}}dx$
+        \item $\int \limits _{0} ^{1} x\frac{2x^{2}+1}{1+x^{2}+x^{4}} dx$
+        \item $\int \limits _{0} ^{1}  \frac{\sin(\ln(1+\theta^{2}))}{1+\theta^{2}}\, \theta\, d\theta$
+    \end{examplescol}
+\end{exo}
+
+% -------------------------------------------------
+
+\begin{exo} Calculer les intégrales suivantes~:
+    \begin{examplescol}{3}
+		\item $\int \limits _{0} ^{1} xe^{x}\,dx$ 
+		\item $\int \limits _{0} ^{1} y^{2}e^{2y} \,dy$
+		\item $\int \limits _{1} ^{2} \ln(t) \,dt$  
+		\item $\int \limits _{0} ^{\pi} \theta \cos(\theta) \,d\theta$
+		\item $\int \limits _{0} ^{1} (x^{3}+x)e^{x^{2}+1} \,dx$
+		\item $\int \limits _{0} ^{\frac{\pi}{4}}  \sin(\theta)\ln(\cos(\theta)) \, d\theta$
+    \end{examplescol}
+\end{exo}
+
+% -------------------------------------------------
+\begin{exo}\
+    \begin{enumerate}
+        \item Déterminer $A$ et $B$ tels que $\frac{1}{x^{2}-1} = \frac{A}{x-1}+\frac{B}{x+1}$, puis calculer $\int \limits _{2} ^{4} \frac{1}{x^{2}-1} dx$.
+        \item Déterminer $A, B$ tels que $\frac{x}{2x^{2}+9x+9} = \frac{A}{x+3}+\frac{B}{2x+3}$, puis calculer $\int \limits _{0} ^{1} \frac{x}{2x^{2}+9x+9}dx$.
+        \item Déterminer $A, B, C$ tels que $\frac{x-2}{(x^{2}+1)(2x+1)} = \frac{Ax+B}{x^{2}+1}+\frac{C}{2x+1}$, puis calculer
+        $\int \limits _{0} ^{1} \frac{x-2}{(x^{2}+1)(2x+1)}  dx$.
+    \end{enumerate}
+\end{exo}
+
+
+% =================================================
+\subsection{Calcul de débit}
+% =================================================
+
+
+% -------------------------------------------------
+\begin{exo}
+    La respiration est cyclique et un cycle respiratoire complet du début de l'inspiration à la fin de l'expiration dure environ 5 secondes. Le débit maximal du flux d'air entrant dans les poumons est d'environ {0,5~l/s}. Ceci explique en partie pourquoi on modélise souvent le débit d'air $f(t)$ (en l/s) dans les poumons par la fonction de $t$ (en s)~:
+    \begin{equation}
+        f(t) = \frac 1 2 \sin(\frac {2\pi t} 5).
+    \end{equation}
+    \begin{enumerate}
+        \item Esquisser la courbe de $f$ et indiquer où se situent les parties d'inspiration et d'expiration.
+        \item Utiliser ce modèle pour trouver le volume (en l) d'air dans les poumons après une phase complète d'inspiration.
+        \item Quelle quantité d'air a été inspirée en une minute ?
+    \end{enumerate}
+\end{exo}
+
+% -------------------------------------------------
+\begin{exo}
+    Lors d'un prélèvement sanguin le débit du sang, mesuré en {ml/h}, varie en fonction du temps $t$, en heures, selon la formule:
+    $$
+        D(t) = \frac{K}{(t+1)(t+2)}.
+    $$
+    \begin{enumerate}
+        \item Déterminer deux constantes $A$ et $B$ telles que $\frac{1}{(t+1)(t+2)}=\frac{A}{t+1} + \frac{B}{t+2}$.
+        \item En sachant que pour un prélèvement qui dure $a$ heures la volume prélevé  est
+            $$
+                V(a)=\int_0^a D(t)\,\mathrm{d}t\,.
+            $$
+        Montrer que $V(a) = K\ln\left(\frac{2a+2}{a+2}\right)$.
+        \item On estime que le volume sanguin du corps humain est en moyenne de 70~{ml/kg}. En considèrant que pour un temps très long on peut prélever la totalité du sang, déterminer la constante $K$ pour un homme de 80~{kg}.
+        \item Quelle est la quantité de sang prélevé en 10 minutes pour un individu de ce poids ?
+    \end{enumerate}
+\end{exo}
+
+% -------------------------------------------------
+\begin{exo}
+    Pour étudier le flux dans un vaisseau sanguin, on peut modéliser le vaisseau par un tube cylindrique de rayon $R$ et de longueur $l$.
+
+    On désigne par $v(r)$ la vitesse du sang (en cm/s) en un point à distance $r$ de l'axe central. On admet que le débit sanguin total $F$ est donné par l'intégrale
+        \begin{equation}
+          F = \int_0^R 2 \pi r v(r) dr. \label{debit-sang}
+        \end{equation}
+
+    \begin{enumerate}
+        \item Calculer $F$ lorsque l'on suppose $v(r) \equiv v$ constante sur $[0,R]$. Expliquer pourquoi le débit trouvé est le produit de la vitesse $v$ multipliée par la section du vaisseau sanguin.
+    \end{enumerate}
+
+    \image{r}{4.5cm}{-14mm}{3mm}{drawings/vaisseau_sanguin1.tikz}
+    A cause du frottement contre les parois du tube, la vitesse du sang est maximale au centre du vaisseau et est nulle au niveau des parois. La vitesse en un point à distance $r$ de l'axe central est donnée (en {cm/s}) par
+    \begin{equation}
+        v(r)=\frac {P} {4 \eta l} (R^2-r^2) \label{vitesse-sang}
+    \end{equation}
+    où $P$ est la différence de pression entre les deux extrémités du tube et $\eta$ la viscosité du sang.
+
+    \setcounter{enumi}{1}
+    \begin{enumerate}
+        \item Calculer le débit à partir de (\ref{debit-sang}) en utilisant l'expression (\ref{vitesse-sang}) de $v(r)$. Cette expression de $F$ est appelée la loi de Poiseuille.
+        \item L'hypertension est due au rétrécissement des artères. Pour maintenir le même débit, le coeur doit pomper plus fort, ce qui augmente la pression sanguine. Utiliser la loi de Poiseuille pour montrer que si $R_0$ et $P_0$ sont les valeurs normales du rayon et de la pression, $R$ et $P$ les valeurs lors de l'hypertension, alors conserver le même débit sanguin impliquera la relation
+        \begin{equation}
+            \frac P {P_0} = (\frac {R_0} R) ^4.
+        \end{equation}
+        En déduire que si le rayon de l'artère est réduit aux trois quarts de sa valeur normale, la pression sanguine a plus que triplé.
+    \end{enumerate}
+\end{exo}
+
+
+% =================================================
+\subsection{Longueur, aire, volume}
+% =================================================
+
+
+% -------------------------------------------------
+\begin{exo}
+
+    \image{r}{7cm}{-14mm}{0mm}{drawings/volume.tikz}
+    On cherche à calculer le volume d'un objet dont la forme est obtenue par rotation d'une courbe d'équation $y=f(x)$ (pour $x \in [a,b]$, $f$ une fonction continue)
+    autour de l'axe des $x$. On admet que le volume de l'objet est donné par l'intégrale
+    \begin{equation}
+        V=\int_{a}^{b} \pi f(x)^{2}dx. \label{vol}
+    \end{equation}
+    \vspace{-3mm}
+
+    \begin{enumerate}
+        \item Soit $f$ une fonction constante (pour tout $x\in[a;b]$, $f(x)=c>0$). Quelle est la forme de l'objet obtenu? La formule (\ref{vol}) donne-t-elle le résultat attendu?
+        \item Calculer le volume de l'objet défini par rotation autour de l'axe $x$ de la courbe représentant $f(x)= kx$ ($k\not= 0$) pour $x$ entre $0$ et $b>0$. Retrouver ainsi le volume d'un cône de rayon $r$ et de hauteur $h$.
+        \item Calculer le volume de l'objet défini par rotation autour de l'axe $x$ de la courbe représentant $f(x)= \cos (x)$ entre $- \frac \pi 2$ et $\frac \pi 2$ (\textit{indication : $\cos^{2}(x)=\frac{1+\cos(2x)}{2}$}).
+        \item Calculer le volume de l'objet défini par rotation autour de l'axe $x$ de la courbe représentant $f(x)=e^{-x}$ pour $x\ge0$.
+    \end{enumerate}
+\end{exo}
+
+% -------------------------------------------------
+\begin{exo}
+    On considère un ballon de longueur {3}~{dm} (décimètres), de rayon équatorial $a>0$.
+
+    \image{r}{5cm}{-4mm}{0mm}{drawings/ballon_rugby.tikz}
+    Lorsque $a=\frac{3}{2}$, le ballon est une sphère.\newline
+    Lorsque $a < \frac{3}{2}$, cela signifie que l'on a comprimé le ballon orthogonalement à l'axe des abscisses $(Ox)$ pour obtenir un ballon ellipsoïdal.
+
+    \begin{enumerate}
+        \item On obtient un tel balon par rotation autour de l'axe $Ox$ de la fonction
+        $$
+            r(x)=a\sqrt{1-\frac{4x^2}{9}}.
+        $$
+        \begin{enumerate}
+            \item Déterminer le domaine de définition de la fonction $r$.
+            \item Établir le tableau de variations de la fonction $r$ sur son domaine de définition. Préciser les valeurs de $r(-\frac{3}{2})$, $r(0)$ et $r(\frac{3}{2})$.
+            \item Donner l'aire d'un disque de rayon $r(x)$ en fonction de $a$ et $x$.
+        \end{enumerate}
+        \item On cherche à calculer maintenant le volume du ballon.\\
+        On rappelle que le volume du ballon est donné par l'intégrale
+            $$
+              V = \int_{-3/2}^{3/2} \pi r(x)^{2} \mathrm{d}x
+            $$
+        \begin{enumerate}
+            \item Calculer $V$ en fonction du paramètre $a$.
+            \item En déduire en particulier que le volume d'un ballon sphérique de rayon $\frac{3}{2}$\,{dm} vaut $\frac{9\pi}{2}$\,{dm$^3$}.
+        \end{enumerate}
+    \end{enumerate}
+\end{exo}
+
+% -------------------------------------------------
+\begin{exo}
+    On remplit d'eau un bol hémisphérique, de rayon $r$ (en {cm}).
+    \begin{center}
+        \input{drawings/bolhemispherique1.tikz}
+    \end{center}
+    Un tel bol est obtenu par rotation autour de l'axe x de la courbe représentant $f(x)=\sqrt{r^{2}-(x-r)^{2}}$ pour $x \in [0,r]$.
+    \begin{enumerate}
+        \item Montrer que, s'il est rempli jusqu'à une hauteur $h$ (en {cm}), le bol contient (en {cm$^{3}$})
+        $$
+            V(h)= \frac{1}{3}\pi h^{2}(3r-h).
+        $$
+        \item En déduire le volume d'eau que peut contenir le bol.
+        \item Écrire l'équation déterminant à quelle hauteur le bol sera à moitié plein.
+        \item Le bol fait 5 centimètres de rayon et l'eau coule à un débit de {20}~{cm$^3$/s}.
+
+        \noindent
+        \begin{minipage}{9.5cm}
+            \begin{enumerate}
+                \item Combien de temps faudra-t-il pour que la hauteur de l'eau passe de 2 centimètres à 4 centimètres ?
+                \item Soit $h(t)$ la hauteur (en {cm}) au temps $t$ (en {s}). Montrer que
+                $$
+                    h'(t)(10\pi h(t)-\pi h^{2}(t)) = 20.
+                $$
+                \item A quelle vitesse le niveau de l'eau monte-t-il s'il y a déjà 2 centimètres d'eau au fond ?
+            \end{enumerate}
+        \end{minipage}
+        \begin{minipage}{7cm}
+            \vspace{2mm}\hfill
+            \input{drawings/bolhemispherique2.tikz}
+        \end{minipage}
+    \end{enumerate}
+\end{exo}
+
+% -------------------------------------------------
+\begin{exo}
+    Soit $f$ une fonction continue sur le segment $[a,b]$.
+    \begin{enumerate}
+        \item On admet que la longueur de la courbe d'équation $y=f(x)$ pour $x \in [a,b]$ est donnée par l'intégrale
+        \begin{equation}
+            L=\int_{a}^{b} \sqrt{1+f'(x)^{2}}\,dx. \label{long}
+        \end{equation}
+        \begin{enumerate}
+            \item Soit $f$ une fonction constante: pour $x\in[a,b]$, $f(x)=c$. La formule (\ref{long}) donne-t-elle le résultat attendu?
+            \item Soit $f$ une fonction affine: pour $x\in[a,b]$, $f(x)=kx+c$. Tracer le graphe de $f$. La formule (\ref{long}) donne-t-elle le résultat attendu?
+            \item Calculer la longueur de la courbe d'équation $y=x^{\frac{3}{2}}$ pour $x \in [0,1]$.
+        \end{enumerate}
+        \item  Soit $f$ une fonction positive. On fait tourner la courbe d'équation $y=f(x)$ entre $x=a$ et $x=b$ autour de l'axe des $x$. On admet que l'aire de la surface ainsi obtenue est donnée par l'intégrale
+        \begin{equation}
+            A=\int_a ^b 2\pi f(x) \sqrt {(1+f'(x) ^2)}\,dx. \label{surf}
+        \end{equation}
+        \begin{enumerate}
+            \item Soit $f$ une fonction constante. Quelle est la forme de l'objet obtenu? La formule (\ref{surf}) donne-t-elle le résultat attendu?
+            \item Mêmes questions pour $f(x)= kx$ ($k > 0$) pour $x$ entre $0$ et $1$.
+            \item Retrouver la formule de l'aire d'une sphère de rayon R.
+        \end{enumerate}
+    \end{enumerate}
+\end{exo}
+
+% -------------------------------------------------
+\begin{exo}
+    % Introduction
+    % ------------
+    On considère le graphe $\mathcal{C}$ d'une fonction $y : [0,2] \rightarrow \mathbb{R}$ vérifiant
+
+    \begin{minipage}{10cm}
+        \begin{equation}
+            y(0)=y(2)=e^{-1/2}+e^{1/2}. \label{contr_bord}
+        \end{equation}
+        Soit
+        \begin{equation}
+            \mathcal{A}(y) = 2\pi\int_{0}^{2} y(t) \sqrt{1 + (y'(t))^2}\,dt \label{A}
+        \end{equation}
+        l'aire de la surface de révolution $\mathcal{S}$ engendrée par $\mathcal{C}$ par rotation autour de l'axe des abscisses $x$.
+        La théorie du calcul variationnel (équations d'Euler Lagrange) montre que lorsque cette aire est minimale, alors il existe un nombre réel $\alpha$ tel que pour tout $x \in [0,2]$
+    \end{minipage}
+    \begin{minipage}{7cm}
+        \hfill
+        \input{drawings/eulerlagrange.tikz}
+    \end{minipage}
+    \begin{equation}
+        y(x)\sqrt{1+(y'(x))^2} - \frac{(y'(x))^2y(x)}{\sqrt{1+(y'(x))^2}} = \alpha . \label{EulerLagrange}
+    \end{equation}
+
+    % Questions
+    % ---------
+    \begin{enumerate}
+        \item Montrer que l'équation (\ref{EulerLagrange}) implique que la fonction $y$ satisfait l'équation différentielle
+        \begin{equation}
+                y^{2}(x) = \alpha^{2}(1+(y'(x))^{2})
+                    \qquad \text{ pour } x \in [0,2]. \label{eq_diff_EL}
+        \end{equation}
+        \item Résoudre (\ref{eq_diff_EL}) lorsque $\alpha=0$.
+    \end{enumerate}
+    \begin{center}
+        \textit{On suppose désormais $\alpha \neq 0$.}
+    \end{center}
+    \begin{enumerate}\setcounter{enumi}{2}
+        \item Vérifier que pour tout $\beta \in \mathbb{R}$, la fonction
+            \begin{equation}
+                y(x) = \alpha \frac{e^{\frac{x-\beta}{\alpha}} + e^{-\frac{x-\beta}{\alpha}}}{2} \label{sol_general}
+            \end{equation}
+        est solution de (\ref{eq_diff_EL}) pour tout $x \in \mathbb{R}$.
+        \item Déterminer $\alpha$ et $\beta$ de sorte que la fonction $y(x)$ donnée par (\ref{sol_general}) satisfasse les contraintes (\ref{contr_bord}) puis donner le tableau de variation de la fonction $y$. Montrer en particulier que la fonction $y$ admet un unique minimum sur $[0,2]$ que l'on précisera.
+        \item Soit $y(x)$ la fonction définie par (\ref{sol_general}) avec $\alpha$ et $\beta$ précédament détérminés. Calculer la surface $\mathcal{A}(y)$.
+    \end{enumerate}
+\end{exo}
+
+% -------------------------------------------------
+\begin{exo}
+
+    \image{r}{5.5cm}{-14mm}{-14mm}{drawings/iceberg.tikz}
+
+    Le principe d'Archimède dit que la force s'exerçant sur un objet partiellement ou totalement immergé dans un liquide est égale au poids du liquide que l'objet déplace.
+
+    Soit un objet de densité $\rho_0$ et de hauteur totale ${H}$ partiellement immergé à une profondeur ${p}$ sous la surface d'un liquide de densité $\rho_l$. On considère l'origine $y=0$ de l'axe verticale placé au point le plus bas de l'objet.
+
+    \begin{enumerate}
+        \item On admet que le volume de l'objet situé sous une hauteur $h \in [0,H]$ est donné par la formule $\int_{0}^{h} A(y) dy$, où $A(y)$ est la surface de la section horizontale de l'objet à la hauteur $y$.
+        Cela est-il justifié, si l'objet est, par exemple, un cube, ou un cylindre vertical?
+        \item Justifier que la force de la gravité exercé sur l'objet est $F= \rho_0 g \int_{0}^{H} A(y) dy$, où $g$ est l'accélération due à la gravité.
+        \item Que représente $P= \rho_l g \int_{0}^{p} A(y) dy$ et pourquoi $P=F$ pour un objet en équilibre ?
+        \item Montrer que le pourcentage de l'objet (en volume) au-dessus de la surface du liquide est donné par
+        $$
+            100\frac {\rho_l-\rho_0} {\rho_l}.
+        $$
+        \item La densité de la glace est {917}~{kg/m$^3$} et la densité de l'eau de mer est {1030}~{kg/m$^3$}. Quel pourcentage d'un iceberg se situe au-dessus de la surface de l'eau ?
+        \item Un cube de glace flotte dans un verre d'eau rempli à ras bord. L'eau débordera-t-elle lorsque le cube de glace aura fondu ?
+    \end{enumerate}
+\end{exo}
+
+% =================================================
+\subsection{Résolution d'équations\\ différentielles  au moyen des primitives}
+% =================================================
+
+
+
+% -------------------------------------------------
+\begin{exo}
+Reprenons le problème déjà rencontré dans la première partie :
+ \begin{eqnarray}
+            x'(t) & = & (\alpha - 2t -1)x(t) \label{ncdiffx} \\
+            x(0)  & = & x_0 > 0 \label{cix}
+        \end{eqnarray}
+
+\begin{enumerate}
+\item Quelle est la primitive (à constante près) de $\frac{x'(t)}{x(t)}$ et celle de $\alpha -2t -1$ ? Déduire que si $x(t)$ est solution de l'équation différentielle,
+on a $\ln| x| = \alpha t - t^2 -t + C$.
+\item Déterminer la constante $C$ en fonction de la valeur initiale $x_0$.
+\item Extraire la valeur de $x$ comme fonction de $t$.
+
+\end{enumerate}
+\end{exo}
+% -------------------------------------------------
+\begin{exo}
+Reprenons le problème déjà rencontré dans la première partie :
+ \begin{eqnarray}
+            y'(t) & = & - K \, y(t) \, (1-y(t)) \\
+            y(0)  & = & y_0  \text{ avec } 0 < y_0 < 1 \label{cix}
+        \end{eqnarray}
+
+\begin{enumerate}
+\item Calculer la primitive (à constante près) de $$\frac{y'(t)}{y(t)(1-y(t)}.$$ 
+ Déduire que si $y(t)$ est solution  de l'équation différentielle,
+on a $$\ln |\frac{y}{1-y}| = -Kt + C.$$
+\item Déterminer la constante $C$ en fonction de la valeur initiale $y_0$.
+\item Extraire la valeur de $y$ comme fonction de $t$.
+\end{enumerate}
+\end{exo}
+
+% -------------------------------------------------
+\begin{exo}
+
+Considéronss le problème  :
+ \begin{eqnarray}
+          \frac{  y'(t)}{y(t)+1} & = &\frac{t}{t^2+1} \\
+            y(0)  & = &  0 \label{cix}
+        \end{eqnarray}
+
+\begin{enumerate}
+\item Calculer la primitive (à constante près) de $$\frac{y'(t)}{y(t)+1}\quad \text{et de}\quad \frac {t}{t^2+1}.$$
+ Déduire que si $y(t)$ est solution  de l'équation différentielle,
+on a $\ln |y+1| = \frac12 \ln(t^2+1) + C$.
+\item Déterminer la constante $C$ pour que $y(0) = 0$.
+\item Extraire la valeur de $y$ comme fonction de $t$.
+\end{enumerate}
+\end{exo}
+% -------------------------------------------------
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\finpoly

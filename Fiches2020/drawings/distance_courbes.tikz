@@ -1,0 +1,29 @@
+\begin{tikzpicture} [xmin=-4,xmax=4,ymin=-5,ymax=3, scale=0.59]
+    \grille \fenetre \axes
+
+    % les deux courbes
+    \begin{scope}[line width=0.5mm, blue, label/.style={
+        postaction={ decorate,transform shape,
+        decoration={ markings, mark=at position 0.80 with \node #1;}}}]
+        \begin{scope}[domain=-4:1, samples=70]
+            \draw[label={[above]{$f(s)$}}] plot ({\x},{-(\x*\x+3*\x+3)}) ;
+        \end{scope}
+        \begin{scope}[domain=-1:4, samples=70]
+            \draw[label={[below]{$g(t)$}}] plot ({\x},{2-\x});
+        \end{scope}
+    \end{scope}
+    % la distance minimale
+    \begin{scope}[line width=0.21mm, red]
+        \draw (-1,-1) -- (1,1);
+    \end{scope}
+    % points
+    \begin{scope}[every path/.style = {draw=black, fill=gray}]
+        \path (0,0) \point node[below right, scale=0.7] {$0$};
+        \draw[dashed] (-1,0) -- (-1,-1);
+        \path (-1,0) \point node[above left, scale=0.7] {$-1$};
+        \path (-1,-1) \point;
+        \draw[dashed] (1,0) -- (1,1);
+        \path (1,0) \point node[below right, scale=0.7] {$1$};
+        \path (1,1) \point;
+    \end{scope}
+\end{tikzpicture}

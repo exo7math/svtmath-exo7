@@ -1,0 +1,44 @@
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+\begin{tikzpicture} [xmin=-1.9,xmax=2.1,ymin=-1.2,ymax=1.7]
+    \fenetre \axes[color=black!70]
+
+    % l'interieur du balon
+    \fill[blue!20, fill opacity=.49] (0,0) circle[x radius=1.5, y radius=1];
+    % les parallelles
+    \foreach \t/\fc/\dc/\w/\l in {-1/blue!28/gray/ultra thin/background, 1/white/blue/thick/foreground}
+    {
+        \begin{pgfonlayer}{\l}
+        \foreach \s in {1,-1}
+        {
+            \begin{scope}[xscale=\s]
+                \filldraw[\w, fill=\fc, draw=\dc, fill opacity=.7]
+                    (1,0.7453) arc[x radius=0.7453/4, y radius=0.7453, start angle=90, delta angle=\t*\s*180] --
+                    (.8,-0.8459) arc[x radius=0.8459/4, y radius=0.8459, start angle=-90, delta angle=-\t*\s*180] -- cycle;
+            \end{scope}
+        }
+        \end{pgfonlayer}
+    }
+    \begin{pgfonlayer}{foreground}
+        % les coutures
+        \filldraw[draw=blue, thin, fill=white, fill opacity=.7] (-.21, -.21) circle[x radius=.5, y radius=.2];
+        \foreach \x in {-.3, -.15, ..., .31}
+        {
+            \draw[blue] (\x-.21,-0.31) -- +(0,.2);
+        }
+        % le bord du balon
+        \draw[draw=blue, thick] (0,0) circle[x radius=1.5, y radius=1];
+        % l'équatore devant
+        \draw[draw=blue, thick] (-1.5, 0) arc[x radius=1.5, y radius=0.21, start angle=-180, end angle=0];
+    \end{pgfonlayer}
+    \begin{pgfonlayer}{background}
+        % l'équatore derrière
+        \draw[ultra thin, black] (-1.5, 0) arc[x radius=1.5, y radius=0.21, start angle=180, end angle=0];
+    \end{pgfonlayer}
+
+    \path (1.9,0) node[below]{$x$};
+    \path (1.5,0) node[blue, point]{} node[shift={(.14,.28)}]{$\frac{3}{2}$};
+    \path (0,1) node[blue, point]{} node[shift={(.21,.21)}]{$a$};
+\end{tikzpicture}
+

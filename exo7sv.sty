@@ -1,0 +1,199 @@
+\ProvidesPackage{exo7sv}
+
+% Options solutions cachées
+\newif\if@nosolutions     \@nosolutionsfalse
+\DeclareOption{nosolutions}{\@nosolutionstrue}
+\DeclareOption*{}%% Ne rien faire quand une option est inconnue
+\ProcessOptions
+
+\usepackage[subpreambles=false]{standalone}
+\usepackage{amsfonts,amsmath,amssymb,amsthm}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{graphicx}
+\usepackage{tabvar}
+\usepackage{import}
+
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{svg.path}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{decorations.markings}
+\tikzset{
+	xmin/.store in=\xmin, xmin/.default=-3, xmin=-3,
+	xmax/.store in=\xmax, xmax/.default=3, xmax=3,
+	ymin/.store in=\ymin, ymin/.default=-3, ymin=-3,
+	ymax/.store in=\ymax, ymax/.default=3, ymax=3,
+}
+
+% Format de la page
+\usepackage[a4paper,margin = 2cm]{geometry}
+
+% Police par defaut
+\usepackage[charter]{mathdesign}
+
+%\frenchbsetup{StandardLists=true} % à inclure si on utilise \usepackage[french]{babel}
+\usepackage{enumitem}
+% les questions
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\renewcommand{\theenumii}{\roman{enumii}}
+\renewcommand{\labelenumii}{(\theenumii)}
+
+
+%----- Ensembles : entiers, reels, complexes -----
+\newcommand{\Nn}{\mathbb{N}}
+\newcommand{\Zz}{\mathbb{Z}}
+\newcommand{\Qq}{\mathbb{Q}}
+\newcommand{\Rr}{\mathbb{R}}
+\newcommand{\Cc}{\mathbb{C}}
+\newcommand{\Kk}{\mathbb{K}}
+
+%----- Modifications de symboles -----
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\Re}{\mathop{\mathrm{Re}}\nolimits}
+\renewcommand{\Im}{\mathop{\mathrm{Im}}\nolimits}
+\renewcommand{\ge}{\geqslant} \renewcommand{\geq}{\geqslant}
+\renewcommand{\le}{\leqslant} \renewcommand{\leq}{\leqslant}
+\newcommand{\dd}{\mathrm{d}}
+\DeclareMathOperator{\ii}{i}
+
+%----- Presentation ------
+\setlength{\parindent}{0cm}
+
+
+% --- Logo Exo7
+\definecolor{myred}{rgb}{0.93,0.26,0}
+\definecolor{myorange}{rgb}{0.97,0.58,0}
+\definecolor{myyellow}{rgb}{1,0.86,0}
+
+\newcommand{\LogoExoSept}[1]{  % input : échelle
+{\usefont{U}{cmss}{bx}{n}
+\begin{tikzpicture}[scale=0.1*#1,transform shape]
+  \fill[color=myorange] (0,0)--(4,0)--(4,-4)--(0,-4)--cycle;
+  \fill[color=myred] (0,0)--(0,3)--(-3,3)--(-3,0)--cycle;
+  \fill[color=myyellow] (4,0)--(7,4)--(3,7)--(0,3)--cycle;
+  \node[scale=5] at (3.5,3.5) {Exo7};
+\end{tikzpicture}}
+}
+
+% Packages pour qcm
+%\usepackage{import}
+%\usepackage{ifthen}
+%\usepackage{comment}
+
+% PPour liens externes
+\usepackage[hypertexnames=false,pdfencoding=auto]{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, urlcolor=blue}
+
+% ----------------------------------------------------------------------
+% Personnalisation pour les théorèmes,...
+
+\newtheoremstyle{thmexo7}% name
+{5ex}% space above
+{5ex}% space below
+{}% body font
+{}% indent amount
+{\bfseries}% head font
+{}% punctuation after head
+{\newline}% space after head
+%{\thmname{#1}\ \thmnumber{#2}\ \thmnote{(#3)}}% head spec
+{%
+  %\rule{\textwidth}{0.4pt}\\*%
+  \thmname{#1}~\thmnumber{#2}\thmnote{\ -\ #3}.\\*[-1.5ex]%
+  \rule{6cm}{0.4pt}}
+
+%\newtheoremstyle{qcmexo7}% name
+%{3pt}% Space above
+%{3pt}% Space below
+%{\upshape}% Body font
+%{}% Indent amount
+%{\bfseries}% Theorem head font
+%{.\newline}% Punctuation after theorem head
+%{0pt}% Space after theorem head
+%{}% Theorem head spec (can be left empty, meaning ‘normal’ )
+
+
+%----- Structure des exercices ------
+\theoremstyle{thmexo7}
+\newtheorem{exo}{Exercice}
+\newtheorem{ind}{Indications}
+\newtheorem{cor}{Correction}
+
+\newcommand{\exercice}[1]{\setcounter{equation}{0}} \newcommand{\finexercice}{}
+%\newcommand{\exercice}[1]{{\tiny\texttt{#1}}\vspace{-2ex}} % pour afficher le numero absolu, l'auteur...
+\newcommand{\enonce}{\begin{exo}} \newcommand{\finenonce}{\end{exo}}
+\newcommand{\indication}{\begin{ind}} \newcommand{\finindication}{\end{ind}}
+\newcommand{\correction}{\begin{cor}} \newcommand{\fincorrection}{\end{cor}}
+
+\newcommand{\noindication}{\stepcounter{ind}}
+\newcommand{\nocorrection}{\stepcounter{cor}}
+
+\newcommand{\stepcounterexo}{\stepcounter{exo}\stepcounter{ind}\stepcounter{cor}}
+\newcommand{\setcounterexo}[1]{\setcounter{exo}{#1}\setcounter{ind}{#1}\setcounter{cor}{#1}}
+
+
+\newcommand{\fiche}[1]{} \newcommand{\finfiche}{}
+\newcommand{\titre}[1]{%
+\rule{\textwidth}{0.5pt}\\*[-2ex]%
+\rule{\textwidth}{1pt}\\*[0.25ex]%
+\centerline{\Large \bf #1}\\*[-1.5ex]%
+\rule{\textwidth}{1pt}\\*[-2ex]%
+\rule{\textwidth}{0.5pt}%
+}
+\newcommand{\entete}[2]{\textsc{#1}\hfill\textsc{#2}}
+
+% --- Liens vers vidéo Youtube
+% exercice
+\newcommand{\video}[1]{%
+\texttt{\href{http://www.youtube.com/watch?v=#1}{Correction vidéo $\blacksquare$}}
+}
+
+% cours
+% variable myvideo : 0 pas de video, sinon la référence youtube
+\newcommand{\refvideo}[1]{\def\myvideo{#1}}
+\newcommand{\insertvideo}[2]{\refvideo{#1}%
+{\texttt{\href{http://www.youtube.com/watch?v=\myvideo}{Vidéo $\blacksquare$ #2}}}}
+
+% Formules encadrées
+\usepackage{varwidth}
+\tikzset{
+  block/.style = {
+    minimum height=1em,
+    inner xsep=.8em, inner ysep=.45em,
+    draw=black, thick, %rounded corners,
+    execute at begin node={\begin{varwidth}{\linewidth}\begin{center}},
+    execute at end node={\end{center}\end{varwidth}}
+  },
+  inline/.style = {
+    inner sep=.35em, draw=black, thick,
+  }
+}
+\newcommand{\mybox}[1]{\begin{center}\tikz{\node[block]{#1};}\end{center}}
+\newcommand{\myboxinline}[1]{\tikz[baseline=(X.base)]{\node[inline](X){#1};}}
+% Encadre savoirs/savoirs-faire
+\newcommand{\encadre}[1]{%
+\begin{center}
+\fbox{
+\begin{minipage}{0.7\textwidth}
+#1
+\end{minipage}
+}
+\end{center}
+}
+
+% Faire passer une ligne si un environnement commence par une liste
+\newcommand{\sauteligne}{\leavevmode\vspace{-\baselineskip}}
+
+%%% Macro ici du style 'macro_SVTE.sty' des fiches d'exos %%%
+% ------------- Pour des questions sur plusieurs colones
+\usepackage{multicol}
+
+\newenvironment{examplescol}[1]{%
+%\renewcommand{\theenumi}{\alph{enumi}}
+%\renewcommand{\labelenumi}{\theenumi)}
+\vspace{-4mm}\begin{multicols}{#1}\begin{enumerate}}
+    {\end{enumerate}\end{multicols}}

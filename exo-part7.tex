@@ -1,0 +1,189 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage{exo7sv}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Résolution d'équations différentielles au moyen des primitives}
+
+\setcounterexo{32}
+
+% exercice 33
+\exercice{}
+\enonce
+Reprenons le problème déjà rencontré dans la première partie :
+ \begin{eqnarray}
+            x'(t) & = & (\alpha - 2t -1)x(t) \label{ncdiffx} \\
+            x(0)  & = & x_0 > 0 \label{cix}
+        \end{eqnarray}
+
+\begin{enumerate}
+\item Quelle est la primitive (à constante près) de $\frac{x'(t)}{x(t)}$ et celle de $\alpha -2t -1$ ? Déduire que si $x(t)$ est solution de l'équation différentielle,
+on a $\ln| x| = \alpha t - t^2 -t + C$.
+\item Déterminer la constante $C$ en fonction de la valeur initiale $x_0$.
+\item Extraire la valeur de $x$ comme fonction de $t$.
+\end{enumerate}
+\finenonce
+
+\indication
+Si deux fonctions ont la même dérivée, alors les fonctions sont égales à une constante près :
+si $f'(x)=g'(x)$ (pour tout $x$) alors $f(x)=g(x)+C$ (pour tout $x$), pour une certaines constante réelle $C$.
+
+On peut admettre ici que la solution cherchée est partout positive, ainsi $|x(t)|=x(t)$.
+\finindication
+
+\correction
+
+\video{eB8qY29jzA0}
+
+\sauteligne
+\begin{enumerate}
+  \item 
+Les primitives de $\frac{x'(t)}{x(t)}$ sont les $\ln ( |x(t)| ) + C_1$.
+Les primitives de $\alpha-2t-1$ sont les $\alpha t-t^2-t+C_2$.
+Par l'équation différentielle $\frac{x'(t)}{x(t)} = \alpha - 2t -1$, donc les primitives sont égales (à une constante près) :
+$$\ln ( |x(t)| ) = \alpha t-t^2-t+C$$
+
+
+  \item En $t=0$ on a $x(t)=x_0>0$ donc on obtient $\ln (x_0) = C$.
+
+  \item Reprenons l'égalité $\ln ( |x(t)| ) = \alpha t-t^2-t+C$,
+alors
+\begin{align*}
+|x(t)| 
+  &= e^{\alpha t-t^2-t+C} \\
+  &= e^{(\alpha-1) t-t^2} \cdot e^{C} \\
+  &= x_0 \cdot e^{(\alpha-1) t-t^2} \qquad \text{ car } e^C = e^{\ln (x_0)} = x_0 \\
+\end{align*}
+
+On prouve pour finir que $x(t)>0$. En effet la solution nulle est solution de l'équation différentielle ; comme deux courbes intégrales ne se coupent pas, notre solution ne s'annule pas et comme $x(0)>0$ alors $x(t)$ reste positive.
+
+Conclusion $|x(t)| = x(t)$ et donc $x(t) = x_0 e^{(\alpha-1) t-t^2}$.
+
+\end{enumerate}
+\fincorrection
+\finexercice
+
+% exercice 34
+\exercice{}
+\enonce
+Reprenons le problème déjà rencontré dans la première partie :
+\begin{eqnarray}
+y'(t) & = & - K \, y(t) \, (1-y(t)) \label{cix1} \\
+y(0)  & = & y_0  \text{ avec } 0 < y_0 < 1 \label{cix2}
+\end{eqnarray}
+
+\begin{enumerate}
+	\item Calculer la primitive (à constante près) de $$\frac{y'(t)}{y(t)(1-y(t))}.$$ 
+	Déduire que si $y(t)$ est solution  de l'équation différentielle,
+	on a $$\ln \left|\frac{y}{1-y}\right| = -Kt + C.$$
+	\item Déterminer la constante $C$ en fonction de la valeur initiale $y_0$.
+	\item Extraire la valeur de $y$ comme fonction de $t$.
+\end{enumerate}  
+\finenonce
+
+\indication
+\sauteligne
+\begin{itemize}
+  \item Trouver des constantes $ A, B $ telle que 
+	$\frac{1}{y(1-y)} = \frac{A}{y} + \frac{B}{1 - y}$.
+  \item Récrire l'équation différentielle sous la forme $\frac{y'(t)}{y(t)(1-y(t))}=-K$ et intégrer de chaque côté.
+  \item Si $ F $ et $ G $ sont des primitives d'une fonction $ f $, alors 
+$ F = G + C $, où $ C \in \Rr $ est une constante. 
+  \item On admet ici que notre solution vérifie $0<y(t)<1$ pour tout $t$.
+\end{itemize}
+\finindication
+
+\correction
+
+\video{U7Im6uAOT7w}
+
+\sauteligne
+\begin{enumerate} 
+	\item 
+	Si $ F(t) $ est une primitive de $ f(t) $ et $ u(t) $ est une fonction 
+	dérivable, alors $ F(u(t)) $ est une primitive de $ u'(t) f(u(t)) $. 
+	On cherche des constantes $ A, B $ telle que 
+	$ 
+	\frac{1}{y(1-y)} = \frac{A}{y} + \frac{B}{1 - y} 
+	$. Comme 
+	\begin{equation*} 
+		\frac{A}{y} + \frac{B}{1 - y} = \frac{A - Ay + By}{y(1-y)} 
+		= \frac{(B - A)y + A}{y(1-y)} 
+	\end{equation*} 
+	il faut que $ (B - A)y + A = 1 $ 
+	\begin{equation*} 
+		\begin{cases} 
+			B - A &= 0 \\ 
+			A &= 1 
+		\end{cases} 
+		\quad \Longleftrightarrow \quad 
+		\begin{cases} 
+			A &= 1 \\ 
+			B &= 1. 
+		\end{cases} 
+	\end{equation*} 
+	Donc 
+	\begin{equation*} 
+		\begin{split} 
+			\int \frac{y'(t)}{y(t)(1-y(t))} \, dt 
+			&=  
+			\int y'(t) \, \frac{1}{y(t)(1-y(t))} \, dt 
+			= 
+			\int y'(t) \left(\frac{1}{y(t)} + \frac{1}{1 - y(t)}\right) dt \\ 
+			&= 
+			\int \left(\frac{y'(t)}{y(t)} + \frac{y'(t)}{1 - y(t)}\right) dt 
+			= 
+			\int \frac{y'(t)}{y(t)} + \int \frac{y'(t)}{1 - y(t)} dt \\ 
+			&=  
+			\ln |y(t)| - \ln|1 - y(t)| + C \\ 
+			&= 
+			\ln \left|\frac{y(t)}{1 - y(t)}\right| + C. 
+		\end{split} 
+	\end{equation*} 
+	On écrit l'équation différentielle (\ref{cix1}) sous la forme 
+	\begin{equation*} 
+		\frac{y'(t)}{y(t)(1-y(t))} = -K. 
+	\end{equation*} 
+	On sait déj\`a qu'une primitive de $ \frac{y'(t)}{y(t)(1-y(t))} $ 
+	est la fonction $ \ln \left|\frac{y(t)}{1 - y(t)}\right| $. De plus, 
+	$ -Kt $ est une primitive de $ -K $. Comme on sait que deux primitives 
+	d'une même fonction ne différent que d'une constante, il existe 
+	alors une constante $ C $ telle que 
+	\begin{equation} \label{y} 
+	\ln \left|\frac{y(t)}{1 - y(t)}\right| = -Kt + C. 
+	\end{equation} 
+	\item 
+	Si on pose $ t = 0 $ dans (\ref{y}), alors 
+	\begin{equation*} 
+		C = \ln \left|\frac{y(0)}{1 - y(0)}\right| + K \cdot 0 
+		= \ln \frac{y_0}{1 - y_0}
+	\end{equation*} 
+	\item 
+	En remplace $ C $ par la valeur trouvée et obtient 
+	\begin{equation*} 
+		\ln \left|\frac{y(t)}{1 - y(t)}\right| = -Kt + \ln \frac{y_0}{1 - y_0} 
+		\quad 
+		\Longleftrightarrow 
+		\quad 
+		\ln \left|\frac{(1 - y_0)y(t) }{y_0(1 - y(t))}\right| = -Kt. 
+	\end{equation*} 
+\end{enumerate} 
+En appliquant la fonction exponentielle et en admettant ici $0<y(t)<1$, on trouve :
+\begin{equation*} 
+	\begin{split} 
+		\frac{(1 - y_0)y(t) }{y_0(1 - y(t))} = e^{-Kt} 
+		& \Longleftrightarrow 
+		 (1 - y_0)y(t) =  y_0 (1 - y(t))e^{-Kt} 
+		\Longleftrightarrow 
+		(1 - y_0 + y_0 e^{-Kt})y(t)  = y_0 e^{-Kt} \\ 
+		& \Longleftrightarrow 
+		y(t) = \frac{y_0 e^{-Kt}}{1 - y_0 + y_0 e^{-Kt}}. 
+	\end{split} 
+\end{equation*} 
+\fincorrection
+\finexercice
+
+\end{document}

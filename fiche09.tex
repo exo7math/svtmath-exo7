@@ -1,0 +1,102 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage{exo7sv}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\entete{Université de Lille}{Mathématiques pour la SVT}
+
+\titre{Fiche 9. \quad Changement de variable} 
+
+\encadre{
+	\emph{Savoir.}
+	\begin{itemize}[label=$\square$]
+		\item Comprendre la formule du changement de variable.
+	\end{itemize}
+	\emph{Savoir-faire.}
+	\begin{itemize}[label=$\square$]
+		\item Savoir trouver le bon changement de variable.
+        \item Savoir changer les bornes de l'intégrale.
+        \item Savoir changer l'élément différentiel.
+	\end{itemize}
+}
+
+\insertvideo{n09CCoqDyFU}{Fiche 9. Changement de variable}
+
+\bigskip
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Formule du changement de variable}
+
+
+
+Calculer l'intégrale $\int_a^b  f(u(x)) u'(x) \, \dd x$ par la formule du changement de variable
+c'est utiliser la formule suivante :
+
+\mybox{$\displaystyle \int_{a}^{b} f(u(x)) \, u'(x)\,\dd x
+=\int_{u(a)}^{u(b)} f(u)\,\dd u$}
+
+Pour la pratique du changement de variable :
+\begin{enumerate}
+  \item On doit identifier quelle est la fonction $u(x)$ qui réalise la bon changement de variable.
+  Ce n'est pas toujours évident, il faut parfois faire plusieurs essais. Le but est d'obtenir une intégrale (à droite dans la formule ci-dessus) plus simple à calculer.
+
+  \item Il faut calculer le nouvel élément différentiel : $\dd u = u'(x) \, \dd x$.
+
+  \item Il faut changer les bornes de l'intégrale : si $x$ varie de $a$ à $b$, alors $u$ varie de $u(a)$ à $u(b)$.
+  \item L'intégrale à calculer (en la variable $x$) est remplacée par une intégrale en la variable $u$ (normalement plus simple).
+\end{enumerate}
+
+Cela peut sembler un peu compliqué, mais après avoir pratiqué plusieurs exemples c'est assez facile !
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Exemples} 
+
+
+\textbf{Exemple 1.}
+
+On veut calculer \[\int_{0}^{\frac{\pi}{6}}\cos(3x)\dd x.\]
+On pose le changement de variable $u(x)=3x$. On a alors $u'(x)=3$, donc $\dd u = 3 \,\dd x$, ou encore
+$\dd x = \frac{\dd u}{3}$.
+Comme $x$ varie de $x=0$ à $x=\frac\pi6$, alors $u$ varie de $u=0$ à $u=\frac\pi2$.
+Ainsi,  
+$$
+\int_{x=0}^{x=\frac{\pi}{6}}\cos(3x)\,\dd x 
+= \int_{u=0}^{u=\frac{\pi}{2}} \cos(u) \, \frac{\dd u}{3}
+$$
+
+L'intégrale de droite est quand même plus facile à calculer !
+
+Concluons :
+$$
+\int_{x=0}^{x=\frac{\pi}{6}}\cos(3x)\,\dd x 
+= \int_{u=0}^{u=\frac{\pi}{2}} \cos(u) \, \frac{\dd u}{3}
+= \frac13 \big[\sin(x)\big]_{0}^{\frac{\pi}{2}}
+=\frac{1}{3}\big(\sin(\tfrac{\pi}{2})-\sin(0)\big)
+=\frac{1}{3}.$$
+
+\bigskip
+
+\textbf{Exemple 2.}
+
+On veut calculer \[\int_{0}^{1}\frac{e^x}{\sqrt{e^x+1}}\dd x.\]
+On pose le changement de variable $u(x)=e^x$. On a alors $u'(x)=e^x$, donc $\dd u = e^x \,\dd x$.
+Comme $x$ varie de $x=0$ à $x=1$, alors $u$ varie de $u=e^0=1$ à $u=e^1=e$.
+Ainsi la formule du changement de variable donne : 
+\[\int_{x=0}^{x=1}\frac{e^x \,\dd x}{\sqrt{e^x+1}}=\int_{u=1}^{u=e} \frac{\dd u}{\sqrt{u+1}}.\]
+
+La seconde intégrale, avec la variable $u$, est plus simple à calculer car une primitive de $\frac{1}{\sqrt{u+1}}$ est $2\sqrt{u+1}$. Ainsi :
+
+\[
+\int_{x=0}^{x=1}\frac{e^x \,\dd x}{\sqrt{e^x+1}}
+= \int_{u=1}^{u=e} \frac{\dd u}{\sqrt{u+1}}\dd x
+= \left[ 2\sqrt{u+1} \right]_{u=1}^{u=e} 
+= 2\big( \sqrt{e+1}-\sqrt{2} \big).
+\]
+
+
+
+\end{document}

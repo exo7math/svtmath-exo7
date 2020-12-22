@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+
+<question type="category">
+<category>
+<text>
+$course$/Qcm Exo7/Questions -- Fiche 8 - Primitives</text>
+</category>
+</question>
+
+
+
+<question type="multichoice">
+<single>false</single>
+<name><text> </text></name>
+<tags>
+    <tag><text>niveau=L1</text></tag>
+    <tag><text>titre=Questions -- Fiche 8 - Primitives</text></tag>
+    <tag><text>motcle=Questions -- Fiche 8 - Primitives</text></tag>
+</tags>
+<questiontext format="html">
+<text><![CDATA[<p>
+Quelle fonction est une primitive de \(f(x) = \frac{6x+2}{3x^2+2x-1}\) ?
+<br></p>]]></text>
+</questiontext>
+<defaultgrade>1.0</defaultgrade>
+<generalfeedback format="html"><text><![CDATA[<p>
+La dérivée de \(F(x) = \ln(3x^2+2x-1)\) est \(\frac{u'}{u}\) avec \(u=3x^2+2x-1\), 
+donc \(F'(x) = \frac{6x+2}{3x^2+2x-1} = f(x)\). 
+</p>]]></text></generalfeedback>
+<shuffleanswers>1</shuffleanswers>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html"><text><![CDATA[<p>
+\(F(x) = \frac{1}{3x^2+2x-1}\)
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html"><text><![CDATA[<p>
+\(F(x) = \frac{3x^2+2x-1}{6x+2}\)
+</p>]]></text>
+</answer>
+<answer fraction="100.00000" format="html"><text><![CDATA[<p>
+\(F(x) = \ln(3x^2+2x-1)\)
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html"><text><![CDATA[<p>
+\(F(x) = \ln\left( \frac{6x+2}{3x^2+2x-1}\right)\)
+</p>]]></text>
+</answer>
+</question>
+
+<question type="category">
+<category>
+<text>
+$course$/Qcm Exo7/Questions -- Fiche 8 - Primitives</text>
+</category>
+</question>
+
+
+
+<question type="multichoice">
+<single>false</single>
+<name><text> </text></name>
+<tags>
+    <tag><text>niveau=L1</text></tag>
+    <tag><text>titre=Questions -- Fiche 8 - Primitives</text></tag>
+    <tag><text>motcle=Questions -- Fiche 8 - Primitives</text></tag>
+</tags>
+<questiontext format="html">
+<text><![CDATA[<p>
+Combien vaut l'intégrale \(\int_1^3 x \, dx\) ?
+<br></p>]]></text>
+</questiontext>
+<defaultgrade>1.0</defaultgrade>
+<generalfeedback format="html"><text><![CDATA[<p>
+Un primitive de \(f(x) = x\) est \(F(x) = \frac12x^2\).
+Ainsi \(\int_1^3 x \, dx 
+= \left[ \frac12x^2 \right]_1^3 
+= \frac12\left( 3^2-1^2 \right) 
+= \frac82 = 4\).
+</p>]]></text></generalfeedback>
+<shuffleanswers>1</shuffleanswers>
+<answernumbering>abc</answernumbering>
+<answer fraction="100.00000" format="html"><text><![CDATA[<p>
+\(4\)
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html"><text><![CDATA[<p>
+\(5\)
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html"><text><![CDATA[<p>
+\(8\)
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html"><text><![CDATA[<p>
+\(10\)
+</p>]]></text>
+</answer>
+</question>
+
+<question type="category">
+<category>
+<text>
+$course$/Qcm Exo7/Questions -- Fiche 8 - Primitives</text>
+</category>
+</question>
+
+
+
+<question type="multichoice">
+<single>false</single>
+<name><text> </text></name>
+<tags>
+    <tag><text>niveau=L1</text></tag>
+    <tag><text>titre=Questions -- Fiche 8 - Primitives</text></tag>
+    <tag><text>motcle=Questions -- Fiche 8 - Primitives</text></tag>
+</tags>
+<questiontext format="html">
+<text><![CDATA[<p>
+Combien vaut l'intégrale \(\int_1^2 1+\frac1x+\frac1{x^2} \, dx\) ?
+<br></p>]]></text>
+</questiontext>
+<defaultgrade>1.0</defaultgrade>
+<generalfeedback format="html"><text><![CDATA[<p>
+Un primitive de \(f(x) = 1+\frac1x+\frac1{x^2}\) est \(F(x) = x+\ln(x)-\frac1x\).
+Ainsi \(\int_1^2 f(x) \, dx 
+= \left[ F(x) \right]_1^2
+= F(2)-F(1) 
+= \left( 2+\ln(2)-\frac12 \right) -  \left( 1+\ln(1)-\frac11 \right)
+= \frac32+\ln(2)
+\).
+</p>]]></text></generalfeedback>
+<shuffleanswers>1</shuffleanswers>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html"><text><![CDATA[<p>
+\(\frac12+\ln(2)\)
+</p>]]></text>
+</answer>
+<answer fraction="100.00000" format="html"><text><![CDATA[<p>
+\(\frac32+\ln(2)\)
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html"><text><![CDATA[<p>
+\(-\frac12+\ln(2)\)
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html"><text><![CDATA[<p>
+\(\frac12-\ln(2)\)
+</p>]]></text>
+</answer>
+</question>
+
+<question type="category">
+<category>
+<text>
+$course$/Qcm Exo7/Questions -- Fiche 8 - Primitives</text>
+</category>
+</question>
+
+
+
+<question type="multichoice">
+<single>false</single>
+<name><text> </text></name>
+<tags>
+    <tag><text>niveau=L1</text></tag>
+    <tag><text>titre=Questions -- Fiche 8 - Primitives</text></tag>
+    <tag><text>motcle=Questions -- Fiche 8 - Primitives</text></tag>
+</tags>
+<questiontext format="html">
+<text><![CDATA[<p>
+On considère \(f(x) = \frac{1}{x^2-x}\). On écrit
+\(\frac{1}{x^2-x} = \frac{A}{x} + \frac{B}{x-1}\).
+<br></p>]]></text>
+</questiontext>
+<defaultgrade>1.0</defaultgrade>
+<generalfeedback format="html"><text><![CDATA[<p>
+\(f(x) = \frac{1}{x^2-x} = \frac{-1}{x} + \frac{1}{x-1}\) donc \(A=-1\) et \(B=1\).
+Une primitive de \(f\) est \(F(x) = A \ln(x) + B\ln(x-1)\).
+\emph{Bonus.} On a donc  \(F(x) = - \ln(x) + \ln(x-1) = \ln\left( \frac{x-1}{x} \right)\).
+</p>]]></text></generalfeedback>
+<shuffleanswers>1</shuffleanswers>
+<answernumbering>abc</answernumbering>
+<answer fraction="50.00000" format="html"><text><![CDATA[<p>
+On a \(A=-1\) et \(B=1\).
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html"><text><![CDATA[<p>
+On a \(A=1\) et \(B=-1\).
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html"><text><![CDATA[<p>
+Une primitive de \(f\) est \(F(x) = -\frac{A}{x^2} -\frac{B}{(x-1)^2}\)
+</p>]]></text>
+</answer>
+<answer fraction="50.00000" format="html"><text><![CDATA[<p>
+Une primitive de \(f\) est \(F(x) = A \ln(x) + B\ln(x-1)\)
+</p>]]></text>
+</answer>
+</question>
+
+<question type="category">
+<category>
+<text>
+$course$/Qcm Exo7/Questions -- Fiche 8 - Primitives</text>
+</category>
+</question>
+
+
+
+<question type="multichoice">
+<single>false</single>
+<name><text> </text></name>
+<tags>
+    <tag><text>niveau=L1</text></tag>
+    <tag><text>titre=Questions -- Fiche 8 - Primitives</text></tag>
+    <tag><text>motcle=Questions -- Fiche 8 - Primitives</text></tag>
+</tags>
+<questiontext format="html">
+<text><![CDATA[<p>
+Combien vaut l'intégrale \(\int_0^2 xe^{x^2+1} \, dx\) ?
+<br></p>]]></text>
+</questiontext>
+<defaultgrade>1.0</defaultgrade>
+<generalfeedback format="html"><text><![CDATA[<p>
+Une primitive de \(f(x) = xe^{x^2+1}\) est \(F(x) = \frac12e^{x^2+1}\).
+Ainsi \(\int_0^2 f(x) \, dx 
+= \left[ F(x) \right]_0^2
+= F(2)-F(0) 
+= \frac12\left( e^5-e^1 \right)
+= \frac12e\left( e^4-1 \right)
+\).
+</p>]]></text></generalfeedback>
+<shuffleanswers>1</shuffleanswers>
+<answernumbering>abc</answernumbering>
+<answer fraction="0" format="html"><text><![CDATA[<p>
+\(e\left( e^4+1 \right)\)
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html"><text><![CDATA[<p>
+\(e\left( e^4-1 \right)\)
+</p>]]></text>
+</answer>
+<answer fraction="0" format="html"><text><![CDATA[<p>
+\(\frac12e\left( e^4+1 \right)\)
+</p>]]></text>
+</answer>
+<answer fraction="100.00000" format="html"><text><![CDATA[<p>
+\(\frac12e\left( e^4-1 \right)\)
+</p>]]></text>
+</answer>
+</question>
+
+</quiz>

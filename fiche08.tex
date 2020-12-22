@@ -1,0 +1,172 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage{exo7sv}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\entete{Université de Lille}{Mathématiques pour la SVT}
+
+\titre{Fiche 8. \quad Primitives} 
+
+\encadre{
+	\emph{Savoir.}
+	\begin{itemize}[label=$\square$]
+		\item Connaître la définition d'une primitive.
+        \item Connaître les formules des primitives usuelles.
+	\end{itemize}
+	\emph{Savoir-faire.}
+	\begin{itemize}[label=$\square$]
+		\item Savoir déterminer une primitive.
+		\item Savoir utiliser les primitives pour calculer des intégrales.
+	\end{itemize}
+}
+
+
+\insertvideo{QACseEPX0Ds}{Fiche 8. Primitives}
+
+\bigskip
+
+\subsection*{Primitives}
+
+
+\begin{itemize}
+  \item \textbf{Définition.} Soit $f : I \to \Rr$ une fonction.
+On dit qu'une fonction $F$ est une \textbf{primitive} de $f$ si pour tout $x\in I$ :
+\mybox{$F'(x)=f(x)$} 
+
+% (Il est sous-entendu que $F$ doit être dérivable.)
+
+  \item Exemples.
+\begin{itemize}
+	\item $F(x)=\displaystyle\frac{x^3}{3}$ est une primitive de $f(x)=x^2$.
+	\item $\ln(x)$ est une primitive de $\frac1x$ sur $]0,+\infty[$.
+  %  \item $\ln(x) + 1$ est aussi une primitive de de $\frac1x$ sur $]0,+\infty[$.
+\end{itemize}
+
+  \item Trouver une primitive est l'opération inverse du calcul de la dérivée.
+
+  \item Exercice. Trouver une primitive de chacune des fonctions suivantes :
+\begin{multicols}{2}
+\begin{itemize}
+	\item[$\bullet$] $x$
+    \item[$\bullet$] $\cos(x)$
+    \item[$\bullet$] $\sin(x)$
+    \item[$\bullet$] $e^{-x}$
+    \item[$\bullet$] $\dfrac3x - \dfrac{7}{x^2} + 1$
+    \item[$\bullet$] $\frac{1}{\cos^2(x)}$
+\end{itemize}
+\end{multicols}
+\end{itemize}
+
+
+\subsection*{Calculs d'intégrales à l'aide d'une primitive}
+
+
+\textbf{Théorème.}
+Soit $f$ une fonction définie sur un intervalle $[a,b]$.
+Soit $F$ une primitive de $f$. Alors:
+\mybox{
+$\displaystyle \int_{a}^{b}f(x)\;\dd x=F(b)-F(a)$
+}
+
+\begin{itemize}
+  \item C'est le moyen le plus efficace pour calculer des intégrales ! 
+
+  \item Notation par des crochets. 
+\myboxinline{$\big[F(x)\big]^b_a = F(b)-F(a)$}.
+
+  
+  \item Exemple.
+  \[\int_{1}^{2}x^2\;\dd x=\bigg[\frac{x^3}{3}\bigg]^2_1=\frac{2^3}{3}-\frac{1^3}{3} = \frac{7}{3}.\]
+
+  \item Exemple. \[\int_{2}^{7}\frac1x \;\dd x =\big[ \ln(x) \big]_2^7= \ln(7) - \ln(2) = \ln\left(\tfrac72\right).\]
+\end{itemize}
+
+
+\subsection*{Toutes les primitives}
+
+\begin{itemize}
+   \item Une primitive n'est pas unique ! Soit $f(x)=x^2$, alors $F(x)=\displaystyle\frac{x^3}{3}$ est une primitive. Mais la fonction $G(x) = \displaystyle\frac{x^3}{3} + 2$ est aussi une primitive (dérivez-la pour vérifier). Il y a donc plusieurs primitives. En fait toutes les fonctions $\displaystyle\frac{x^3}{3} + c$, où $c$ est une constante, sont des primitives. Nous généralisons ceci à toutes les fonctions :
+
+ % \item 
+  \mybox{\textbf{Proposition.} Si $F(x)$ est une primitive de $f(x)$, alors les autres primitives sont de la forme $F(x)+c$ où $c\in\Rr$ est une constante.}
+
+  \item Exemple. Les primitives de $x^4-3x+5$ sont les fonctions
+$\frac{1}{5}x^5 - \frac{3}{2}x^2+5x + c$, où $c\in\Rr$ est une constante.
+
+  \item Exercice. Vérifier que les primitives de la fonction $\sqrt{x}=x^{\frac12}$ sont les fonctions $\frac23 x\sqrt{x} +c = \frac{2}{3} x^{\frac32} + c$.
+
+  \item Pour calculer une intégrale, vous choisissez la primitive que vous voulez car $\big[F(x)\big]_a^b$ donne le même résultat quelle que soit la primitive.
+\end{itemize}
+
+
+
+
+\subsection*{Primitives usuelles}
+
+
+\subsubsection*{Primitives des fonctions classiques}
+
+Ici $c$ désigne une constante réelle.
+
+\begin{center}
+	\begin{tabular}[t]{|c|c@{\vrule depth 1.2ex height 3ex width 0mm \ }|}
+		\hline
+		\textbf{Fonction}         & \textbf{Primitives} \\ \hline
+		$x^n$          & $\frac{x^{n+1}}{n+1}+c$  \quad ($n \in \Nn$)   \\ \hline
+%		$x^{-n}$         & $\frac{x^{1-n}}{1-n}+c$  \quad ($n \in \Nn\setminus\{0,1\}$, $c\in\Rr$)   \\ \hline
+		$\frac{1}{x}$  & $\ln(|x|)+c$              \\ \hline
+		$x^\alpha$     & $\frac{x^{\alpha+1}}{\alpha+1}+c$  \quad ($\alpha \in \Rr\setminus\{-1\}$)   \\ \hline
+		$\sqrt{x}=x^{\frac12}$    & $\frac23x\sqrt{x}+c=\frac23x^{\frac32}+c$  \quad (c'est $\alpha=\frac12$)   \\ \hline
+		$e^x$          & $e^x+c$                        \\ \hline
+		$\cos(x)$      & $\sin(x)+c$                \\ \hline
+		$\sin(x)$      & $-\cos(x)+c$                     \\ \hline
+%		$\tan(x)$      & $-\ln(|\cos(x)|)+c$  \quad ($c\in\Rr$)            \\ \hline
+%		$\frac{1}{1+x^2}$      & $\arctan(x)+c$  \quad ($c\in\Rr$)            \\ \hline
+	\end{tabular}
+\end{center}
+
+Ces formules sont à maîtriser ! Mais ce sont juste les formules des dérivées que vous connaissez déjà.
+
+\subsubsection*{Primitives pour une composition}
+
+Ici $u$ est une fonction qui dépend de $x$ ; $c$ désigne une constante réelle.
+
+\begin{center}
+	\begin{tabular}[t]{|c|c@{\vrule depth 1.2ex height 3ex width 0mm \ }|}
+		\hline
+		\textbf{Fonction}         & \textbf{Primitive} \\ \hline
+		$u'u^n$         & $\frac{u^{n+1}}{n+1}+c$  \quad ($n \in \Nn$)   \\ \hline
+%		$u'u^{-n}$         & $\frac{u^{1-n}}{1-n}+c$  \quad ($n \in \Nn\setminus\{0,1\}$, $c\in\Rr$)   \\ \hline
+		$\frac{u'}{u}$    & $\ln(|u|)+c$         \\ \hline
+		$u'u^\alpha$         & $\frac{u^{\alpha+1}}{\alpha+1}+c$  \quad ($\alpha \in \Rr\setminus\{-1\}$)   \\ \hline
+%		$\frac{u'}{2\sqrt{u}}$    & $\sqrt{u}+c$  \quad ($c\in\Rr$)    \\ \hline
+		$u'e^u$         & $e^u+c$                     \\ \hline
+		$u'\cos(u)$      & $\sin(u)+c$                      \\ \hline
+		$u'\sin(u)$      & $-\cos(u)+c$                        \\ \hline
+	%	$u'\tan(u)$      & $-\ln(|\cos(u)|)+c$  \quad ($c\in\Rr$)            \\ \hline
+	%	$\frac{u'}{1+u^2}$      & $\arctan(u)+c$  \quad ($c\in\Rr$)            \\ \hline
+	\end{tabular}
+\end{center}
+
+
+\begin{itemize}
+   \item Exemple.
+   Comment calculer $\int_1^2 x e^{x^2} \dd x$ ? 
+   Avec $u(x) = x^2$ (et donc $u'(x)=2x$) on a 
+   $2x e^{x^2}  = u'(x)e^{u(x)}$ dont une primitive est $e^{x^2} = e^{u(x)}$.
+  Ainsi 
+  $$\int_1^2 x e^{x^2} \dd x = \tfrac12\int_1^2 2x e^{x^2} \dd x
+  = \tfrac{1}{2}\left[ e^{x^2} \right]_1^2 = \tfrac{1}{2}(e^{4}-e).$$
+
+   \item Exemple.
+  On sait que $\tan(x)=\frac{\sin(x)}{\cos(x)}=-\frac{\cos'(x)}{\cos(x)}$. Par le tableau précédent, les primitives de la fonction tangente sont les fonctions de la forme $F(x)=-\ln(|\cos(x)|)+c$ où $c$ est une constante réelle.
+
+\end{itemize}
+
+
+
+
+\end{document}

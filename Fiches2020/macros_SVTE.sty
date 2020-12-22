@@ -1,0 +1,162 @@
+\ProvidesPackage{macros_SVTE}
+% ------------- Page
+\usepackage[top=21mm,left=21mm,right=21mm,nohead, footskip=18mm]{geometry}
+% ------------- pour faire encore plus beau le texte et lutter contre les overflow
+\usepackage{microtype}
+% ------------- Les standards
+\usepackage{amsmath,amsfonts,amssymb,latexsym,enumerate,graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[french]{babel}
+\usepackage[babel=true]{csquotes}
+\frenchspacing
+% ------------- Pour prévenir les coupures des pages au mauvaise endroits
+\usepackage{needspace}
+% ------------- Pour les unités physiques
+%\usepackage{siunitx}
+%\sisetup{locale = FR, per-mode=symbol}
+% ------------- Pour des questions sur plusieurs colones
+\usepackage{multicol}
+% ------------- TikZ pour les dessins
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{through}
+\usetikzlibrary{intersections}
+\usetikzlibrary{arrows}
+\usetikzlibrary{shapes.symbols}
+\usetikzlibrary{shapes.arrows}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{svg.path}
+% -------------- Pour les figures
+\usepackage{wrapfig}
+% -------------- Pour la séparation des chapitres ;)
+\usepackage[object=vectorian]{pgfornament}
+% -------------- Pour les macros de l'UFR
+%\usepackage{ufrmath}
+
+% pour espacer un peut le texte
+\renewcommand{\baselinestretch}{1.4}
+
+%       Macros
+% ---------------------
+
+% Les exercices
+\newcounter{numeroexo}
+\setcounter{numeroexo}{0}
+\def\exoimg{\tikz[overlay]{\draw[red, opacity=0.7] (-0.1,0.4) -- (-0.1,-2.1) (-0.4,-0.1) -- (2.1,-0.1);}}
+
+\newenvironment{exercice}[1]
+   {\needspace{4\baselineskip}\vspace{1mm}\par\refstepcounter{numeroexo}\noindent{\exoimg\bfseries\sffamily #1 \arabic{numeroexo}}}
+   {\vspace{3mm}}
+
+\newenvironment{exo}{\setcounter{equation}{0}\begin{exercice}{Exercice} \normalfont}{\end{exercice}}
+\newenvironment{exo*}{\setcounter{equation}{0}\begin{exercice}{Exercice $\star$} \normalfont}{\end{exercice}}
+
+% les questions
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\renewcommand{\theenumii}{\roman{enumii}}
+\renewcommand{\labelenumii}{(\theenumii)}
+
+\newenvironment{questions}{\begin{enumerate}}{\end{enumerate}}
+\newenvironment{examples}{\begin{enumerate}}{\end{enumerate}}
+\newenvironment{examplescol}[1]
+    {\vspace{-4mm}\begin{multicols}{#1}\begin{enumerate}}
+    {\end{enumerate}\end{multicols}}
+
+% Les abréviations standards
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+
+%---- Sectioning Format ----
+\newcounter{sec}
+\renewcommand{\section}[1]{\refstepcounter{sec}\cleardoublepage\hfill
+            \tikz{\draw (0,0) node[align=center, text width=14cm, minimum height=14mm, black,rounded corners,fill=black!21,inner sep=3mm](S){\textsf{\Huge #1}};
+                  \path (S.south)+(59mm,0mm) node[black!21, scale=11,inner sep=0, anchor=south]{\bf \arabic{sec}} circle(1pt);
+                  \clip (S.north) rectangle (S.south east);
+                  \path (S.south)+(59mm,0mm) node[white, scale=11,inner sep=0, anchor=south]{\bf \arabic{sec}};
+            }\hfill}
+
+\newcommand{\likesection}[1]{\cleardoublepage\hfill
+            \tikz{\draw (0,0) node[align=center, text width=14cm, minimum height=14mm, black,rounded corners,fill=black!21,inner sep=3mm]{\textsf{\Huge #1}};}
+            \hfill}
+
+\renewcommand{\subsection}[1]{\needspace{11\baselineskip}\vspace{4mm}\hfill
+            \tikz{\draw (0,0) node[align=center, text width=11cm, black,rounded corners,fill=black!7, draw=black,inner sep=3mm]{\textsf{\Large #1}};}
+            \hfill\vspace{3mm}}
+
+%---- Macros pour la partie Programme ----
+
+\newcommand{\prsec}[2]{\vspace{7mm}\par\noindent\textsf{{\Large #1}\hfill{\large [#2h]}}\par\vspace{-4mm}\noindent\hrulefill\par\vspace{3mm}}
+\newcommand{\prsubsec}[1]{\noindent{\bfseries\sffamily #1 \ }}
+
+%---- internet links ----
+\newcommand{\url}[1]{\begin{center}\vspace{1mm}\texttt{#1}\vspace{3mm}\end{center}}
+
+
+% ---- macros TikZ ------
+%
+% Utilisation typique :
+%
+% \begin{tikzpicture}[x=0.5cm, y=0.5cm, xmin=-1,xmax=15,ymin=-1,ymax=15]
+%   \grille\fenetre\axes
+
+% Définition des nouvelles options xmin, xmax, ymin, ymax
+%   Valeurs par défaut : -3, 3, -3, 3
+\tikzset{
+xmin/.store in=\xmin, xmin/.default=-3, xmin=-3,
+xmax/.store in=\xmax, xmax/.default=3, xmax=3,
+ymin/.store in=\ymin, ymin/.default=-3, ymin=-3,
+ymax/.store in=\ymax, ymax/.default=3, ymax=3,
+}
+% Commande qui trace la grille entre (xmin,ymin) et (xmax,ymax)
+\newcommand {\grille}[1][opacity=.5]
+{\draw[help lines, #1] (\xmin,\ymin) grid (\xmax,\ymax);}
+% Commande qui trace les axes
+\newcommand {\axes}[1][opacity=1] {
+    \draw[thick, ->, #1] (\xmin,0) -- (\xmax,0);
+    \draw[thick, ->, #1] (0,\ymin) -- (0,\ymax);
+}
+% Commande qui limite l'affichage à (xmin,ymin) et (xmax,ymax)
+\newcommand {\fenetre}
+    {\clip (\xmin,\ymin) rectangle (\xmax,\ymax);}
+% Point style. A utiliser ainsi 'node[point]{}' ou \point
+\tikzstyle{point} = [circle,inner sep=1pt,fill, draw]
+\def\point{node[point]{}}
+
+%---- wrap figures ----
+%
+% example d'utilisation : \image{r}{5cm}{-7mm}{-21mm}{ballon_rugby.tikz}
+% #1 : r ou l (pour right ou left)
+% #2 : la largeur
+% #3 : l'espace avant
+% #4 : l'espace après
+% #5 : le nom du fichier à inclure
+\newcommand {\image}[5] {
+    \begin{wrapfigure}{#1}{#2}
+        \begin{center}
+            \vspace{#3}
+            \input{#5}
+            \vspace{#4}
+        \end{center}
+    \end{wrapfigure}
+}
+
+% ---- séparation des chapitres ------
+\newcommand {\finsec}[1]{
+    \vfill
+    \begin{center}
+        \pgfornament[width = 4cm, color = gray]{#1}
+    \end{center}
+    \vfill
+}
+\newcommand {\finchapitre}{\finsec{85}}
+\newcommand {\finpoly}{\finsec{75}}
+

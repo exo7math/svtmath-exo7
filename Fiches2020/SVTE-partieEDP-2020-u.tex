@@ -1,0 +1,392 @@
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\section{CALCUL DIFFÉRENTIEL À PLUSIEURS VARIABLES}
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+% =================================================
+\subsection{Calculs d'extrema}
+% =================================================
+
+% -------------------------------------------------
+\begin{exo}
+    Calculer, quand elles existent, les dérivées partielles premières et secondes des fonctions suivantes~:
+    \begin{examplescol}{2}
+        \item $f(x,y) = x^{2}y+3xy-x^{3}+y^{2}$
+        \item $g(x,y) = \ln(1+xy)$
+        \item $h(x,y) = xe^{-(x^{2}+y^{2})}$
+        \item $k(x,y) = \sqrt{x^{2}+y^{2}}$
+    \end{examplescol}
+\end{exo}
+
+% -------------------------------------------------
+\begin{exo}
+    Déterminer les points stationnaires des fonctions suivantes et
+    préciser pour chacun d'eux s'il s'agit d'un maximum local, d'un minimum
+    local ou d'un col.
+    \begin{examplescol}{3}
+        \item $x^2y-\frac{x^2}{2}-y^2$
+        \item $x^4+y^4-4(x-y)^2$
+        \item $x^3 + x^2y + y^2$
+        \item $2x^2 -y^2 +2xy-6x-6y+3$
+        \item $3x^2 -y^2 +2xy-4x-4y+3$
+        \item $4x^3 -3x+y^2 -4y-3$
+        \item $3x^3 -x+3y^2 +3y-5$
+        \item $\sqrt{1+x^2+y^2}$
+        \item $x^3 +y^3 +3xy$
+        \item $\exp(x^2 -y^2)$
+        \item $2xy + (1/x^2)  + (1/y^2)$
+        \item $2xy^2-x^2y+6x$
+    \end{examplescol}
+\end{exo}
+
+% -------------------------------------------------
+\begin{exo}
+  On considère la fonction
+    \begin{equation}
+      w(x,y) = 1 + e^{2x}(x+y)^{2} \label{sol_2}
+    \end{equation}
+  \begin{enumerate}
+    \item Montrer que l'ensemble des points critiques (ou stationnaires) de la fonction $w$ sont les points $(x,y)$ de $\mathbb{R}^{2}$ tels que $y=-x$. (Il y a donc une droite entière de points critiques.)
+
+    {\em Dans la suite, on va essayer de déterminer la nature du point critique $(1,-1)$.}
+
+    \item Calculer les dérivées partielles secondes de $w$, et évaluez-les en $(1,-1)$. Peut-on en déduire la nature du point critique $(1,-1)$~?
+
+    \item Montrer que $w$ admet en fait un minimum en $(1,-1)$.\\
+    ({\em Indication: Examiner le signe de $w(x,y) - w(1,-1)$ pour tout $(x,y) \in \mathbb{R}^{2}$.})
+  \end{enumerate}
+\end{exo}
+
+% -------------------------------------------------
+\begin{exo}
+
+    \image{r}{5.5cm}{-14mm}{3mm}{drawings/distance_courbes.tikz}
+    On se propose dans cet exercice de calculer la distance minimale entre les graphes de deux fonctions
+    \begin{eqnarray*}
+        f\left( s\right)  &=&-(s^{2}+3s+3) \\
+        g\left( t\right)  &=&2-t
+    \end{eqnarray*}
+
+    \begin{enumerate}
+        \item Vérifier que $(-1,1)$ est un  point stationnaire de la fonction à deux variables
+        \begin{equation*}
+            D\left( s,t\right) =\left( t-s\right) ^{2}+\left( 2-t+s^{2}+3s+3\right) ^{2}
+        \end{equation*}
+        et déterminer s'il s'agit d'un maximum local, minimum local ou col.
+        ({\em Indication~: On se rappellera que si $u$ est une fonction à deux variables $s$ et $t$, on a
+        $\partial_s u^2 = 2\,u\, \partial_s u$.})
+    \end{enumerate}
+
+    \begin{enumerate}\setcounter{enumi}{1}
+        \item Vérifier (sans faire référence au dessin) que le point $\left( -1,-1\right) $ fait partie du graphe $\Gamma _{f}$ de $f$.
+        Puis vérifier que $\left(1,1\right)$ fait partie du graphe $\Gamma _{g}$ de $g$.
+        \item On remarquera que $D(s,t)$ représente le carré de la distance entre le point $\left( s,f\left( s\right) \right) $ de $\Gamma _{f}$  et le point $\left( t,g\left( t\right) \right) $ de $\Gamma _{g}$.
+        En admettant que le minimum local de $D$ trouvé auparavant est global, calculer la distance minimale entre les deux graphes.
+    \end{enumerate}
+\end{exo}
+
+% =================================================
+\subsection{Extrema et équations différentielles}
+% =================================================
+
+
+% -------------------------------------------------
+\begin{exo}
+    Dans un milieu naturel, à tout instant $t \geq 0$, on désigne par $X(t)$ la quantité de poissons d'un lac et par $Y(t)$ le nombre d'habitants vivant aux abords du lac et se nourrissant principalement de poissons.
+    \begin{enumerate}
+        \item On représente cette interaction en utilisant le modèle de Lotka-Volterra:
+        \begin{eqnarray}
+            & & \left\{ \begin{array}{ll} X'(t) = aX(t) - bX(t)Y(t) \\
+            Y'(t) = -cY(t) + dX(t)Y(t)
+        \end{array} \right.  \label{Volterra}\\
+        & & \left\{ \begin{array}{ll} X(0) = x_0 \\
+        Y(0)=y_0
+    \end{array} \right.  \label{ciVolterra}
+    \end{eqnarray}
+    où $a,b,c,d>0$, et où $x_0>0$ et $y_0>0$ désignent les effectifs de population au début de l'observation.
+    \begin{enumerate}
+        \item Expliquer comment évolue la quantité de poissons en l'absence d'habitants; que représente $a$? Que devient le taux d'accroissement de la population de  poissons en présence d'habitants?
+        \item Expliquer comment évolue le nombre d'habitants en l'absence de poissons; que représente $c$? Que devient le taux d'accroissement des habitants en présence de poissons?
+    \end{enumerate}
+    \item\label{Volterra-constant} Déterminer les solutions constantes du système différentiel (\ref{Volterra}).
+    \item Donner le domaine de définition $\mathcal{D}$ de la fonction
+        $$
+            L(x,y) = -a\ln(y) + by - c\ln(x) + dx.
+        $$
+    \item Quels sont les points critiques de la fonction $L(x,y)$ sur $\mathcal{D}$? Déterminer leur nature. Qu'observe-t-on par rapport à la question (\ref{Volterra-constant})?
+    \item Soit $X(t)$, $Y(t)$ des fonctions satisfaisant (\ref{Volterra}-\ref{ciVolterra}). Calculer $L(X(t),Y(t))$ en fonction de $x_0$ et $y_0$ ({\it indication: dériver la fonction}).
+    \item On fixe $a=b=c=d=1$. Soit $K \in \R $. On considère la courbe $\mathcal{C}_K$ d'équation $L(x,y)=K$.
+        \begin{enumerate}
+            \item Montrer que la fonction $L$ admet un minimum global strict en $(1,1)$ ({\it indication: on pourra étudier la fonction $x\mapsto x-\ln(x)$}).
+            \item Que peut-on dire de l'ensemble des couples $(x,y)$ tels que $L(x,y)=K$ lorsque $K=2$ et lorsque $K < 2$?
+            \item L'allure des courbes $\mathcal{C}_K$, pour $K>2$, est la suivante:
+                \begin{center}
+                    \input{drawings/lotka_voltera.tikz}
+                \end{center}
+            Se peut-il que le nombre d'habitants devienne très grand pour un temps assez long ?
+        \end{enumerate}
+    \end{enumerate}
+\end{exo}
+
+% -------------------------------------------------
+\begin{exo}
+    Soient $a<0$ et $b \in \R $. On considère le système différentiel
+    \begin{eqnarray}
+        & & \left\{ \begin{array}{ll} x'(t) = ax(t) - by(t) \\
+        y'(t) = bx(t) + ay(t)
+    \end{array} \right.  \label{S}\\
+    & & \left\{ \begin{array}{ll} x(0) = x_0 \\
+    y(0)=y_0
+\end{array} \right.  \label{ciS}
+\end{eqnarray}
+On suppose qu'il existe des fonctions $x,y:\R _{+} \rightarrow \R $ qui satisfont le système (\ref{S})-(\ref{ciS}).
+\begin{enumerate}
+    \item Montrer que la fonction $H(t) = \frac{1}{2}(x^{2}(t)+y^{2}(t))$ satisfait l'équation différentielle
+    $$
+        H'(t)=2aH(t).
+    $$
+    \item Montrer qu'il existe un réel $K$ que l'on exprimera en fonction de $x_{0},y_{0}$ tel que $H(t)=Ke^{2at}$ puis que
+    $$
+        \lim_{t \rightarrow +\infty}H(t) = 0.
+    $$
+    \item En déduire que  $\lim_{t \rightarrow +\infty} x(t) = \lim_{t \rightarrow +\infty} y(t) = 0$.
+    \item Montrer que $(0,0)$ est un minimum global pour la fonction $H(x,y) = \frac{1}{2}(x^2+y^2)$, puis vérifier que $(0,0)$ satisfait aux conditions d'un minimum local.
+\end{enumerate}
+\end{exo}
+
+
+% =================================================
+\subsection{Extrema et équations aux dérivées partielles}
+% =================================================
+
+
+% -------------------------------------------------
+% New : Question 3 du exam-mar12.pdf (Equation de Burgers, exo de Jean-Paul..)
+% -------------------------------------------------
+\begin{exo}
+    On considère la fonction $w$ à deux variables définie par~:
+    $$
+        w(x,t) = xt + \frac{x^3}{6} +1.
+    $$
+    \begin{enumerate}
+        \item Déterminer les points critiques (ou stationnaires) de $w$ et préciser leur nature.
+        \item Montrer que $w$ est solution de l'équation~:
+        $$
+            \partial_t w = \partial^2_x w
+        $$
+    \end{enumerate}
+
+    \noindent On considère à présent la fonction $u$ à deux variables définie par~:
+    \begin{equation}
+        u = \frac{2\, \partial_x w}{w} \label{defu}
+    \end{equation}
+
+    \begin{enumerate}\setcounter{enumi}{2}
+        \item Montrer que $u$ est bien définie pour tous réels $x$ et $t$ positifs.
+        \item Montrer que pour tous réels $x$ et $t$ positifs, on a~:
+        $$
+            u(x,t) = \frac{12t+6x^2}{6xt+x^3+6}.
+        $$
+        \item Prouver que $u$ est solution de l'équation~:
+        $$
+            \partial_t u - u\,\partial_x u = \partial^2_x u\,.
+        $$
+        \textit{Indication~: On peut montrer (e) soit à partir de (d), soit à partir de (\ref{defu}) et (b).}
+    \end{enumerate}
+    Cette équation est un cas particulier de l'équation de Burgers, équation issue de la mécanique des fluides.
+\end{exo}
+
+% -------------------------------------------------
+\begin{exo}
+    On considère l'équation aux dérivées partielles
+    \begin{equation}
+        \partial_{x}^{2}u(x,y) + \partial_{y}^{2}u(x,y) + \partial_{x}u(x,y) + \partial_{y}u(x,y) = F(x,y)
+        \label{elliptic}
+    \end{equation}
+    où $F$ est une fonction définie sur le domaine
+    $$
+        \Omega_{R} = \{(x,y) \in \R ^{2} \ \ : \ \ x^2 + y^2 < R^{2} \},
+    $$
+    avec $R>0$. On suppose que la fonction $F$ vérifie $F(x,y)>0$ pour tout $(x,y) \in \Omega_{R}$.\\
+    On admet qu'il existe une fonction $(x,y) \mapsto u(x,y)$ qui est continue sur le domaine
+    $$
+        D_{R} = \{(x,y) \in \R ^{2} \ \ : \ \ x^2 + y^2 \leq R^{2} \}
+    $$
+    et qui vérifie l'équation (\ref{elliptic}) pour tout $(x,y) \in \Omega_{R}$.
+    \begin{enumerate}
+        \item Dessiner les ensembles $\Omega_{R}$ et $D_{R}$.
+        \item On admet que la fonction $u$ admet un maximum en un point $M = (x_{0},y_{0}) \in D_{R}$. Supposons que $M \in \Omega_{R}$.
+        \begin{enumerate}
+            \item Quelle est la valeur de $\partial_{x}u(x_{0},y_{0})$ et de $\partial_{y}u(x_{0},y_{0})$?
+            \item Quel est le signe de $\partial_{x}^{2}u(x_{0},y_{0})$ et de $\partial_{y}^{2}u(x_{0},y_{0})$?
+            \item Montrer que cela n'est pas possible ({\it indication: utiliser (\ref{elliptic})}).
+        \end{enumerate}
+        \item \textit{[Principe du maximum]} Où se trouve alors le point $M$ ?
+    \end{enumerate}
+\end{exo}
+
+% -------------------------------------------------
+\begin{exo}
+    On considère le problème suivant:
+    \begin{eqnarray}
+        y\,\partial_xu(x,y)+\partial_yu(x,y)&=&x\label{eqedp}\\
+        u(x,0)&=&x\label{ciedp}
+    \end{eqnarray}
+    On considère les fonctions
+    $$
+        u_1(x,y)=xy-\frac{y^3}{3}+x-\frac{y^2}{2}\quad\mathrm{et}\quad u_2(x,y)=xy-\frac{y^3}{3}+e^{x-\frac{y^2}{2}}
+    $$
+    \begin{enumerate}
+        \item Montrer que les fonctions $u_1$ et $u_2$ vérifient l'équation (\ref{eqedp}) pour tous les couples $(x,y)\in\R^2$.
+        \item Laquelle des deux fonctions $u_1$, $u_2$ vérifie à la fois (\ref{eqedp}) et (\ref{ciedp}) pour tous les couples $(x,y)\in\R^2$?
+        \item Déterminer les points critiques de la fonction $u_1$ et déterminer leur nature.
+    \end{enumerate}
+\end{exo}
+
+
+% =================================================
+\subsection{Équations aux dérivées partielles}
+% =================================================
+
+
+% -------------------------------------------------
+\begin{exo} Les questions suivantes sont indépendantes.
+    \begin{enumerate}
+        \item Déterminer le domaine de définition $\mathcal{D}_{u} \subset \R ^{2}$ de la fonction $u(x,y) = \sin(x^{2} + \frac{1}{y})$ et
+        montrer que $u$ est solution de l'équation
+        $$
+            \partial_{x}u(x,y) + 2xy^{2}\partial_{y}u(x,y) = 0
+        $$
+        pour tout $(x,y) \in \mathcal{D}_{u}$.
+        \item Montrer que la fonction $u(x,y)=\ln(x+\exp(y/x))$ est bien définie pour tout
+        $(x,y) \in \R _{+}^{\ast}\times \R _{+}^{\ast}$ et satisfait l'équation
+        $$
+            x\partial_{x}u(x,y) + y\partial_{y}u(x,y) = xe^{-u(x,y)}
+        $$
+        pour tout  $(x,y) \in \R _{+}^{\ast}\times \R _{+}^{\ast}$.
+        \item
+            \begin{enumerate}
+                \item Soit $a \in \R ^{\ast}$. Etudier la fonction $f(t)=a+1 - e^{-at}$, puis montrer que la fonction
+                    $$
+                        u(x,t) = \frac{axe^{-at}}{a+1 - e^{-at}}
+                    $$
+                    est bien définie sur $\R \times \R _{+}$
+                \item  Montrer que $u(x,t)$ est solution du problème
+                    $$
+                        \partial_{t}u(x,t) + u(x,t)\partial_{x}u(x,t) + au(x,t) = 0 \ \ , \ \ u(x,0)=x
+                    $$
+                    pour tout $(x,t) \in \R \times \R _{+}$.
+                \item Calculer $\lim_{t \rightarrow +\infty}u(x,t)$.
+            \end{enumerate}
+    \end{enumerate}
+\end{exo}
+
+% -------------------------------------------------
+% New : Question 3 du exam-juin13.pdf (Pollution de la riviere)
+% -------------------------------------------------
+\begin{exo}
+    On note $u(x,t)$ la concentration (en {mol/l}) d'un produit chimique à distance $x \in [0,\pi]$ du bord d'une rivière à l'instant $t \geq 0$. On suppose que $u(x,t)$ satisfait le problème suivant :
+    \begin{equation}
+        \left.
+        \begin{aligned}
+            \partial_{t}u(x,t) &= \partial_{x}^{2}u(x,t) -2\,\partial_{x}u(x,t) \qquad \text{ pour } t \geq 0 \qquad \\
+            u(x,0)             &= 2\,e^{x}\sin(x)
+        \end{aligned}
+        \right\}
+        \text{ pour } x \in [0,\pi] \label{edpriviere}
+    \end{equation}
+    \begin{enumerate}
+        \item Calculer la dérivée de $f(x)=2e^{x}\sin(x)$ sur $[0,\pi]$ que l'on notera $f'(x)$. Montrer que $f'$ s'annule en $\frac{3\pi}{4}$.
+        \textit{(Bon à savoir~: $\sin(\frac{3\pi}{4})=\frac{\sqrt{2}}{2}$ et $\cos(\frac{3\pi}{4})=-\frac{\sqrt{2}}{2}$.)}
+    \end{enumerate}
+
+        \noindent On admettra dans la suite que la fonction $f$ admet un unique maximum en $\frac{3\pi}{4}$ sur $[0,\pi]$.
+
+    \begin{enumerate}\setcounter{enumi}{1}
+        \item Déterminer des constantes $a,b \in \mathbb{R}$ telles que la fonction
+        \begin{equation*}
+            u(x,t) = b\,e^{at}\,e^{x}\,\sin(x)
+        \end{equation*}
+        soit solution du problème (\ref{edpriviere}).
+
+        \item On fixe $t$. Montrer que la fonction $x \mapsto u(x,t)$ admet un unique maximum (appelé pic de pollution) sur $[0,\pi]$ dont on précisera la valeur en fonction de $t$. Calculer en particulier la valeur du pic de pollution initial en $t=0$.
+    \end{enumerate}
+\end{exo}
+
+% -------------------------------------------------
+\begin{exo}
+    On considère une tige métallique représentée par l'intervalle $[0,1]$ plongée dans un environnement de
+    sorte qu'en tout point $x \in [0,1]$ la température (en degrés Celsius) de la tige est donnée par
+    $$
+        f(x) = \sin(\pi x).
+    $$
+    \begin{enumerate}
+        \item Quelle est la température de la tige aux points $0$ et $1$ ? La température est-elle positive pour tout $x \in [0,1]$ ?\\
+
+        On retire la tige de son environnement à un instant $t=0$ en conservant par un système de chauffage et de
+        refroidissement les extrémités $0$ et $1$ de la tige à température constante égale à $0^{o}\mathrm{C}$. On note
+        $u(x,t)$ la température à l'instant $t \geq 0$ d'un point $x \in [0,1]$ de la tige.\\
+        Les équations de conservation de la physique impliquent que la vitesse d'accroissement $\partial_{t}u(x,t)$ de la
+        température en temps est proportionnelle à la concavité $\partial_{x}^{2}u(x,t)$ en espace, pour tout $t \geq 0$, pour tout
+        $x \in [0,1]$.\\
+        Il existe donc $\alpha > 0$ tel que la température $u(x,t)$ vérifie
+        \begin{equation}
+            \partial_{t}u(x,t) = \alpha \partial_{x}^{2}u(x,t). \label{chaleur}
+        \end{equation}
+        Dans cette {\it équation de la chaleur}, on a la condition initiale
+        \begin{equation}
+            u(x,0) = f(x), \label{c_init}
+        \end{equation}
+        pour tout $0 \leq x \leq 1$, et les conditions au bord
+        \begin{equation}
+            u(0,t) = 0 \ \ , \ \ u(1,t) = 0, \label{c_bord}
+        \end{equation}
+        pour tout $t \geq 0$, tout $0 \leq x \leq 1$.
+        \item Montrer que la fonction $f$ est solution du problème
+        \begin{eqnarray}
+            & & y''(x) = - \pi^2 y(x) \quad \forall x \in [0,1] \label{diffX}\\
+            & & y(0)=y(1)=0 \label{ciX}
+        \end{eqnarray}
+        \item Montrer que la fonction $g(t)=e^{-\alpha\pi^2t}$ est solution du problème
+        \begin{eqnarray}
+            & & y'(t) = -\alpha \pi^2 y(t) \quad \forall t \geq 0 \label{diffT}\\
+            & & y(0)=1 \label{ciT}
+        \end{eqnarray}
+        \item En utilisant les équations (\ref{diffX}) et (\ref{diffT}) vérifiées respectivement par $f$ et $g$, montrer que la fonction $u(x,t) = f(x)g(t)$ est solution de (\ref{chaleur}). Les conditions (\ref{c_init}-\ref{c_bord}) sont-elles satisfaites?
+        \item A l'aide de la question précédente, déterminer le comportement de la température de la tige en tout point $x \in [0,1]$ pour un temps assez long.
+    \end{enumerate}
+\end{exo}
+
+% -------------------------------------------------
+\begin{exo}
+    La réaction chimique de Belousov et Zhabotinskii fait intervenir plusieurs composants dont l'acide bromique $HB_rO_2$.\\
+    À l'aide d'une sonde, on mesure la concentration de $HB_rO_2$, $u(x,t)$, à hauteur $x\ge 0$ dans le liquide à l'instant $t\ge 0$.
+    Les réactions entre les différents composants impliquent que $u(x,t)$ satisfait une équation du type
+    \begin{equation}
+        \partial_{t}u(x,t)=\partial_{x}^{2}u(x,t)+f(u(x,t)) \label{acide bromique}
+    \end{equation}
+    pour tout $x\ge 0$, où $f$ est une fonction $\R \rightarrow \R $.\\
+    Il s'agit ici d'une version raffinée de {\it l'équation de la chaleur} étudiée dans les problèmes précédents.
+    En plus du phénomène de diffusion, on a d'autres réactions chimiques qui peuvent freiner ou accélérer l'évolution. Celles-ci peuvent être complexes, mais on suppose qu'elles ne dépendent que de la concentration de $HB_rO_2$ (et pas de sa variation ou du temps par exemple). On les modélise donc par le terme $f(u)$.
+    \begin{enumerate}
+        \item Soit $c>0$. Supposons qu'il existe une fonction $V(y): \R \rightarrow \R $ solution de l'équation différentielle
+        \begin{equation}
+            V''(y)-cV'(y)+f(V(y))=0 \label{acide bromique_2}
+        \end{equation}
+        On pose $u(x,t)=V(x+ct)$. Montrer alors que $u(x,t)$ est solution de l'équation (\ref{acide bromique}).
+        \item Supposons que $f$ soit de la forme $f(u)=-au$ où $a>0$. Réécrire les équations (\ref{acide bromique}) et (\ref{acide bromique_2}).
+        \begin{enumerate}
+            \item Soit $g(y)=e^{ry}$. A quelle condition sur la constante $r\in\R$ la fonction $g$ est-elle solution de l'équation différentielle (\ref{acide bromique_2})?
+            \item On posera dans la suite $r_1=(c-\sqrt{c^2+4a})/2$ et $r_2=(c+\sqrt{c^2+4a})/2$. Quelles sont les signes de $r_{1}$ et $r_{2}$ ?
+            \item En déduire que la fonction définie par $V(y)=A_1e^{r_1y}+A_2e^{r_2y}$ est solution de (\ref{acide bromique_2}) pour tout choix de $A_1,A_2\in\R$.
+        \end{enumerate}
+        \item On suppose que la concentration $u(x,t)$ est donnée par $V(x+ct)$ (voir question a) ). En particulier, la fonction $V$ doit rester bornée et positive. Quelle condition doivent vérifier les constantes $A_1$ et $A_2$ pour cela? En déduire une expression de $u(x,t)$ vérifiant (\ref{acide bromique}).
+        \item A partir de la question précédente, déterminer le comportement de la concentration à hauteur $x\ge 0$ fixée  pour un temps assez long.
+    \end{enumerate}
+\end{exo}
+
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\finchapitre
+

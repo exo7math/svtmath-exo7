@@ -1,0 +1,24 @@
+\begin{tikzpicture}[xmin=-1,xmax=3,ymin=-3,ymax=3, xscale=1.4]
+    % axes et grille
+    \grille \fenetre \axes
+    % la courbe
+    \begin{scope}[domain=0:2, line width=0.5mm, blue, line cap=round]
+        \draw plot ({\x},{2*cosh((\x-1)/2});  cosh(1/2)
+    \end{scope}
+    % et "-" la courbe
+    \begin{scope}[domain=0:2]
+        \draw plot ({\x},{-2*cosh((\x-1)/2}) ;
+    \end{scope}
+    % les étiquettes
+    \node[blue] at (1,2.35) {$y(t)$};
+    \node[scale=1.4] at (1,-1) {$\mathcal{S}$};
+    % les cercles de rotation
+    \draw[fill=black!0.3, fill opacity=0.5] (0,0) circle[x radius=0.5, y radius=2.255];
+    \draw[fill=black!0.3, fill opacity=0.5] (2,0) circle[x radius=0.5, y radius=2.255];
+    % les ajustement sur la transparence de abscisses
+    \draw[thick] (0,0) -- (1,0) (2,0) -- (3,0);
+    % les valeurs aux bords
+    \draw[thin] (2,0) -- (2,2.255);
+    \draw[fill=gray](0,0) node[point]{} node[below right]{$0$};
+    \draw[fill=gray](2,0) node[point]{} node[below]{$2$};
+\end{tikzpicture}

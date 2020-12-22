@@ -1,0 +1,162 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage{exo7sv}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\entete{Université de Lille}{Mathématiques pour la SVT}
+
+\titre{Fiche 5. \quad \'Equations différentielles 1} 
+
+\encadre{
+	\emph{Savoir.}
+	\begin{itemize}[label=$\square$]
+		\item Comprendre ce qu'est une équation différentielle.
+		\item Savoir expliquer les termes d'une équation différentielle à partir des notions d'effectif, de taux de croissance ou de proportionnalité.
+	\end{itemize}
+	\emph{Savoir-faire.}
+	\begin{itemize}[label=$\square$]
+		\item Savoir vérifier qu'une fonction est solution d'une équation différentielle.
+		\item Savoir déterminer les solutions constantes d'une équation différentielle. 		
+        \item Savoir trouver l'équation différentielle associée à une situation décrite par un texte.
+	\end{itemize}
+}
+
+\insertvideo{JKw-rPCOWWg}{Fiche 5.a. \'Equations différentielles}
+
+\insertvideo{xCs0COxZxII}{Fiche 5.b. \'Equations différentielles (suite)}
+
+\bigskip
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+Nous nous intéressons à des équations où l'inconnue à trouver n'est pas un nombre mais une fonction. Par exemple, considérons l'équation $f'(x)=f(x)$ pour tout $x\in\Rr$. On cherche toutes les fonctions $f$ possibles satisfaisant cette équation. Vous en connaissez au moins une. Laquelle ? La fonction exponentielle ! Il existe d'autres solutions. En fait, les solutions de cette équation sont les fonctions de la forme $f(x)=ke^{x}$ où $k$ est une constante réelle. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Définition d'une équation différentielle}
+
+ On appelle \textbf{équation différentielle} toute équation, d'inconnue une fonction $f$, mettant en relation $f$ et $f'$ (et éventuellement les dérivées successives $f''$, $f'''$, \dots).
+ 
+ \emph{Exemples.}
+ Les équations suivantes sont des exemples d'équations différentielles:
+ \begin{itemize}
+ 	\item[] $f'(x)=e^xf(x)+x$,
+ 	\item[] $f''(x)=-f'(x)+2$,
+ 	\item[] $f(x)f'(x)=-\ln(f(x))$.
+ \end{itemize}
+
+ \emph{Notation.} Il faut s'habituer aux notations variées pour une équation différentielle.
+ Voici différentes notations de la même équations :
+ \begin{itemize}
+ 	\item[] $f'(x) = -f(x)$ \qquad (fonction inconnue $f$ de variable $x$),
+ 	\item[] $y'(x) = -y(x)$ \qquad (fonction inconnue $y$ de variable $x$),
+ 	\item[] $y'(t) = -y(t)$ \qquad (fonction inconnue $y$ de variable $t$),
+ 	\item[] $y' = -y$ \qquad (fonction inconnue $y$, le nom de la variable n'est pas spécifié).   
+ \end{itemize}
+
+  \emph{Exercice.} Trouver/deviner une solution (ou mieux plusieurs) des équations différentielles suivantes :
+ \begin{itemize}
+ 	\item[] $y'(x) = -y(x)$
+ 	\item[] $y'(x) = \sin(2x)$
+  	\item[] $y'(x) = 3y(x)$  
+  	\item[] $y''(x) = y(x)$  
+ \end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Solutions particulières -- Solutions constantes} 
+
+Résoudre une équation différentielle c'est trouver toutes les fonctions qui satisfont l'équation.
+En général, c'est un problème très difficile, voir impossible.
+
+Nous nous placerons dans deux situations plus simples :
+\begin{itemize}
+  \item vérifier qu'une fonction donnée est bien solution de l'équation différentielle,
+  \item déterminer les solutions constantes d'une équation différentielle.
+\end{itemize}
+
+\paragraph*{Exemple 1} 
+\begin{equation}\label{EquExZero}
+y'(x) = 2xy(x) + 4x
+\end{equation}
+Vérifier que $y(x) = k\exp(x^2)-2$ est solution (quel que soit $k\in\Rr$).
+
+Si $y(x) = k\exp(x^2)-2$, alors par dérivation $y'(x) = 2kx\exp(x^2)$.
+Mais d'autre part $2xy(x) + 4x = (2kx\exp(x^2)-4x) + 4x = 2kx\exp(x^2)$
+et donc $2xy(x) + 4x=y'(x)$. Ainsi $y(x) = k\exp(x^2)-2$ est bien solution de l'équation différentielle (\ref{EquExZero}).
+
+
+
+\paragraph*{Exemple 2} 
+On considère l'équation différentielle 
+\begin{equation}\label{EquExUn}
+y''(x)-y'(x)=2y(x)
+\end{equation}
+
+
+Vérifier que $y(x) = 3e^{-x}+\sqrt{2}e^{2x}$ solution de l'équation différentielle (\ref{EquExUn}), pour cela :
+\begin{itemize}
+  \item calculer que $y'(x)=-3e^{-x}+2\sqrt{2}e^{2x}$,
+  \item calculer que $y''(x)= 3e^{-x}+4\sqrt{2}e^{2x}$,
+  \item conclure.
+\end{itemize}
+
+ 
+\paragraph*{Exemple 3} On considère l'équation différentielle 
+\begin{equation}\label{EquExDeux}
+y'(x)=y(x)^3+2y(x)^2-3y(x)
+\end{equation}
+Déterminons les solutions constantes de cette équation différentielle. Pour cela, rappelons les points suivants:
+ \begin{itemize}
+ 	\item Une fonction définie et dérivable sur un intervalle $I$ est constante si et seulement si sa dérivée est nulle sur $I$.
+ 	\item Pour connaître une fonction $f$ constante sur un intervalle $I$, il suffit de la connaître la valeur en un point $x_0\in I$. 
+ \end{itemize}
+Ainsi pour déterminer les solutions constantes de (\ref{EquExDeux}), il suffit de résoudre l'équation réelle (équation dont l'inconnue est un réel que nous noterons $c$) 
+ \begin{equation}\label{EquConst}
+	0=c^3+2c^2-3c.
+ \end{equation}
+ On a $c^3+2c^2-3c=c(c^2+2c-3)$. Donc $c^3+2c^2-3c=0\iff c=0 \text{ ou } c^2+2c-3=0$. Il reste à résoudre $c^2+2c-3=0$ c'est-à-dire trouver les racines d'un trinôme du second degré. Les réels $-3$ et $1$ sont racines évidentes. Ainsi  
+ $c^3+2c^2-3c=0\iff c=0 \text{ ou } c=-3 \text{ ou } c=1$. Au final, l'équation différentielle (\ref{EquExDeux}) possède trois solutions constantes : $y_1(x)=-3$, $y_2(x)=0$ et $y_3(x)=1$.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Modélisation}
+Le concept d'équation différentielle intervient dans de nombreux domaines scientifiques. Entre autres, elles interviennent dans les domaines suivants :
+\begin{itemize}
+	\item En biologie avec l'étude d'une population (comme la population de micro-organismes) où l'on connaît des règles pour décrire sa croissance (comme le taux de natalité/mortalité).
+
+	\item En physique avec la loi fondamentale de la mécanique qui relie l'accélération à la somme des forces. Cela conduit à une équation différentielle car l'accélération est la dérivée seconde de la position.
+
+	\item En radioactivité avec l'étude de la désintégration de noyaux radioactifs et le calcul de la demi-vie radioactive.
+ \end{itemize}
+
+ 
+Ce sera parfois à vous de trouver l'équation différentielle  en fonction de l'énoncé avant d'avoir à la résoudre. Voici deux exemples.
+
+\medskip
+
+\emph{Exemple 1.}
+	\emph{"On étudie la population de chenilles qui s'est introduite dans un groupe d'arbres. On note $N(t)$ le nombre de chenilles au cours du temps. Des mesures effectuées montrent que le taux de croissance des chenilles au temps $t$ est de $4\%$ de la population."}
+	
+	Ce texte signifie que la variation du nombre de chenilles au temps $t$ (c'est-à-dire la dérivée du nombre de chenilles au temps $t$, donc $N'(t)$) est proportionnelle à l'effectif des chenilles au temps $t$ (c'est-à-dire proportionnelle à $N(t)$) et que le coefficient de proportionnalité vaut $0.04$ (la population croît donc le coefficient est positif).
+	
+	L'équation différentielle associée au problème est donc:
+	\[N'(t)=0.04 \; N(t).\]
+
+\emph{Exemple 2.}
+\emph{"On considère une population de renards roux. Une maladie décime les proies et les renards ne peuvent plus s'alimenter. On estime que le taux de décroissance des renards est de $5\%$ de la population à chaque instant $t$."}
+
+Notons $R(t)$ l'effectif des renards au temps $t$. D'après le texte, $R'(t)$ est proportionnelle à $R(t)$ et le coefficient de proportionnalité est $-0.05$ (le coefficient est négatif car la population décroît).
+
+L'équation différentielle associée au problème est donc:
+\[R'(t)=-0.05 \; R(t).\]
+
+
+
+\end{document}
