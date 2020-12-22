@@ -76,9 +76,9 @@ Auteurs
 * Les corrections des exercices ont été rédigées par Arnaud Bodin, Jean-Paul Doeraene, Julien Hauseux, Nicole Raulf.
 
 * Les fiches de cours sont écrites par Arnaud Bodin et Cécile Mammez.
-Merci à Michel Bodin pour sa relecture.
 
 
 Ces documents sont diffusés sous la licence *Creative Commons -- BY-NC-SA -- 4.0 FR*.
+
 
 
